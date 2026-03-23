@@ -1,0 +1,144 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+
+\geometry{top=1.6cm,bottom=1.5cm,left=2.1cm,right=2.1cm}
+\pagestyle{empty}
+
+\newcommand{\logobox}[2]{%
+	\IfFileExists{\detokenize{#1}}{%
+		\includegraphics[width=3.4cm]{\detokenize{#1}}%
+	}{%
+		\fbox{\parbox[c][1.9cm][c]{3.8cm}{\centering \small #2\\(ajoutez #1)}}%
+	}%
+}
+
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\begin{center}
+
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+	\raggedright
+	\logobox{figures/Logo_INPT.png}{Logo INPT}
+\end{minipage}
+\begin{minipage}[t]{0.48\textwidth}
+	\raggedleft
+	\logobox{figures/viseo-logo.png}{Logo VISEO}
+\end{minipage}
+
+\vspace{1.35cm}
+
+{\fontsize{14}{16}\selectfont\textbf{M\'emoire du projet de fin d'\'etudes}}\\[0.45cm]
+{\fontsize{11}{13}\selectfont POUR L'OBTENTION DU DIPL\^OME D'ING\'ENIEUR D'\'ETAT EN}\\[0.2cm]
+{\fontsize{11}{13}\selectfont T\'EL\'ECOMMUNICATIONS ET TECHNOLOGIES DE L'INFORMATION}\\[0.4cm]
+{\fontsize{16}{18}\selectfont \textbf{Fili\`ere : }\textit{INNOVATION ET AMOA}}
+
+\vspace{0.35cm}
+\rule{\textwidth}{0.6pt}
+
+\vspace{0.65cm}
+
+{\fontsize{21}{23}\selectfont\bfseries
+Mise en Place d'un Portail Fournisseur\\
+pour le Suivi des Commandes d'Achat\\
+sous SAP
+}
+
+\vspace{0.65cm}
+\rule{\textwidth}{0.6pt}
+
+\vspace{0.95cm}
+
+\begin{flushleft}
+\textit{R\'ealis\'e par :}\\[0.25cm]
+{\fontsize{16}{18}\selectfont M. Anas ELWAHABI}
+\end{flushleft}
+
+\vspace{0.45cm}
+
+\textit{Soutenu le 07 Juillet 2025, devant le jury compos\'e de :}\\[0.6cm]
+
+\renewcommand{\arraystretch}{1.45}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.48\textwidth} >{\centering\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth}}
+M. Omar SOUISSI & INPT & - Examinateur \\
+M. Hafid BARKA & INPT & - Examinateur \\
+M. Abdellah ZAOUIA & INPT & - Encadrant \\
+Mme. Salma FETHALLAH & VISEO & - Encadrante \\
+\end{tabular}
+
+\vfill
+
+\IfFileExists{figures/ZLAFA.png}{%
+	\includegraphics[width=0.48\textwidth]{figures/ZLAFA.png}
+}{%
+	\fbox{\parbox[c][2.2cm][c]{5.6cm}{\centering \small Embl\`eme INPT\\(ajoutez figures/ZLAFA.png)}}
+}
+
+\vspace{0.35cm}
+
+{\small INSTITUT NATIONAL DES POSTES ET T\'EL\'ECOMMUNICATIONS}\\[0.25cm]
+{\Large Ann\'ee universitaire : 2024/2025}
+
+\end{center}
+\end{titlepage}
+
+\clearpage
+\hypersetup{pageanchor=true}
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\tableofcontents
+
+\clearpage
+\listoffigures
+
+\clearpage
+\section{Introduction}
+Ce document presente le contexte du projet, les objectifs metier et le cadre general de realisation.
+
+\subsection{Contexte}
+Le suivi des commandes d'achat est un processus cle pour garantir la disponibilite des ressources et la performance operationnelle.
+
+\subsection{Objectifs}
+L'objectif principal est de mettre en place un portail fournisseur sous SAP pour ameliorer la visibilite, la collaboration et la tracabilite.
+
+\clearpage
+\section{Analyse des Besoins}
+Cette section detaille les besoins fonctionnels et non fonctionnels identifies avec les parties prenantes.
+
+\subsection{Besoins Fonctionnels}
+Le portail doit permettre la consultation des commandes, la mise a jour de statuts et la gestion des confirmations de livraison.
+
+\subsection{Besoins Non Fonctionnels}
+La solution doit assurer la securite des donnees, la disponibilite du service et des temps de reponse adaptes.
+
+\clearpage
+\section{Conception et Realisation}
+Cette partie presente l'architecture retenue, les choix techniques et les principales etapes d'implementation.
+
+\subsection{Architecture de la Solution}
+La conception s'appuie sur les composants standards SAP et une interface orientee experience utilisateur.
+
+\subsection{Integration SAP}
+L'integration couvre la synchronisation des donnees commandes, fournisseurs et accuses de reception.
+
+\clearpage
+\section{Resultats et Perspectives}
+Les resultats obtenus sont analyses a travers des indicateurs de suivi et des retours d'experience des utilisateurs.
+
+\subsection{Bilan}
+La mise en place du portail a permis une meilleure transparence du processus achats et une reduction des echanges manuels.
+
+\subsection{Perspectives}
+Les evolutions envisagees concernent l'automatisation avancee des notifications et l'extension a d'autres processus achats.
+
+\end{document}
