@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper,oneside]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
@@ -9,8 +9,8 @@
 \usepackage{setspace}
 \usepackage[hidelinks]{hyperref}
 
-\geometry{top=1.6cm,bottom=1.5cm,left=2.1cm,right=2.1cm}
-\pagestyle{empty}
+\geometry{top=1.6cm,bottom=1.8cm,left=2.2cm,right=2.2cm}
+\setstretch{1.15}
 
 \newcommand{\logobox}[2]{%
 	\IfFileExists{\detokenize{#1}}{%
@@ -91,54 +91,210 @@ Mme. Salma FETHALLAH & VISEO & - Encadrante \\
 \end{center}
 \end{titlepage}
 
-\clearpage
 \hypersetup{pageanchor=true}
-\pagestyle{plain}
-\pagenumbering{arabic}
 
-\tableofcontents
+% Pages liminaires
+\pagenumbering{roman}
+\setcounter{page}{1}
 
-\clearpage
+\chapter*{D\'edicace}
+\phantomsection
+\addcontentsline{toc}{chapter}{D\'edicace}
+\label{sec:dedicace}
+% A compl\'eter
+
+\chapter*{Remerciements}
+\phantomsection
+\addcontentsline{toc}{chapter}{Remerciements}
+\label{sec:remerciements}
+% A compl\'eter
+
+\chapter*{R\'esum\'e}
+\phantomsection
+\addcontentsline{toc}{chapter}{R\'esum\'e}
+\label{sec:resume}
+% A compl\'eter
+
+\chapter*{Abstract}
+\phantomsection
+\addcontentsline{toc}{chapter}{Abstract}
+\label{sec:abstract}
+% To be completed
+
+\chapter*{Nomenclature}
+\phantomsection
+\addcontentsline{toc}{chapter}{Nomenclature}
+\label{sec:nomenclature}
+\begin{tabular}{p{0.18\textwidth}p{0.72\textwidth}}
+ABAP & Advanced Business Application Programming \\
+CDS & Core Data Services \\
+ERP & Enterprise Resource Planning \\
+MM & Material Management \\
+RAP & RESTful Application Programming \\
+\end{tabular}
+
+\chapter*{Table des mati\`eres}
+\phantomsection
+\label{sec:toc-manuel}
+\noindent\hyperref[sec:dedicace]{D\'edicace} \dotfill \pageref*{sec:dedicace}\\
+\noindent\hyperref[sec:remerciements]{Remerciements} \dotfill \pageref*{sec:remerciements}\\
+\noindent\hyperref[sec:resume]{R\'esum\'e} \dotfill \pageref*{sec:resume}\\
+\noindent\hyperref[sec:abstract]{Abstract} \dotfill \pageref*{sec:abstract}\\
+\noindent\hyperref[sec:nomenclature]{Nomenclature} \dotfill \pageref*{sec:nomenclature}\\
+\noindent\hyperref[ch:intro-gen]{Introduction g\'en\'erale} \dotfill \pageref*{ch:intro-gen}\\
+\noindent\hyperref[ch:contexte]{Chapitre 1 : Contexte g\'en\'eral du projet} \dotfill \pageref*{ch:contexte}\\
+\noindent\hspace*{1em}\hyperref[ch1:introduction]{1.1 Introduction} \dotfill \pageref*{ch1:introduction}\\
+\noindent\hspace*{1em}\hyperref[ch1:organisme]{1.2 Pr\'esentation de l'organisme d'accueil} \dotfill \pageref*{ch1:organisme}\\
+\noindent\hspace*{2em}\hyperref[ch1:apercu]{1.2.1 Aper\c{c}u g\'en\'eral} \dotfill \pageref*{ch1:apercu}\\
+\noindent\hspace*{2em}\hyperref[ch1:secteur]{1.2.2 Secteur d'activit\'e} \dotfill \pageref*{ch1:secteur}\\
+\noindent\hspace*{2em}\hyperref[ch1:partenaires]{1.2.3 Partenaires} \dotfill \pageref*{ch1:partenaires}\\
+\noindent\hspace*{2em}\hyperref[ch1:domaines]{1.2.4 Domaines d'expertise} \dotfill \pageref*{ch1:domaines}\\
+\noindent\hspace*{2em}\hyperref[ch1:chiffres]{1.2.5 Chiffres cl\'es} \dotfill \pageref*{ch1:chiffres}\\
+\noindent\hspace*{2em}\hyperref[ch1:filiale]{1.2.6 Filiale VI-ONE North Africa} \dotfill \pageref*{ch1:filiale}\\
+\noindent\hspace*{1em}\hyperref[ch1:cahier]{1.3 Cahier des charges} \dotfill \pageref*{ch1:cahier}\\
+\noindent\hspace*{2em}\hyperref[ch1:problematique]{1.3.1 Probl\'ematique} \dotfill \pageref*{ch1:problematique}\\
+\noindent\hspace*{2em}\hyperref[ch1:objectifs]{1.3.2 Objectifs} \dotfill \pageref*{ch1:objectifs}\\
+\noindent\hspace*{2em}\hyperref[ch1:perimetre]{1.3.3 P\'erim\`etre} \dotfill \pageref*{ch1:perimetre}\\
+\noindent\hspace*{1em}\hyperref[ch1:gestion]{1.4 Gestion du projet} \dotfill \pageref*{ch1:gestion}\\
+\noindent\hspace*{2em}\hyperref[ch1:methodologie]{1.4.1 M\'ethodologie adopt\'ee} \dotfill \pageref*{ch1:methodologie}\\
+\noindent\hspace*{2em}\hyperref[ch1:planification]{1.4.2 Planification} \dotfill \pageref*{ch1:planification}\\
+\noindent\hspace*{1em}\hyperref[ch1:conclusion]{1.5 Conclusion} \dotfill \pageref*{ch1:conclusion}\\
+\noindent\hyperref[ch:existant]{Chapitre 2 : \'Etude et analyse de l'existant} \dotfill \pageref*{ch:existant}\\
+\noindent\hspace*{1em}\hyperref[ch2:introduction]{2.1 Introduction} \dotfill \pageref*{ch2:introduction}\\
+\noindent\hspace*{1em}\hyperref[ch2:erp]{2.2 Les ERP et leur r\^ole} \dotfill \pageref*{ch2:erp}\\
+\noindent\hspace*{1em}\hyperref[ch2:sap]{2.3 Pr\'esentation de SAP} \dotfill \pageref*{ch2:sap}\\
+\noindent\hspace*{1em}\hyperref[ch2:mm]{2.4 Module MM et processus achats} \dotfill \pageref*{ch2:mm}\\
+\noindent\hspace*{1em}\hyperref[ch2:tech]{2.5 Technologies SAP utilis\'ees} \dotfill \pageref*{ch2:tech}\\
+\noindent\hspace*{2em}\hyperref[ch2:odata]{2.5.1 OData} \dotfill \pageref*{ch2:odata}\\
+\noindent\hspace*{2em}\hyperref[ch2:rap]{2.5.2 RAP} \dotfill \pageref*{ch2:rap}\\
+\noindent\hspace*{2em}\hyperref[ch2:sapui5]{2.5.3 SAPUI5} \dotfill \pageref*{ch2:sapui5}\\
+\noindent\hspace*{1em}\hyperref[ch2:conclusion]{2.6 Conclusion} \dotfill \pageref*{ch2:conclusion}\\
+\noindent\hyperref[ch:analyse-conception]{Chapitre 3 : Analyse et conception de la solution} \dotfill \pageref*{ch:analyse-conception}\\
+\noindent\hspace*{1em}\hyperref[ch3:introduction]{3.1 Introduction} \dotfill \pageref*{ch3:introduction}\\
+\noindent\hspace*{1em}\hyperref[ch3:analyse-besoins]{3.2 Analyse des besoins} \dotfill \pageref*{ch3:analyse-besoins}\\
+\noindent\hspace*{2em}\hyperref[ch3:besoins-f]{3.2.1 Besoins fonctionnels} \dotfill \pageref*{ch3:besoins-f}\\
+\noindent\hspace*{2em}\hyperref[ch3:besoins-nf]{3.2.2 Besoins non fonctionnels} \dotfill \pageref*{ch3:besoins-nf}\\
+\noindent\hspace*{1em}\hyperref[ch3:cas-util]{3.3 Cas d'utilisation} \dotfill \pageref*{ch3:cas-util}\\
+\noindent\hspace*{1em}\hyperref[ch3:uml]{3.4 Conception UML} \dotfill \pageref*{ch3:uml}\\
+\noindent\hspace*{2em}\hyperref[ch3:diag-classes]{3.4.1 Diagramme de classes} \dotfill \pageref*{ch3:diag-classes}\\
+\noindent\hspace*{2em}\hyperref[ch3:arch-donnees]{3.4.2 Architecture des donn\'ees} \dotfill \pageref*{ch3:arch-donnees}\\
+\noindent\hspace*{1em}\hyperref[ch3:conclusion]{3.5 Conclusion} \dotfill \pageref*{ch3:conclusion}\\
+\noindent\hyperref[ch:archi-tech]{Chapitre 4 : Conception d\'etaill\'ee et architecture technique} \dotfill \pageref*{ch:archi-tech}\\
+\noindent\hspace*{1em}\hyperref[ch4:introduction]{4.1 Introduction} \dotfill \pageref*{ch4:introduction}\\
+\noindent\hspace*{1em}\hyperref[ch4:architecture]{4.2 Architecture globale de la solution} \dotfill \pageref*{ch4:architecture}\\
+\noindent\hspace*{1em}\hyperref[ch4:cds]{4.3 Mod\'elisation CDS} \dotfill \pageref*{ch4:cds}\\
+\noindent\hspace*{1em}\hyperref[ch4:odata-logique]{4.4 Services OData et logique m\'etier} \dotfill \pageref*{ch4:odata-logique}\\
+\noindent\hspace*{1em}\hyperref[ch4:conclusion]{4.5 Conclusion} \dotfill \pageref*{ch4:conclusion}\\
+\noindent\hyperref[ch:dev-real]{Chapitre 5 : D\'eveloppement et r\'ealisation} \dotfill \pageref*{ch:dev-real}\\
+\noindent\hspace*{1em}\hyperref[ch5:introduction]{5.1 Introduction} \dotfill \pageref*{ch5:introduction}\\
+\noindent\hspace*{1em}\hyperref[ch5:env]{5.2 Environnement de d\'eveloppement} \dotfill \pageref*{ch5:env}\\
+\noindent\hspace*{1em}\hyperref[ch5:implementation]{5.3 Impl\'ementation} \dotfill \pageref*{ch5:implementation}\\
+\noindent\hspace*{2em}\hyperref[ch5:auth]{5.3.1 Authentification} \dotfill \pageref*{ch5:auth}\\
+\noindent\hspace*{2em}\hyperref[ch5:consult]{5.3.2 Application de consultation} \dotfill \pageref*{ch5:consult}\\
+\noindent\hspace*{2em}\hyperref[ch5:conf-rejet]{5.3.3 Application de confirmation/rejet} \dotfill \pageref*{ch5:conf-rejet}\\
+\noindent\hspace*{2em}\hyperref[ch5:masse]{5.3.4 Confirmation en masse} \dotfill \pageref*{ch5:masse}\\
+\noindent\hspace*{1em}\hyperref[ch5:reporting]{5.4 Volet reporting} \dotfill \pageref*{ch5:reporting}\\
+\noindent\hspace*{2em}\hyperref[ch5:etl]{5.4.1 Cha\^ine ETL et entrep\^ot de donn\'ees} \dotfill \pageref*{ch5:etl}\\
+\noindent\hspace*{2em}\hyperref[ch5:pbi]{5.4.2 Tableaux de bord Power BI} \dotfill \pageref*{ch5:pbi}\\
+\noindent\hspace*{1em}\hyperref[ch5:tests]{5.5 Tests et validation} \dotfill \pageref*{ch5:tests}\\
+\noindent\hspace*{1em}\hyperref[ch5:conclusion]{5.6 Conclusion} \dotfill \pageref*{ch5:conclusion}\\
+\noindent\hyperref[ch:conclusion]{Conclusion g\'en\'erale et perspectives} \dotfill \pageref*{ch:conclusion}\\
+\noindent\hyperref[ch:references]{R\'ef\'erences} \dotfill \pageref*{ch:references}
+
 \listoffigures
+\listoftables
 
+% Corps du rapport
 \clearpage
-\section{Introduction}
-Ce document presente le contexte du projet, les objectifs metier et le cadre general de realisation.
+\pagenumbering{arabic}
+\setcounter{page}{1}
 
-\subsection{Contexte}
-Le suivi des commandes d'achat est un processus cle pour garantir la disponibilite des ressources et la performance operationnelle.
+\chapter*{Introduction g\'en\'erale}
+\phantomsection
+\addcontentsline{toc}{chapter}{Introduction g\'en\'erale}
+\label{ch:intro-gen}
+Ce rapport pr\'esente le cadre, la d\'emarche et les r\'esultats du projet de mise en place d'un portail fournisseur sous SAP.
 
-\subsection{Objectifs}
-L'objectif principal est de mettre en place un portail fournisseur sous SAP pour ameliorer la visibilite, la collaboration et la tracabilite.
+\chapter{Contexte g\'en\'eral du projet}\label{ch:contexte}
+\section{Introduction}\label{ch1:introduction}
+Pr\'esentation du contexte global et des motivations du projet.
 
-\clearpage
-\section{Analyse des Besoins}
-Cette section detaille les besoins fonctionnels et non fonctionnels identifies avec les parties prenantes.
+\section{Pr\'esentation de l'organisme d'accueil}\label{ch1:organisme}
+\subsection{Aper\c{c}u g\'en\'eral}\label{ch1:apercu}
+\subsection{Secteur d'activit\'e}\label{ch1:secteur}
+\subsection{Partenaires}\label{ch1:partenaires}
+\subsection{Domaines d'expertise}\label{ch1:domaines}
+\subsection{Chiffres cl\'es}\label{ch1:chiffres}
+\subsection{Filiale VI-ONE North Africa}\label{ch1:filiale}
 
-\subsection{Besoins Fonctionnels}
-Le portail doit permettre la consultation des commandes, la mise a jour de statuts et la gestion des confirmations de livraison.
+\section{Cahier des charges}\label{ch1:cahier}
+\subsection{Probl\'ematique}\label{ch1:problematique}
+\subsection{Objectifs}\label{ch1:objectifs}
+\subsection{P\'erim\`etre}\label{ch1:perimetre}
 
-\subsection{Besoins Non Fonctionnels}
-La solution doit assurer la securite des donnees, la disponibilite du service et des temps de reponse adaptes.
+\section{Gestion du projet}\label{ch1:gestion}
+\subsection{M\'ethodologie adopt\'ee}\label{ch1:methodologie}
+\subsection{Planification}\label{ch1:planification}
 
-\clearpage
-\section{Conception et Realisation}
-Cette partie presente l'architecture retenue, les choix techniques et les principales etapes d'implementation.
+\section{Conclusion}\label{ch1:conclusion}
 
-\subsection{Architecture de la Solution}
-La conception s'appuie sur les composants standards SAP et une interface orientee experience utilisateur.
+\chapter{\'Etude et analyse de l'existant}\label{ch:existant}
+\section{Introduction}\label{ch2:introduction}
+\section{Les ERP et leur \^role}\label{ch2:erp}
+\section{Pr\'esentation de SAP}\label{ch2:sap}
+\section{Module MM et processus achats}\label{ch2:mm}
+\section{Technologies SAP utilis\'ees}\label{ch2:tech}
+\subsection{OData}\label{ch2:odata}
+\subsection{RAP}\label{ch2:rap}
+\subsection{SAPUI5}\label{ch2:sapui5}
+\section{Conclusion}\label{ch2:conclusion}
 
-\subsection{Integration SAP}
-L'integration couvre la synchronisation des donnees commandes, fournisseurs et accuses de reception.
+\chapter{Analyse et conception de la solution}\label{ch:analyse-conception}
+\section{Introduction}\label{ch3:introduction}
+\section{Analyse des besoins}\label{ch3:analyse-besoins}
+\subsection{Besoins fonctionnels}\label{ch3:besoins-f}
+\subsection{Besoins non fonctionnels}\label{ch3:besoins-nf}
+\section{Cas d'utilisation}\label{ch3:cas-util}
+\section{Conception UML}\label{ch3:uml}
+\subsection{Diagramme de classes}\label{ch3:diag-classes}
+\subsection{Architecture des donn\'ees}\label{ch3:arch-donnees}
+\section{Conclusion}\label{ch3:conclusion}
 
-\clearpage
-\section{Resultats et Perspectives}
-Les resultats obtenus sont analyses a travers des indicateurs de suivi et des retours d'experience des utilisateurs.
+\chapter{Conception d\'etaill\'ee et architecture technique}\label{ch:archi-tech}
+\section{Introduction}\label{ch4:introduction}
+\section{Architecture globale de la solution}\label{ch4:architecture}
+\section{Mod\'elisation CDS}\label{ch4:cds}
+\section{Services OData et logique m\'etier}\label{ch4:odata-logique}
+\section{Conclusion}\label{ch4:conclusion}
 
-\subsection{Bilan}
-La mise en place du portail a permis une meilleure transparence du processus achats et une reduction des echanges manuels.
+\chapter{D\'eveloppement et r\'ealisation}\label{ch:dev-real}
+\section{Introduction}\label{ch5:introduction}
+\section{Environnement de d\'eveloppement}\label{ch5:env}
+\section{Impl\'ementation}\label{ch5:implementation}
+\subsection{Authentification}\label{ch5:auth}
+\subsection{Application de consultation}\label{ch5:consult}
+\subsection{Application de confirmation/rejet}\label{ch5:conf-rejet}
+\subsection{Confirmation en masse}\label{ch5:masse}
+\section{Volet reporting}\label{ch5:reporting}
+\subsection{Cha\^ine ETL et entrep\^ot de donn\'ees}\label{ch5:etl}
+\subsection{Tableaux de bord Power BI}\label{ch5:pbi}
+\section{Tests et validation}\label{ch5:tests}
+\section{Conclusion}\label{ch5:conclusion}
 
-\subsection{Perspectives}
-Les evolutions envisagees concernent l'automatisation avancee des notifications et l'extension a d'autres processus achats.
+\chapter*{Conclusion g\'en\'erale et perspectives}
+\phantomsection
+\addcontentsline{toc}{chapter}{Conclusion g\'en\'erale et perspectives}
+\label{ch:conclusion}
+Synth\`ese des r\'esultats obtenus et pistes d'\'evolution du projet.
+
+\chapter*{R\'ef\'erences}
+\phantomsection
+\addcontentsline{toc}{chapter}{R\'ef\'erences}
+\label{ch:references}
+\begin{thebibliography}{99}
+\bibitem{sap} Documentation officielle SAP, consult\'ee en 2025.
+\bibitem{viseo} Site institutionnel VISEO, consult\'e en 2025.
+\end{thebibliography}
 
 \end{document}
+
