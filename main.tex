@@ -8,9 +8,19 @@
 \usepackage{array}
 \usepackage{setspace}
 \usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+
+% Robust Unicode mappings for copied text (French punctuation/spaces)
+\DeclareUnicodeCharacter{00A0}{~}
+\DeclareUnicodeCharacter{202F}{\,}
+\DeclareUnicodeCharacter{2009}{\,}
+\DeclareUnicodeCharacter{200B}{}
+\DeclareUnicodeCharacter{00AD}{}
 
 \geometry{top=1.6cm,bottom=1.8cm,left=2.2cm,right=2.2cm}
 \setstretch{1.15}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0pt}
 
 \newcommand{\logobox}[2]{%
 	\IfFileExists{\detokenize{#1}}{%
@@ -40,7 +50,7 @@
 {\fontsize{14}{16}\selectfont\textbf{M\'emoire du projet de fin d'\'etudes}}\\[0.45cm]
 {\fontsize{11}{13}\selectfont POUR L'OBTENTION DU DIPL\^OME D'ING\'ENIEUR D'\'ETAT EN}\\[0.2cm]
 {\fontsize{11}{13}\selectfont T\'EL\'ECOMMUNICATIONS ET TECHNOLOGIES DE L'INFORMATION}\\[0.4cm]
-{\fontsize{16}{18}\selectfont \textbf{Fili\`ere : }\textit{INNOVATION }}
+{\fontsize{16}{18}\selectfont \textbf{Fili\`ere : }\textit{INNOVATION ET AMOA}}
 
 \vspace{0.35cm}
 \rule{\textwidth}{0.6pt}
@@ -72,7 +82,7 @@ sous SAP
 M. Omar SOUISSI & INPT & - Examinateur \\
 M. Hafid BARKA & INPT & - Examinateur \\
 M. Abdellah ZAOUIA & INPT & - Encadrant \\
-Mme. Salma FETHALLAH & VISEO & - Encadrante \\
+Mme. Sanna Mouzakki & VISEO & - Encadrante \\
 \end{tabular}
 
 \vfill
@@ -213,8 +223,50 @@ RAP & RESTful Application Programming \\
 \phantomsection
 \addcontentsline{toc}{chapter}{Introduction g\'en\'erale}
 \label{ch:intro-gen}
-Ce rapport pr\'esente le cadre, la d\'emarche et les r\'esultats du projet de mise en place d'un portail fournisseur sous SAP.
+\begingroup
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0pt}
 
+Dans le contexte actuel de globalisation et de digitalisation rapide des echanges, les entreprises
+sont de plus en plus amenees a repenser leurs modes de collaboration avec leurs partenaires pour
+rester competitives. L'optimisation des relations fournisseurs represente aujourd'hui un enjeu stra-
+tegique majeur, tant sur le plan de la performance que sur celui de l'agilite des chaines logistiques.
+
+Face a ces defis, la mise en place d'outils collaboratifs, tels que les \textbf{portails fournisseurs},
+devient essentielle. Ces plateformes permettent de centraliser les echanges d'informations, d'au-
+tomatiser les processus de suivi des commandes et de garantir une visibilite en temps reel aux
+differents acteurs impliques. C'est dans ce cadre que s'inscrit le projet decrit dans ce rapport,
+realise en collaboration avec la societe \textit{Vi-One North Africa, une filiale du groupe VISEO}, visant
+a concevoir et implementer un \textbf{Portail Fournisseur}.
+
+Ce projet de fin d'etudes, mene en partenariat avec l'Institut National des Postes et Tele-
+communications, s'inscrit dans une demarche d'innovation technologique orientee metier, alliant
+competences fonctionnelles et techniques pour repondre aux exigences de fluidite, de reactivite et
+de tracabilite dans la relation client-fournisseur.
+
+Le present rapport retrace les differentes etapes de ce projet, organise en quatre parties :
+
+\begin{itemize}[label=---,leftmargin=1.5em,itemsep=0.2em,topsep=0.2em]
+\item \textbf{Chapitre I : Contexte general du projet}
+
+Presentation de l'environnement metier et technologique du projet.
+
+\item \textbf{Chapitre II : Etude et analyse de l'existant}
+
+Analyse des processus actuels de gestion des commandes fournisseurs, identification des
+limites des methodes traditionnelles.
+
+\item \textbf{Chapitre III : Analyse et conception de la solution}
+
+Conception fonctionnelle et technique du portail, choix des outils SAP (CDS, RAP, Fiori,
+etc.) et modelisation des flux de donnees.
+
+\item \textbf{Chapitre IV : Developpement et realisation}
+
+Developpement du portail, tests, validation et presentation des resultats obtenus.
+\end{itemize}
+
+\endgroup
 \chapter{Contexte g\'en\'eral du projet}\label{ch:contexte}
 \section{Introduction}\label{ch1:introduction}
 Pr\'esentation du contexte global et des motivations du projet.
