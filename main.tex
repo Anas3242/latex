@@ -9,6 +9,7 @@
 \usepackage{setspace}
 \usepackage[hidelinks]{hyperref}
 \usepackage{enumitem}
+\usepackage[svgnames]{xcolor}
 
 % Robust Unicode mappings for copied text (French punctuation/spaces)
 \DeclareUnicodeCharacter{00A0}{~}
@@ -269,10 +270,48 @@ Developpement du portail, tests, validation et presentation des resultats obtenu
 \endgroup
 \chapter{Contexte g\'en\'eral du projet}\label{ch:contexte}
 \section{Introduction}\label{ch1:introduction}
-Pr\'esentation du contexte global et des motivations du projet.
 
+\colorbox{LightCyan}{\parbox[t]{\dimexpr\linewidth-2\fboxsep\relax}{Ce premier chapitre vise \`a pr\'esenter de mani\`ere exhaustive le contexte g\'en\'eral dans lequel le
+projet s'est d\'eroul\'e. Nous d\'ebuterons par une pr\'esentation descriptive du groupe VISEO, mettant
+en lumi\`ere ses missions, ses r\'ef\'erences et sa structure organisationnelle. Ensuite, nous pr\'esenterons
+l'environnement de travail \`a savoir l'ERP SAP et ses diff\'erents modules, en se focalisant sur le
+module MM. Nous abordons \'egalement le cahier des charges qui d\'efinit les contours et les attentes
+du projet.}}
+
+\vspace{0.3cm}
+
+\colorbox{LightCyan}{\parbox[t]{\dimexpr\linewidth-2\fboxsep\relax}{Enfin, nous discutons du pilotage du projet, en pr\'esentant les m\'ethodologies de gestion de
+projet utilis\'ees pour mener \`a bien ce travail.}}
 \section{Pr\'esentation de l'organisme d'accueil}\label{ch1:organisme}
 \subsection{Aper\c{c}u g\'en\'eral}\label{ch1:apercu}
+
+\begin{center}
+\IfFileExists{figures/viseo-logo.png}{%
+	\includegraphics[width=0.35\textwidth]{figures/viseo-logo.png}
+}{%
+	\fbox{\parbox[c][1.75cm][c]{4cm}{\centering \small Logo VISEO\\(ajoutez figures/viseo-logo.png)}}
+}
+
+\vspace{0.3cm}
+
+{\small \textit{Fig. 1.1 - Logo Viseo}}
+\end{center}
+
+\vspace{0.4cm}
+
+Le groupe VISEO, fond\'e en 1999 par Olivier DHIONTE, actuel PDG de l'entreprise, est une
+entreprise fran\c{c}aise de services du num\'erique (ESN) \'etablie \`a Boulogne-Billancourt. Depuis ses
+d\'ebuts, VISEO s'est impos\'e comme un leader dans le secteur du conseil et de l'int\'egration
+informatique, offrant des solutions innovantes et des services spcialis\'es pour transformer les
+processus m\'etier des grandes entreprises.
+
+Avec une forte expertise dans les domaines de l'ERP (notamment SAP), de la mobilit\'e, du
+cloud computing et de l'intelligence artificielle, VISEO accompagne ses clients dans la modernisation
+de leurs syst\`emes d'information et l'optimisation de leurs op\'erations. Fort d'une \'equipe de plus
+de 500 collaborateurs distribu\'es dans plusieurs pays, le groupe VISEO maintient une pr\'esence
+strat\'egique en Europe, en Afrique et au-del\`a, en proposant des services de haute qualit\'e
+adapt\'es aux besoins sp\'ecifiques de chaque march\'e.
+
 \subsection{Secteur d'activit\'e}\label{ch1:secteur}
 \subsection{Partenaires}\label{ch1:partenaires}
 \subsection{Domaines d'expertise}\label{ch1:domaines}
