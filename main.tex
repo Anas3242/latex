@@ -9,10 +9,13 @@
 \usepackage{setspace}
 \usepackage[hidelinks]{hyperref}
 \usepackage{enumitem}
-\usepackage[svgnames]{xcolor}
+\usepackage[svgnames,table]{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularx}
 
-% Configure enumitem for custom list spacing
-\setlist[itemize]{leftmargin=1.5em}
+% Configure enumitem
+\setlist{nosep}
+\setlist[itemize]{leftmargin=1.5em, topsep=0.2em, itemsep=0.15em}
 
 % Robust Unicode mappings for copied text (French punctuation/spaces)
 \DeclareUnicodeCharacter{00A0}{~}
@@ -313,37 +316,33 @@ Developpement du portail, tests, validation et presentation des resultats obtenu
 \end{itemize}
 
 \endgroup
-\chapter{Contexte g\'en\'eral du projet}\label{ch:contexte}
+\chapter{Présentation de l’organisme d’accueil}\label{ch:contexte}
 \section{Introduction}\label{ch1:introduction}
 
-\colorbox{LightCyan}{\parbox[t]{\dimexpr\linewidth-2\fboxsep\relax}{Ce premier chapitre vise \`a pr\'esenter de mani\`ere exhaustive le contexte g\'en\'eral dans lequel le
+\parbox[t]{\dimexpr\linewidth-2\fboxsep\relax}{Ce premier chapitre vise \`a pr\'esenter de mani\`ere exhaustive le contexte g\'en\'eral dans lequel le
 projet s'est d\'eroul\'e. Nous d\'ebuterons par une pr\'esentation descriptive du groupe VISEO, mettant
 en lumi\`ere ses missions, ses r\'ef\'erences et sa structure organisationnelle. Ensuite, nous pr\'esenterons
-l'environnement de travail \`a savoir l'ERP SAP et ses diff\'erents modules, en se focalisant sur le
+l'environnement de trBavail \`a savoir l'ERP SAP et ses diff\'erents modules, en se focalisant sur le
 module MM. Nous abordons \'egalement le cahier des charges qui d\'efinit les contours et les attentes
-du projet.}}
+du projet.}
 
 \vspace{0.3cm}
 
-\colorbox{LightCyan}{\parbox[t]{\dimexpr\linewidth-2\fboxsep\relax}{Enfin, nous discutons du pilotage du projet, en pr\'esentant les m\'ethodologies de gestion de
+{\parbox[t]{\dimexpr\linewidth-2\fboxsep\relax}{Enfin, nous discutons du pilotage du projet, en pr\'esentant les m\'ethodologies de gestion de
 projet utilis\'ees pour mener \`a bien ce travail.}}
 \section{Pr\'esentation de l'organisme d'accueil}\label{ch1:organisme}
 \subsection{Aper\c{c}u g\'en\'eral}\label{ch1:apercu}
 \vspace{0.3cm}
-\begin{center}
+
+\begin{figure}[h!]
+\centering
 \IfFileExists{figures/viseo-logo.png}{%
 	\includegraphics[width=0.35\textwidth]{figures/viseo-logo.png}
 }{%
-	\fbox{\parbox[c][1.75cm][c]{4cm}{\centering \small Logo VISEO\\(ajoutez figures/viseo-logo.png)}}
+	\fbox{\parbox[c][1.75cm][c]{4cm}{\centering \small Logo VISEO\\(ajoutez figures/viseo-logo.png)}}%
 }
-
-\vspace{0.3cm}
-
-{\small \textit{Fig. 1.1 - Logo Viseo}}
-\end{center}
-
-\vspace{0.4cm}
-
+\caption{Logo du groupe VISEO}
+\end{figure}
 Le groupe VISEO, fond\'e en 1999 par Olivier DHIONTE, actuel PDG de l'entreprise, est une
 entreprise fran\c{c}aise de services du num\'erique (ESN) \'etablie \`a Boulogne-Billancourt. Depuis ses
 d\'ebuts, VISEO s'est impos\'e comme un leader dans le secteur du conseil et de l'int\'egration
@@ -356,6 +355,36 @@ de leurs syst\`emes d'information et l'optimisation de leurs op\'erations. Fort 
 de 500 collaborateurs distribu\'es dans plusieurs pays, le groupe VISEO maintient une pr\'esence
 strat\'egique en Europe, en Afrique et au-del\`a, en proposant des services de haute qualit\'e
 adapt\'es aux besoins sp\'ecifiques de chaque march\'e.
+\vspace{0.4cm}
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{10pt}
+\rowcolors{3}{RoyalBlue!6}{white}
+\begin{tabularx}{\textwidth}{>{\bfseries\color{MidnightBlue}\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}X}
+\toprule
+\rowcolor{RoyalBlue!60}
+\textcolor{white}{\textbf{Fiche d'identité}} & \textcolor{white}{\textbf{Groupe VISEO}} \\
+\midrule
+NOM & « VISEO » \\
+FORME JURIDIQUE & Société Anonyme \\
+DATE DE CRÉATION & 1999 \\
+SECTEUR D'ACTIVITÉ & Systèmes d'information, ERP, Digital, Technologies, Process et Data \\
+CHIFFRE D'AFFAIRES & 265 M Euros \\
+CAPITAL & 4 579 015 € \\
+SIÈGE SOCIAL & 105, rue Marcel Dassault, 92100 Boulogne-Billancourt, France \\
+TÉLÉPHONE & +33 1 71 19 46 30 \\
+EFFECTIFS & 2500 collaborateurs \\
+LOCALISATION & France, Allemagne, États-Unis, Maroc, Chine, Singapour, Australie \\
+\bottomrule
+\end{tabularx}
+\caption{Fiche d'identité du groupe VISEO}
+\end{table}
+
+\vspace{0.5cm}
+
+
 
 \subsection{Secteur d'activit\'e}\label{ch1:secteur}
 
@@ -423,7 +452,7 @@ Le groupe VISEO pr\'esente les caract\'eristiques suivantes :
 	\item \textbf{Effectif total} : Plus de 500 collaborateurs
 	\item \textbf{Pr\'esence g\'eographique} : 14 pays (Europe, Am\'erique, Asie)
 	\item \textbf{Sp\'ecialit\'e} : Services du num\'erique (ESN), conseil et int\'egration informatique
-	\item \textbf{Secteurs d'activit\'e} : Finance, distribution, manufacturing, santé, secteur public
+	\item \textbf{Secteurs d'activit\'e} : Finance, distribution, manufacturing, santÃ©, secteur public
 \end{itemize}
 
 \subsection{Filiale VI-ONE North Africa}\label{ch1:filiale}
@@ -447,8 +476,8 @@ elles s'appuient sur des m\'ecanismes manuels, des \'echanges par email et des s
 cloisonn\'es, g\'en\'erant :
 
 \begin{itemize}[label=---, itemsep=0.15em]
-	\item Des d\'elais de traitement allongés et une r\'eactivité r\'eduite
-	\item Un manque de visibilité en temps r\'eel sur l'\'etat des commandes et des livraisons
+	\item Des d\'elais de traitement allongÃ©s et une r\'eactivitÃ© r\'eduite
+	\item Un manque de visibilitÃ© en temps r\'eel sur l'\'etat des commandes et des livraisons
 	\item Des risques d'erreurs manuelles augment\'es et une tra\'cabilit\'e insuffisante
 	\item Une exp\'erience utilisateur d\'egrad\'ee pour les fournisseurs
 	\item Des lacunes dans la coordination entre les diff\'erentes \'etapes du processus
@@ -464,13 +493,13 @@ L'objectif principal du projet est de concevoir et d\'eveloper un \textbf{Portai
 plateforme num\'erique centr\'alis\'ee et conviviale permettant aux fournisseurs de :
 
 \begin{itemize}[label=\textbullet, itemsep=0.2em]
-	\item \textbf{Consulter leurs commandes} en temps r\'eel avec une visibilité compl\`ete sur l'\'etat d'avancement
+	\item \textbf{Consulter leurs commandes} en temps r\'eel avec une visibilitÃ© compl\`ete sur l'\'etat d'avancement
 	\item \textbf{G\'erer les confirmations} de livraison et les r\'eceptions de mani\`ere efficace
 	\item \textbf{Effectuer des op\'erations en masse} pour traiter plusieurs commandes simultan\'ement
 	\item \textbf{Acc\'eder \`a des reportings d\'etaill\'es} pour analyser les tendances et performances
 \end{itemize}
 
-Les objectifs secondaires incluent l'am\'elioration de la satisfaction client, la r\'eduction des coûts
+Les objectifs secondaires incluent l'am\'elioration de la satisfaction client, la r\'eduction des coÃ»ts
 op\'erationnels et l'optimisation des flux logistiques.
 
 \subsection{P\'erim\`etre}\label{ch1:perimetre}
@@ -519,7 +548,7 @@ bien d\'efinis \`a chaque phase.
 
 \section{Conclusion}\label{ch1:conclusion}
 
-Le Chapitre 1 a pr\'esent\'e le contexte g\'en\'eral du projet, mettant en \'evidence l'importance stratégique
+Le Chapitre 1 a pr\'esent\'e le contexte g\'en\'eral du projet, mettant en \'evidence l'importance stratÃ©gique
 de la transformation num\'erique dans la gestion des relations fournisseurs. L'expertise reconnue de
 VISEO, d\'eclin\'ee \`a travers ses domaines de comp\'etence et sa pr\'esence mondiale, la positionne comme
 acteur id\'eal pour mener \`a bien ce projet ambitieux.
@@ -974,4 +1003,5 @@ Synth\`ese des r\'esultats obtenus et pistes d'\'evolution du projet.
 \end{thebibliography}
 
 \end{document}
+
 
