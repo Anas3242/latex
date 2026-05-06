@@ -13,6 +13,7 @@
 \usepackage{textcomp}
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{microtype} % Résout les problèmes de texte qui dépasse des marges (Overfull \hbox)
 
 % Configure enumitem
 \setlist{nosep}
@@ -31,11 +32,12 @@
 \setlength{\parindent}{1.2em}
 \setlength{\parskip}{0pt}
 
+% Correction de la macro logobox (ajout de \detokenize dans le fallback pour éviter l'erreur "Missing $")
 \newcommand{\logobox}[2]{%
 	\IfFileExists{\detokenize{#1}}{%
 		\includegraphics[width=3.4cm]{\detokenize{#1}}%
 	}{%
-		\fbox{\parbox[c][1.9cm][c]{3.8cm}{\centering \small #2\\(ajoutez #1)}}%
+		\fbox{\parbox[c][1.9cm][c]{3.8cm}{\centering \small #2\\(ajoutez \detokenize{#1})}}%
 	}%
 }
 
@@ -59,7 +61,7 @@
 {\fontsize{14}{16}\selectfont\textbf{M\'emoire du projet de fin d'\'etudes}}\\[0.45cm]
 {\fontsize{11}{13}\selectfont POUR L'OBTENTION DU DIPL\^OME D'ING\'ENIEUR D'\'ETAT EN}\\[0.2cm]
 {\fontsize{11}{13}\selectfont T\'EL\'ECOMMUNICATIONS ET TECHNOLOGIES DE L'INFORMATION}\\[0.4cm]
-{\fontsize{16}{18}\selectfont \textbf{Fili\`ere : }\textit{TIO}}
+{\fontsize{16}{18}\selectfont \textbf{Fili\`ere : }\textit{INNOVATION ET AMOA}}
 
 \vspace{0.35cm}
 \rule{\textwidth}{0.6pt}
@@ -79,17 +81,17 @@ sous SAP
 
 \begin{flushleft}
 \textit{R\'ealis\'e par :}\\[0.25cm]
-{\fontsize{16}{18}\selectfont M. Anas ELWAHABI}
+{\fontsize{16}{18}\selectfont M. Anas ELWAHABI \& M. Mohamed Amine RAJAYI}
 \end{flushleft}
 
 \vspace{0.45cm}
 
-\textit{Soutenu le 07 Juillet 2025, devant le jury compos\'e de :}\\[0.6cm]
+
 
 \renewcommand{\arraystretch}{1.45}
 \begin{tabular}{>{\raggedright\arraybackslash}p{0.48\textwidth} >{\centering\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth}}
-M. Omar SOUISSI & INPT & - Examinateur \\
-M. Hafid BARKA & INPT & - Examinateur \\
+
+
 M. Abdellah ZAOUIA & INPT & - Encadrant \\
 Mme. Sanna Mouzakki & VISEO & - Encadrante \\
 \end{tabular}
@@ -106,7 +108,7 @@ Mme. Sanna Mouzakki & VISEO & - Encadrante \\
 \vspace{0.35cm}
 
 {\small INSTITUT NATIONAL DES POSTES ET T\'EL\'ECOMMUNICATIONS}\\[0.25cm]
-{\Large Ann\'ee universitaire : 2024/2025}
+{\Large Ann\'ee universitaire : 2025/2026}
 
 \end{center}
 \end{titlepage}
@@ -147,7 +149,11 @@ Mme. Sanna Mouzakki & VISEO & - Encadrante \\
 \label{sec:nomenclature}
 \begin{tabular}{p{0.18\textwidth}p{0.72\textwidth}}
 ABAP & Advanced Business Application Programming \\
+ALP & Analytical List Page \\
+AMOA & Assistance à la Maîtrise d'Ouvrage \\
 API & Application Programming Interface \\
+BICS & Business Intelligence Consumer Services \\
+BTP & Business Technology Platform \\
 CDS & Core Data Services \\
 CRM & Customer Relationship Management \\
 ERP & Enterprise Resource Planning \\
@@ -155,8 +161,11 @@ FI/CO & Finance et Contrôle de Gestion \\
 FIFO & First In First Out \\
 GR & Goods Receipt (Réception de marchandises) \\
 HR & Human Resources (Ressources Humaines) \\
+IA & Intelligence Artificielle \\
+JSON & JavaScript Object Notation \\
 KPI & Key Performance Indicator \\
 LIFO & Last In First Out \\
+LLM & Large Language Model \\
 MM & Material Management (Gestion des Matériaux) \\
 OData & Open Data Protocol \\
 PGI & Progiciel de Gestion Intégré \\
@@ -164,14 +173,19 @@ PO & Purchase Order (Commande d'achat) \\
 PP & Production Planning (Planification de la Production) \\
 PS & Project Systems (Systèmes de Projets) \\
 QM & Quality Management (Gestion de Qualité) \\
+RAG & Retrieval-Augmented Generation \\
 RAP & RESTful Application Programming \\
 RFQ & Request for Quotation (Demande de Devis) \\
+RGPD & Règlement Général sur la Protection des Données \\
 ROI & Return on Investment (Retour sur Investissement) \\
 S/4HANA & SAP Suite 4 HANA \\
 SaaS & Software as a Service \\
 SAPUI5 & SAP User Interface 5 \\
 SD & Sales and Distribution (Ventes et Distribution) \\
 SLA & Service Level Agreement \\
+SSO & Single Sign-On \\
+UI & User Interface (Interface Utilisateur) \\
+UX & User Experience (Expérience Utilisateur) \\
 \end{tabular}
 
 \chapter*{Table des mati\`eres}
@@ -228,6 +242,26 @@ SLA & Service Level Agreement \\
 \noindent\hspace*{3em}\hyperref[ch2:mm-optim]{2.4.5.2 Optimisation des processus et r\'eduction des coûts} \dotfill \pageref*{ch2:mm-optim}\\
 \noindent\hspace*{3em}\hyperref[ch2:mm-decision]{2.4.5.3 Prise de d\'ecisions bas\'ee sur des donn\'ees} \dotfill \pageref*{ch2:mm-decision}\\
 \noindent\hspace*{2em}\hyperref[ch2:mm-casusage]{2.4.6 Cas d'usage r\'eels et statistiques d'impl\'ementation} \dotfill \pageref*{ch2:mm-casusage}\\
+\noindent\hspace*{2em}\hyperref[ch2:mm-organisation]{2.4.7 Structure organisationnelle et entit\'es du module MM} \dotfill \pageref*{ch2:mm-organisation}\\
+\noindent\hspace*{3em}\hyperref[ch2:mm-org-niveaux]{2.4.7.1 Niveaux hi\'erarchiques organisationnels} \dotfill \pageref*{ch2:mm-org-niveaux}\\
+\noindent\hspace*{2em}\hyperref[ch2:mm-transactions]{2.4.8 Transactions SAP et codes de transaction (T-codes)} \dotfill \pageref*{ch2:mm-transactions}\\
+\noindent\hspace*{2em}\hyperref[ch2:mm-approv-process]{2.4.9 Processus d'approvisionnement : taxonomie et strat\'egies} \dotfill \pageref*{ch2:mm-approv-process}\\
+\noindent\hspace*{3em}\hyperref[ch2:mm-approv-base]{2.4.9.1 Approvisionnement de base (Standard Procurement)} \dotfill \pageref*{ch2:mm-approv-base}\\
+\noindent\hspace*{3em}\hyperref[ch2:mm-approv-special]{2.4.9.2 Approvisionnement sp\'ecialis\'e (Special Procurement)} \dotfill \pageref*{ch2:mm-approv-special}\\
+\noindent\hspace*{2em}\hyperref[ch2:mm-flux-transactionnel]{2.4.10 Flux transactionnel complet du module MM} \dotfill \pageref*{ch2:mm-flux-transactionnel}\\
+\noindent\hspace*{3em}\hyperref[ch2:mm-flux-demandes]{2.4.10.1 Processus de cr\'eation et gestion des demandes} \dotfill \pageref*{ch2:mm-flux-demandes}\\
+\noindent\hspace*{3em}\hyperref[ch2:mm-flux-commande]{2.4.10.2 Processus de commande d'achat (Purchase Order)} \dotfill \pageref*{ch2:mm-flux-commande}\\
+\noindent\hspace*{3em}\hyperref[ch2:mm-flux-reception]{2.4.10.3 Processus de r\'eception et facturation} \dotfill \pageref*{ch2:mm-flux-reception}\\
+\noindent\hspace*{2em}\hyperref[ch2:mm-purchase-order]{2.4.11 Structure et informations des commandes d'achat} \dotfill \pageref*{ch2:mm-purchase-order}\\
+\noindent\hspace*{3em}\hyperref[ch2:mm-po-entete]{2.4.11.1 Donn\'ees d'en-t\^ete de la commande} \dotfill \pageref*{ch2:mm-po-entete}\\
+\noindent\hspace*{3em}\hyperref[ch2:mm-po-lignes]{2.4.11.2 Donn\'ees de lignes de la commande} \dotfill \pageref*{ch2:mm-po-lignes}\\
+\noindent\hspace*{2em}\hyperref[ch2:mm-arch-tech]{2.4.12 Architecture technique de SAP} \dotfill \pageref*{ch2:mm-arch-tech}\\
+\noindent\hspace*{3em}\hyperref[ch2:mm-arch-pres]{2.4.12.1 Couche de pr\'esentation} \dotfill \pageref*{ch2:mm-arch-pres}\\
+\noindent\hspace*{3em}\hyperref[ch2:mm-arch-app]{2.4.12.2 Couche applicative} \dotfill \pageref*{ch2:mm-arch-app}\\
+\noindent\hspace*{3em}\hyperref[ch2:mm-arch-bdd]{2.4.12.3 Couche base de donn\'ees} \dotfill \pageref*{ch2:mm-arch-bdd}\\
+\noindent\hspace*{2em}\hyperref[ch2:mm-paysage-systeme]{2.4.13 Organisation et paysage du syst\`eme SAP} \dotfill \pageref*{ch2:mm-paysage-systeme}\\
+\noindent\hspace*{3em}\hyperref[ch2:mm-landscape]{2.4.13.1 Paysage syst\`eme (System Landscape)} \dotfill \pageref*{ch2:mm-landscape}\\
+\noindent\hspace*{3em}\hyperref[ch2:mm-transport-orders]{2.4.13.2 Ordres de transport (Transport Orders - OT)} \dotfill \pageref*{ch2:mm-transport-orders}\\
 \noindent\hspace*{1em}\hyperref[ch2:tech]{2.5 Technologies SAP utilis\'ees} \dotfill \pageref*{ch2:tech}\\
 \noindent\hspace*{2em}\hyperref[ch2:odata]{2.5.1 OData} \dotfill \pageref*{ch2:odata}\\
 \noindent\hspace*{2em}\hyperref[ch2:rap]{2.5.2 RAP} \dotfill \pageref*{ch2:rap}\\
@@ -235,14 +269,17 @@ SLA & Service Level Agreement \\
 \noindent\hspace*{1em}\hyperref[ch2:conclusion]{2.6 Conclusion} \dotfill \pageref*{ch2:conclusion}\\
 \noindent\hyperref[ch:analyse-conception]{Chapitre 3 : Analyse et conception de la solution} \dotfill \pageref*{ch:analyse-conception}\\
 \noindent\hspace*{1em}\hyperref[ch3:introduction]{3.1 Introduction} \dotfill \pageref*{ch3:introduction}\\
-\noindent\hspace*{1em}\hyperref[ch3:analyse-besoins]{3.2 Analyse des besoins} \dotfill \pageref*{ch3:analyse-besoins}\\
-\noindent\hspace*{2em}\hyperref[ch3:besoins-f]{3.2.1 Besoins fonctionnels} \dotfill \pageref*{ch3:besoins-f}\\
-\noindent\hspace*{2em}\hyperref[ch3:besoins-nf]{3.2.2 Besoins non fonctionnels} \dotfill \pageref*{ch3:besoins-nf}\\
-\noindent\hspace*{1em}\hyperref[ch3:cas-util]{3.3 Cas d'utilisation} \dotfill \pageref*{ch3:cas-util}\\
-\noindent\hspace*{1em}\hyperref[ch3:uml]{3.4 Conception UML} \dotfill \pageref*{ch3:uml}\\
-\noindent\hspace*{2em}\hyperref[ch3:diag-classes]{3.4.1 Diagramme de classes} \dotfill \pageref*{ch3:diag-classes}\\
-\noindent\hspace*{2em}\hyperref[ch3:arch-donnees]{3.4.2 Architecture des donn\'ees} \dotfill \pageref*{ch3:arch-donnees}\\
-\noindent\hspace*{1em}\hyperref[ch3:conclusion]{3.5 Conclusion} \dotfill \pageref*{ch3:conclusion}\\
+\noindent\hspace*{1em}\hyperref[ch3:demarche]{3.2 Démarche méthodologique et répartition des tâches} \dotfill \pageref*{ch3:demarche}\\
+\noindent\hspace*{1em}\hyperref[ch3:analyse-besoins]{3.3 Ingénierie des exigences et spécifications} \dotfill \pageref*{ch3:analyse-besoins}\\
+\noindent\hspace*{2em}\hyperref[ch3:besoins-f]{3.3.1 Exigences fonctionnelles métiers} \dotfill \pageref*{ch3:besoins-f}\\
+\noindent\hspace*{2em}\hyperref[ch3:besoins-nf]{3.3.2 Exigences non fonctionnelles et architecturales} \dotfill \pageref*{ch3:besoins-nf}\\
+\noindent\hspace*{1em}\hyperref[ch3:cas-util]{3.4 Modélisation des processus et Cas d'utilisation} \dotfill \pageref*{ch3:cas-util}\\
+\noindent\hspace*{1em}\hyperref[ch3:architecture]{3.5 Architecture globale et choix technologiques} \dotfill \pageref*{ch3:architecture}\\
+\noindent\hspace*{1em}\hyperref[ch3:uml]{3.6 Conception détaillée et modélisation} \dotfill \pageref*{ch3:uml}\\
+\noindent\hspace*{2em}\hyperref[ch3:diag-classes]{3.6.1 Modèle de données} \dotfill \pageref*{ch3:diag-classes}\\
+\noindent\hspace*{2em}\hyperref[ch3:diag-sequences]{3.6.2 Flux transactionnels et asynchronisme} \dotfill \pageref*{ch3:diag-sequences}\\
+\noindent\hspace*{1em}\hyperref[ch3:ia-joule]{3.7 Stratégie d'automatisation et Agent IA (SAP Joule)} \dotfill \pageref*{ch3:ia-joule}\\
+\noindent\hspace*{1em}\hyperref[ch3:conclusion]{3.8 Conclusion} \dotfill \pageref*{ch3:conclusion}\\
 \noindent\hyperref[ch:archi-tech]{Chapitre 4 : Conception d\'etaill\'ee et architecture technique} \dotfill \pageref*{ch:archi-tech}\\
 \noindent\hspace*{1em}\hyperref[ch4:introduction]{4.1 Introduction} \dotfill \pageref*{ch4:introduction}\\
 \noindent\hspace*{1em}\hyperref[ch4:architecture]{4.2 Architecture globale de la solution} \dotfill \pageref*{ch4:architecture}\\
@@ -367,7 +404,7 @@ alliant comp\'etences fonctionnelles et techniques pour concevoir et d\'eveloppe
 \subsection{Aper\c{c}u g\'en\'eral}\label{ch1:apercu}
 \vspace{0.3cm}
 
-\begin{figure}[h!]
+\begin{figure}[htbp]
 \centering
 \IfFileExists{figures/viseo-logo.png}{%
 	\includegraphics[width=0.35\textwidth]{figures/viseo-logo.png}
@@ -390,7 +427,7 @@ strat\'egique en Europe, en Afrique et au-del\`a, en proposant des services de h
 adapt\'es aux besoins sp\'ecifiques de chaque march\'e.
 \vspace{0.4cm}
 
-\begin{table}[h!]
+\begin{table}[htbp]
 \centering
 \renewcommand{\arraystretch}{1.75}
 \setlength{\tabcolsep}{14pt}
@@ -868,7 +905,7 @@ Les principaux modules d'un ERP typique incluent :
 
 \subsection{Rôle strat\'egique et bénéfices}\label{ch2:erp-role}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \IfFileExists{figures/erp-diagram.png}{%
 	\includegraphics[width=0.8\textwidth]{figures/erp-diagram.png}
@@ -911,7 +948,7 @@ Le marché des ERP a connu une transformation majeure au cours de la dernière d
 
 \subsection{Historique et position sur le marché}\label{ch2:sap-historique}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \IfFileExists{figures/sap-logo.png}{%
 	\includegraphics[width=0.4\textwidth]{figures/sap-logo.png}
@@ -973,7 +1010,7 @@ SAP propose un portefeuille complet de solutions couvrant l'ensemble des besoins
 
 L'architecture de SAP se compose de modules fonctionnels hautement intégrés :
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \IfFileExists{figures/sap-modules.png}{%
 	\includegraphics[width=0.85\textwidth]{figures/sap-modules.png}
@@ -1003,7 +1040,7 @@ Cette intégration élimine les besoins de synchronisation manuelle et garantit 
 
 Le module \textbf{Material Management (MM)} de SAP est spécialisé dans la gestion complète du cycle de vie des matériaux, 
 de l'approvisionnement jusqu'à la consommation. C'est un composant essentiel de tout système SAP, impactant les chaînes 
-logistiques et les opérations de la majorité des entreprises.
+logistiques et les opérations de la majorité enterprises.
 
 \textbf{Définition formelle} : SAP MM est un module intégré conçu pour gérer efficacement les processus d'approvisionnement, 
 de gestion des stocks et de gestion des fournisseurs au sein d'une organisation. Il offre une plateforme centralisée pour 
@@ -1038,7 +1075,7 @@ Le processus d'approvisionnement dans SAP MM comprend plusieurs étapes critique
 	\item \textbf{Facturation} : Rapprochement entre la commande, la réception et la facture fournisseur (three-way matching)
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
 \centering
 \IfFileExists{figures/sap-mm-procurement.png}{%
 	\includegraphics[width=0.8\textwidth]{figures/sap-mm-procurement.png}
@@ -1169,6 +1206,202 @@ Plusieurs industries ont bénéficié significativement de l'implémentation de 
 Selon IDC (2023), \textbf{78\% des entreprises utilisant SAP MM} rapportent une amélioration significative 
 de l'efficacité opérationnelle dans un délai de 18 mois suivant l'implémentation.
 
+\subsection{Structure organisationnelle et entités du module MM}\label{ch2:mm-organisation}
+
+SAP structure les données et les responsabilités à travers plusieurs niveaux organisationnels hiérarchisés, 
+chacun correspondant à une entité métier distinct. Compren­dre cette architecture est essentiel pour configurer 
+et exploiter correctement le module MM. Ces niveaux définissent les frontières des données, les permis­sions utilisateur, 
+et la portée des transactions commerciales.
+
+\subsubsection{Niveaux hiérarchiques organisationnels}\label{ch2:mm-org-niveaux}
+
+\begin{itemize}[label=\textbullet, itemsep=0.2em]
+	\item \textbf{Client} : Unité organisationnelle au sommet de la hiérarchie, représentant l'entité juridique principale. Chaque client possède son propre ensemble de données indépendantes et ses tables de configuration
+	\item \textbf{Code d'entreprise (Company Code)} : Unité comptable autonome relevant d'un client, disposant de son propre compte de résultat et bilan. C'est la plus petite unité pour laquelle un ensemble complet d'enregistrements comptables peut être généré
+	\item \textbf{Usine (Plant)} : Unité opérationnelle au sein d'une company code où se déploient les activités logistiques (fabrication, entrepôt, centre de distribution, site régional)
+	\item \textbf{Emplacement de stockage (Storage Location)} : Niveau le plus détaillé de l'organisation, différenciant physiquement les zones de stockage au sein d'une usine. Les stocks y sont enregistrés individuellement
+	\item \textbf{Organisation d'achat (Purchasing Organization)} : Entité responsable des activités d'approvisionnement et de négociation fournisseurs. Peut être centralisée au niveau client ou décentralisée par usine/company code
+	\item \textbf{Groupe d'achat (Purchasing Group)} : Équipe ou personne responsable des achats quotidiens au sein d'une organisation d'achat
+\end{itemize}
+
+Cette architecture multi-niveaux permet une gestion granulaire des opérations tout en maintenant une vue consolidée au niveau du groupe.
+
+\subsection{Transactions SAP et codes de transaction (T-codes)}\label{ch2:mm-transactions}
+
+Une transaction SAP est un ensemble cohérent d'écrans, de programme et de règles métier permettant d'exécuter une opération commerciale spécifique dans le système. 
+Chaque transaction est identifiée par un \textbf{code de transaction (T-code)} unique, permettant une navigation directe et rapide.
+
+Les transactions du module MM englobent l'ensemble du cycle d'approvisionnement, de la planification initiale à la comptabilisation 
+des factures. Elles offrent une interface standardisée pour garantir la cohérence des données et le respect des contrôles internes.
+
+\subsection{Processus d'approvisionnement : taxonomie et stratégies}\label{ch2:mm-approv-process}
+
+L'approvisionnement en matériaux et services est un processus fondamental qui doit être exécuté de manière optimale. 
+Toute organisation acquiert des biens ou services pour répondre à ses besoins opérationnels, et SAP MM structure ce processus 
+en deux catégories principales selon la nature et le traitement des acquisitions.
+
+\subsubsection{Approvisionnement de base (Standard Procurement)}\label{ch2:mm-approv-base}
+
+L'approvisionnement de base représente les acquisitions classiques de matériaux ou services, où l'entreprise devient propriétaire 
+du bien au moment de la livraison. Les stratégies principales incluent :
+
+\begin{itemize}[label=---, itemsep=0.15em]
+	\item \textbf{Approvisionnement pour stocks} : Acquisition de matériaux conservés en inventaire pour une utilisation ultérieure
+	\item \textbf{Approvisionnement pour consommation directe} : Achat de bien consommés immédiatement (fournitures, services)
+	\item \textbf{Achats internes} : Transferts de matériaux entre entités du groupe
+	\item \textbf{Achats externes} : Acquisitions auprès de fournisseurs tiers externes
+\end{itemize}
+
+L'équilibre optimal entre quantité, prix et délai est critique pour minimiser les coûts de stockage tout en assurant 
+la continuité opérationnelle sans risque de pénurie.
+
+\subsubsection{Approvisionnement spécialisé (Special Procurement)}\label{ch2:mm-approv-special}
+
+Les stocks spécialisés désignent des biens dont l'entreprise ne détient pas la propriété directe mais qu'elle gère 
+différemment des stocks conventionnels. Ces modalités offrent une flexibilité financière accrue et une gestion des risques optimisée :
+
+\begin{itemize}[label=\textbullet, itemsep=0.2em]
+	\item \textbf{Consignation} : Les matériaux restent propriété du vendeur jusqu'à leur utilisation effective par l'acheteur. L'entreprise ne paie que lorsque la consommation intervient
+	\item \textbf{Service de prestataire (Third-Party Processing)} : Un fournisseur externe livre directement au client final sans que l'entreprise n'en prenne possession intermédiaire
+	\item \textbf{Gestion de pipelines} : Pour les ressources livrées par infrastructure fixe (énergie, fluides), sans besoin de stockage physique
+	\item \textbf{Emballages consignés} : Matériaux livrés dans des conteneurs réutilisables restant propriété du fournisseur
+	\item \textbf{Sous-traitance} : L'entreprise fournit les composants à un prestataire qui effectue la fabrication ou transformation
+\end{itemize}
+
+Ces approches permettent d'optimiser la trésorerie, de réduire l'investissement en stocks et d'augmenter la flexibilité opérationnelle.
+
+\subsection{Flux transactionnel complet du module MM}\label{ch2:mm-flux-transactionnel}
+
+Le processus d'achat dans SAP MM constitue un flux structuré et intégré de transactions standard, enchaînées logiquement 
+depuis l'identification du besoin jusqu'au règlement financier. Chaque transaction correspond à une étape métier distincte :
+
+\subsubsection{Processus de création et gestion des demandes}\label{ch2:mm-flux-demandes}
+
+\begin{itemize}[label=---, itemsep=0.15em]
+	\item \textbf{ME51N (Demande d'achat)} : Permet aux utilisateurs de créer une demande interne quand un besoin est identifié. La demande peut être convertie en appel d'offres ou directement en commande selon le processus
+	\item \textbf{ME41 (Appel d'offres / RFQ)} : Émet des demandes de devis auprès de fournisseurs pour évaluer les conditions tarifaires et sélectionner les meilleurs partenaires
+	\item \textbf{ME61 (Évaluation des fournisseurs)} : Évalue les performances fournisseurs selon des critères (qualité, délais, respect des conditions) pour optimiser les sélections futures
+\end{itemize}
+
+\subsubsection{Processus de commande d'achat (Purchase Order)}\label{ch2:mm-flux-commande}
+
+\begin{itemize}[label=\textbullet, itemsep=0.2em]
+	\item \textbf{ME21N (Création de commande d'achat)} : Transaction principale créant une commande formelle à envoyer au fournisseur. Contient l'en-tête (données générales : fournisseur, conditions) et les lignes détaillant les articles
+	\item \textbf{ME22N (Modification de commande d'achat)} : Permet de modifier une commande existante (quantités, prix, dates de livraison)
+	\item \textbf{ME23N (Affichage de commande d'achat)} : Permet de consulter une commande et ses détails sans modification
+\end{itemize}
+
+Ces transactions sont le point de départ du cycle externe (interaction entreprise-fournisseur) et, dans le contexte 
+d'un portail fournisseur, permettent aux vendeurs de confirmer ou rejeter les lignes de commande.
+
+\subsubsection{Processus de réception et facturation}\label{ch2:mm-flux-reception}
+
+\begin{itemize}[label=---, itemsep=0.15em]
+	\item \textbf{MIGO (Entrée de marchandises / Goods Receipt)} : Enregistre la réception physique des produits livrés. L'entrée de stock est automatiquement reliée à la commande d'achat via son numéro
+	\item \textbf{MIRO (Saisie de facture fournisseur / Invoice Receipt)} : Dernière étape du processus enregistrant la facture fournisseur. Vérifie le rapprochement trois sens (PO, réception, facture) avant déclenchement du paiement
+\end{itemize}
+
+Ce flux garantit un contrôle rigoureux des entrées, une correspondance comptable exacte et une maîtrise des dépenses.
+
+\subsection{Structure et informations des commandes d'achat}\label{ch2:mm-purchase-order}
+
+Une commande d'achat (Purchase Order - PO) est le document contractuel formalisant l'engagement d'achat. 
+Elle se compose d'informations d'en-tête communes à toute la commande et de lignes détaillant chaque article acheté.
+
+\subsubsection{Données d'en-tête de la commande}\label{ch2:mm-po-entete}
+
+Stockées dans la table \textbf{EKKO}, les informations d'en-tête s'appliquent à l'intégralité de la commande :
+
+\begin{itemize}[label=---, itemsep=0.15em]
+	\item Numéro de commande (EBELN) : Identifiant unique de la commande dans le système
+	\item Fournisseur (LIFNR) : Code du fournisseur sélectionné et ses coordonnées
+	\item Organisation d'achat (EKORG) : Entité responsable de l'acte d'achat
+	\item Groupe d'acheteurs (EKGRP) : Personne ou groupe responsable de la négociation
+	\item Société (BUKRS) : Entité SAP qui émet la commande
+	\item Date de création (AEDAT) et statut : Trace l'historique et l'état d'avancement
+	\item Devise (WAERS) : Devise dans laquelle les prix sont exprimés
+	\item Conditions de paiement (ZTERM) : Modalités de règlement négociées avec le fournisseur
+\end{itemize}
+
+\subsubsection{Données de lignes de la commande}\label{ch2:mm-po-lignes}
+
+Stockées dans la table \textbf{EKPO}, les données de ligne (item) détaillent chaque article commandé :
+
+\begin{itemize}[label=\textbullet, itemsep=0.2em]
+	\item Numéro de ligne (EBELP) : Identifiant unique de la ligne au sein de la commande
+	\item Code article (MATNR) : Référence du produit dans le système SAP
+	\item Description (TXZ01) : Libellé commercial de l'article
+	\item Quantité commandée (MENGE) et unité (MEINS) : Volume et unité de mesure
+	\item Centre de livraison (WERKS) : Site destinataire de la livraison
+	\item Date de livraison prévue (EINDT) : Date souhaitée pour la réception
+	\item Prix unitaire (NETPR) et montant total : Informations de coût
+	\item Quantités reçues/facturées : Suivi de l'avancement de la commande
+\end{itemize}
+
+Cette structure bi-niveaux permet un suivi granulaire par article et une traçabilité complète des engagements commerciaux.
+
+\subsection{Architecture technique de SAP}\label{ch2:mm-arch-tech}
+
+Sur le plan technique, SAP repose sur une \textbf{architecture client-serveur à trois tiers (3-tiers)}, séparant 
+les responsabilités informatiques tout en assurant une grande flexibilité de déploiement. Chaque couche peut être 
+hébergée sur une machine unique ou répartie sur plusieurs serveurs selon les besoins de performance.
+
+\subsubsection{Couche de présentation}\label{ch2:mm-arch-pres}
+
+\begin{itemize}[label=---, itemsep=0.15em]
+	\item Interface utilisateur accessible via SAP GUI (client lourd) ou SAP Fiori (web moderne)
+	\item Assure l'interaction entre l'utilisateur et le système
+	\item Peut être déployée sur les postes utilisateurs ou en mode web centralisé
+\end{itemize}
+
+\subsubsection{Couche applicative}\label{ch2:mm-arch-app}
+
+\begin{itemize}[label=\textbullet, itemsep=0.2em]
+	\item Exécute la logique métier, les traitements et les programmes (notamment ABAP)
+	\item Traite les transactions, applique les règles de gestion, effectue les calculs
+	\item Peut être répartie sur plusieurs serveurs applicatifs pour distribuer la charge
+	\item Gère la sécurité, les autorisations et la cohérence des données
+\end{itemize}
+
+\subsubsection{Couche base de données}\label{ch2:mm-arch-bdd}
+
+\begin{itemize}[label=---, itemsep=0.15em]
+	\item Contient les données persistantes de l'organisation (master data, transactions, historiques)
+	\item Dans les versions modernes (S/4HANA), repose sur une base de données in-memory (SAP HANA) optimisée pour les traitements temps réel
+	\item Offre une performance accrue, des capacités analytiques avancées et une scalabilité supérieure
+\end{itemize}
+
+\subsection{Organisation et paysage du système SAP}\label{ch2:mm-paysage-systeme}
+
+Pour garantir la stabilité technique et l'intégrité des processus métier, SAP s'appuie sur une organisation 
+rigoureuse des environnements système et des mécanismes de contrôle des changements.
+
+\subsubsection{Paysage système (System Landscape)}\label{ch2:mm-landscape}
+
+Le paysage recommandé comprend généralement trois environnements distincts :
+
+\begin{itemize}[label=\textbullet, itemsep=0.2em]
+	\item \textbf{DEV (Développement)} : Environnement dans lequel consultants et développeurs effectuent configurations et développements spécifiques. Point de départ des évolutions du système
+	\item \textbf{QUAL (Qualité/Test)} : Environnement de test permettant de valider les évolutions dans des conditions proches de la production, avec jeux de données représentatifs
+	\item \textbf{PROD (Production)} : Environnement en exploitation utilisé quotidiennement par les utilisateurs finaux. Le système le plus critique, où aucune modification directe ne doit être réalisée
+\end{itemize}
+
+Cette séparation assure une stabilité de production et permet des tests complets avant déploiement.
+
+\subsubsection{Ordres de transport (Transport Orders - OT)}\label{ch2:mm-transport-orders}
+
+Tout changement dans le système SAP (configuration, développement ABAP, corrections) est encapsulé dans un \textbf{ordre de transport} :
+
+\begin{itemize}[label=---, itemsep=0.15em]
+	\item Créé dans l'environnement DEV avec les modifications souhaitées
+	\item Testé et validé en QUAL avec des scénarios d'utilisation réels
+	\item Transporté en PROD après validation complète et approbation
+	\item Fournit une traçabilité complète, une auditabilité et une cohérence des évolutions
+\end{itemize}
+
+Ce mécanisme assure que seules les évolutions validées et documentées accèdent à la production, minimisant 
+les risques d'incidents et garantissant la reproductibilité des déploiements.
+
 \section{Technologies SAP utilis\'ees}\label{ch2:tech}
 
 \subsection{OData}\label{ch2:odata}
@@ -1237,15 +1470,130 @@ sur laquelle repose la conception et le développement de notre portail fourniss
 sujet du chapitre suivant.
 
 \chapter{Analyse et conception de la solution}\label{ch:analyse-conception}
+
 \section{Introduction}\label{ch3:introduction}
-\section{Analyse des besoins}\label{ch3:analyse-besoins}
-\subsection{Besoins fonctionnels}\label{ch3:besoins-f}
-\subsection{Besoins non fonctionnels}\label{ch3:besoins-nf}
-\section{Cas d'utilisation}\label{ch3:cas-util}
-\section{Conception UML}\label{ch3:uml}
-\subsection{Diagramme de classes}\label{ch3:diag-classes}
-\subsection{Architecture des donn\'ees}\label{ch3:arch-donnees}
+Ce chapitre constitue le cœur méthodologique et conceptuel du projet de fin d'études. Il détaille le passage d'une problématique métier — les inefficacités et le manque de visibilité dans le cycle de confirmation des commandes abordés au chapitre précédent — à la conception d'une architecture logicielle aboutie, robuste et conforme aux standards de l'écosystème SAP S/4HANA. 
+
+Dans le cadre de cette mission d'Assistance à la Maîtrise d'Ouvrage (AMOA), l'objectif ne s'est pas limité à la création d'une simple interface de consultation de données. La solution a été pensivement architecturée comme une plateforme d'interaction sécurisée, hautement performante, permettant à la fois le traitement unitaire et le traitement en masse (via Excel) des commandes d'achat. Parallèlement, elle devait offrir une visibilité analytique en temps réel aux départements achats et s'intégrer harmonieusement avec les technologies d'Intelligence Artificielle de pointe (SAP Joule). Les sections qui suivent exposent la démarche d'analyse, l'expression détaillée des exigences, la modélisation UML des processus, ainsi que les choix architecturaux décisifs qui structurent la solution.
+
+\section{Démarche méthodologique et répartition des tâches}\label{ch3:demarche}
+La conception d'une application transactionnelle et analytique de cette envergure nécessite une approche méthodologique rigoureuse pour garantir l'alignement avec les processus logistiques de l'entreprise. L'équipe projet a adopté une méthodologie Agile (Scrum), caractérisée par des itérations courtes (sprints) permettant des retours utilisateurs rapides et continus.
+
+Sur le plan de l'organisation technique du développement, nous avons fait le choix stratégique d'une répartition des tâches basée sur l'approche du \textbf{Vertical Split} (découpage vertical), rompant avec le découpage horizontal classique par couches isolées (Base de données d'un côté, Backend au centre, Frontend de l'autre). 
+Dans cette dynamique, chaque membre du binôme a pris l'entière responsabilité de fonctionnalités complètes, de bout en bout. Par exemple, lors de la conception de la fonctionnalité de gestion des rejets, l'intervenant en charge a modélisé les tables de journalisation personnalisées (comme \texttt{ZTPO\_REJECT\_LOG}), créé les vues \textit{Core Data Services} (CDS) correspondantes, implémenté le comportement métier transactionnel (via les \textit{Behavior Definitions} ABAP RAP), jusqu'à la projection de ces données sur l'interface graphique SAP Fiori. Cette responsabilisation complète a considérablement réduit les goulots d'étranglement lors des phases d'intégration et a permis de forger une vision globale et maîtrisée de l'architecture logicielle SAP.
+
+\section{Ingénierie des exigences et spécifications}\label{ch3:analyse-besoins}
+
+L'étape d'ingénierie des exigences permet de traduire les contraintes opérationnelles en spécifications logicielles précises. Suite à plusieurs ateliers d'expression de besoins avec les parties prenantes, le périmètre a été défini autour de deux axes : les fonctionnalités métiers directes et les contraintes techniques du système.
+
+\subsection{Exigences fonctionnelles métiers}\label{ch3:besoins-f}
+Les exigences fonctionnelles décrivent la capacité du système à répondre aux actions métier attendues par les acheteurs et les fournisseurs.
+
+\begin{itemize}[label=-]
+    \item \textbf{Visibilité dynamique et suivi centralisé :} Le portail doit fournir une vue unifiée et filtrable de l'ensemble des commandes d'achat (Purchase Orders) assignées à un fournisseur spécifique. L'interface doit exposer des indicateurs clés tels que le numéro de la commande, la date d'émission, les montants totaux, les devises, et surtout l'échéance de réponse. Le fournisseur doit également pouvoir explorer le détail d'une commande pour consulter les différentes lignes d'articles, les quantités requises et les adresses de livraison prévues.
+    \item \textbf{Traitement unitaire et qualification des rejets :} Le système doit permettre au fournisseur de sélectionner individuellement une ligne de commande pour la confirmer ou la rejeter. Dans le cas d'un rejet, l'application doit imposer la sélection d'un motif clair et normé parmi une nomenclature préétablie (par exemple : produit définitivement indisponible, délai de production impossible, ou fin de contrat avec l'entreprise). Ce motif structuré est vital pour alimenter les statistiques de performance des fournisseurs.
+    \item \textbf{Traitement en masse via tableur (Excel) :} Afin de respecter les contraintes de productivité des grands fournisseurs qui traitent plusieurs dizaines, voire centaines de références par jour, l'interface doit intégrer un mécanisme de traitement par lots. Le fournisseur doit pouvoir télécharger un modèle Excel, le compléter hors ligne, puis l'importer dans le système. L'application doit analyser le fichier, valider son intégrité, et appliquer massivement les statuts dans S/4HANA au sein d'une transaction unique pour éviter toute corruption des données.
+    \item \textbf{Génération de la documentation formelle :} Le système doit inclure un moteur permettant la génération instantanée des bons de commande au format standardisé PDF, facilitant ainsi l'archivage ou l'impression physique par le fournisseur.
+    \item \textbf{Pilotage Analytique Interactif (Dashboard) :} Les départements achats nécessitent des outils de pilotage visuels. Une page analytique (\textit{Analytical List Page}) doit être disponible, offrant des \textit{Visual Filters} (tels que des graphiques en anneau pour les statuts et des histogrammes pour les fournisseurs ou les motifs de rejet). Ces filtres visuels doivent permettre de découper et de filtrer dynamiquement les immenses volumes de données logistiques en quelques clics.
+\end{itemize}
+
+\subsection{Exigences non fonctionnelles et architecturales}\label{ch3:besoins-nf}
+Pour assurer la fiabilité, la sécurité, et la maintenabilité à long terme de la plateforme, un cahier des charges technique strict a été dressé.
+
+\begin{itemize}[label=-]
+    \item \textbf{Sécurité, SSO et cloisonnement des données :} Étant exposé à des acteurs externes (les fournisseurs), le portail exige une authentification robuste (Single Sign-On). Il est impératif d'implémenter un contrôle d'accès au niveau de la base de données (Authorization Checks). Le système doit garantir un isolement strict des données : un fournisseur connecté ne doit sous aucun prétexte pouvoir requêter ou visualiser les données concurrentielles d'un autre fournisseur.
+    \item \textbf{Traçabilité réglementaire (Audit Logs) :} Chaque modification d'état (qu'il s'agisse d'une confirmation ou d'un rejet) doit obligatoirement générer une entrée immuable dans une table de journalisation (Log Table). Ce registre doit conserver l'identifiant de l'utilisateur, l'horodatage exact, ainsi que la nature de l'altération pour répondre aux normes strictes des audits financiers et logistiques.
+    \item \textbf{Cohérence technologique et modernité :} Le code résidant côté serveur doit rompre avec l'utilisation des anciennes BAPI (Business Application Programming Interfaces) monolithiques. La logique transactionnelle doit reposer exclusivement sur le modèle moderne SAP RAP (RESTful Application Programming), exposant des services standardisés et sécurisés.
+    \item \textbf{Expérience Utilisateur (UX) :} L'interface doit respecter rigoureusement les directives de design de SAP Fiori Elements. Elle doit être \textit{Responsive} (parfaitement fonctionnelle sur ordinateur de bureau comme sur terminal mobile) et garantir des temps de chargement minimes.
+\end{itemize}
+
+\section{Modélisation des processus et Cas d'utilisation}\label{ch3:cas-util}
+Le diagramme de cas d'utilisation ci-dessous englobe les périmètres d'interaction des différents acteurs avec le portail fournisseur. Il fait ressortir la séparation nette entre le traitement transactionnel (agir sur les données) et le traitement analytique (observer les données).
+
+\begin{figure}[htbp]
+\centering
+\IfFileExists{figures/usecases-diagram.png}{%
+    \includegraphics[width=0.9\textwidth]{figures/usecases-diagram.png}
+}{%
+    \fbox{\parbox[c][5cm][c]{0.9\linewidth}{\centering \small Diagramme global de Cas d'Utilisation\\(ajoutez figures/usecases-diagram.png)}}
+}
+\caption{Diagramme global des cas d'utilisation du portail fournisseur}
+\label{fig:usecases}
+\end{figure}
+
+\section{Architecture globale et choix technologiques}\label{ch3:architecture}
+La transition d'un ensemble de règles métiers vers une application fonctionnelle requiert une architecture solide. Pour s'affranchir des limitations historiques des ERP et s'aligner sur la stratégie orientée Cloud de SAP, nous avons conçu une architecture multiniveaux et hybride.
+
+\textbf{La couche de persistance (Base de données S/4HANA)} \\
+L'intégrité de la solution repose sur la base de données In-Memory SAP HANA. Plutôt que de manipuler directement les immenses tables standards des achats (telles que \texttt{EKKO} pour les en-têtes et \texttt{EKPO} pour les lignes), nous avons structuré l'accès aux données grâce aux \textit{Core Data Services} (CDS). Une pyramide de vues a été construite : des vues de base (Basic Views) extraient les données brutes, des vues composites effectuent les jointures complexes (avec les tables fournisseurs et nos tables personnalisées de logs), et enfin des vues de consommation (Consumption Views) annotent ces données pour définir la manière dont elles devront s'afficher sur l'écran final.
+
+\textbf{La couche de Logique Métier (Modèle ABAP RAP)} \\
+Pour garantir la cohérence des opérations transactionnelles (confirmation et rejet), nous nous appuyons sur l'architecture SAP RAP. Les règles d'entreprise sont encapsulées dans des "Behavior Definitions" et des "Behavior Pools" (Classes ABAP). Cela permet d'exécuter de puissantes validations avant même qu'une modification ne soit écrite en base. Cette couche est ensuite exposée sous la forme de services web modernes via le protocole \textbf{OData V4}, optimisé pour les opérations de mise à jour et d'insertion par lots (indispensable pour notre import Excel).
+
+\textbf{Le défi du Dashboard Analytique et l'hybridation OData} \\
+Lors de la conception du tableau de bord (Analytical List Page), nous avons fait face à une limite technique majeure du standard. Les \textit{Visual Filters} (graphiques agissant comme des filtres interactifs) dépendent du moteur analytique profond de SAP (le moteur BICS - Business Intelligence Consumer Services). Cependant, le protocole OData V4 ne supporte pas encore de manière optimale les requêtes BICS complexes nécessaires à ces graphiques. Plutôt que de sacrifier cette fonctionnalité métier cruciale, nous avons élaboré une architecture de contournement (\textit{bypass}) : le tableau de bord analytique a été isolé et exposé à travers une couche \textbf{OData V2} classique générée automatiquement via l'annotation \texttt{@OData.publish: true}, connectant directement le Frontend au moteur BICS. L'application est donc hybride, utilisant OData V4 pour la robustesse transactionnelle et OData V2 pour l'agilité analytique.
+
+Pour illustrer l'organisation de ces différentes couches et leurs interactions via le réseau, le schéma suivant modélise l'architecture système globale :
+
+\begin{figure}[htbp]
+\centering
+\IfFileExists{figures/architecture-layers.png}{%
+    \includegraphics[width=0.9\textwidth]{figures/architecture-layers.png}
+}{%
+    \fbox{\parbox[c][5cm][c]{0.9\linewidth}{\centering \small Architecture en couches de la solution\\(ajoutez figures/architecture-layers.png)}}
+}
+\caption{Architecture en couches de la solution hybride (CDS, RAP, Fiori)}
+\label{fig:architecture}
+\end{figure}
+
+\section{Conception détaillée et modélisation}\label{ch3:uml}
+\subsection{Modèle de données}\label{ch3:diag-classes}
+Le modèle relationnel est le cœur opérationnel de l'application. Il tisse les liens entre les éléments standards de SAP et nos propres développements. Outre les tables de commandes, nous avons modélisé des tables spécifiques pour gérer notre propre logique. Par exemple, la table \texttt{ZTPO\_REJECT\_LOG} a été conçue avec une clé étrangère pointant vers le numéro de ligne de la commande, et un champ associant explicitement le rejet à un motif normé de notre dictionnaire de données. Le diagramme de classes suivant expose ces entités, leurs attributs techniques (types et cardinalités) ainsi que les méthodes métiers qui leurs sont rattachées.
+
+\begin{figure}[htbp]
+\centering
+\IfFileExists{figures/class-diagram.png}{%
+    \includegraphics[width=0.9\textwidth]{figures/class-diagram.png}
+}{%
+    \fbox{\parbox[c][5cm][c]{0.9\linewidth}{\centering \small Diagramme de classes UML\\(ajoutez figures/class-diagram.png)}}
+}
+\caption{Diagramme de classes UML du modèle de données étendu}
+\label{fig:classes}
+\end{figure}
+
+\subsection{Flux transactionnels et asynchronisme}\label{ch3:diag-sequences}
+Comprendre le cheminement d'une information entre l'écran du fournisseur et la base de données est vital, particulièrement pour la fonctionnalité de confirmation en masse via fichier Excel, qui représente un défi technique en termes de synchronisation. 
+
+Lorsqu'un fournisseur charge son fichier XLSX sur le portail, le processus s'initie intégralement côté client (Frontend). Une bibliothèque JavaScript (généralement \texttt{SheetJS} dans le contexte UI5) parse le fichier binaire localement et le transforme en un "Payload" JSON structuré. Cette charge utile est ensuite expédiée de manière asynchrone au backend S/4HANA via l'API OData V4. Le gestionnaire ABAP RAP réceptionne cette matrice, itère sur chaque ligne en mémoire, exécute les contrôles de sécurité (validation du fournisseur, existence de la commande, validité de la date), puis procède à un \textit{Commit} global dans la base de données. Enfin, il renvoie un code de statut HTTP avec un rapport détaillé des succès et erreurs éventuelles pour rafraîchir l'interface utilisateur. 
+
+Ce dialogue complexe entre le navigateur, le serveur d'application, et la base de données est modélisé dans le diagramme de séquence ci-dessous :
+
+\begin{figure}[htbp]
+\centering
+\IfFileExists{figures/sequence-diagram.png}{%
+    \includegraphics[width=0.9\textwidth]{figures/sequence-diagram.png}
+}{%
+    \fbox{\parbox[c][5cm][c]{0.9\linewidth}{\centering \small Diagramme de séquence\\(ajoutez figures/sequence-diagram.png)}}
+}
+\caption{Diagramme de séquence de la confirmation en masse via fichier Excel}
+\label{fig:sequence}
+\end{figure}
+
+\section{Stratégie d'automatisation et Agent IA (SAP Joule)}\label{ch3:ia-joule}
+L'un des axes d'innovation majeurs de notre conception réside dans l'intégration de l'intelligence artificielle générative pour sublimer l'expérience utilisateur. L'objectif était de permettre au fournisseur d'interagir avec la masse de données ERP non plus via des menus complexes, mais par une simple conversation en langage naturel grâce à l'assistant natif \textbf{SAP Joule}.
+
+L'architecture conceptuelle de cette interaction est inspirée des systèmes RAG (\textit{Retrieval-Augmented Generation}). Lorsqu'un fournisseur interroge Joule (par exemple : "Montre-moi un résumé de mes commandes rejetées pour cause de retard ce trimestre"), le flux d'exécution ne se contente pas d'envoyer la phrase à une IA vide de sens. Le processus se divise en trois étapes d'ingénierie :
+\begin{enumerate}
+    \item \textbf{Extraction sémantique (Retrieval) :} L'application intercepte l'intention, l'associe au contexte de session actif (l'ID du fournisseur authentifié), et formule dynamiquement une requête vers nos services analytiques OData V2 pour récupérer les statistiques brutes du backend SAP.
+    \item \textbf{Injection du contexte (Augmentation) :} Ces statistiques brutes sont injectées de manière invisible dans un \textit{System Prompt} complexe, cadrant le rôle de l'IA et lui interdisant les hallucinations.
+    \item \textbf{Génération de la réponse (Generation) :} Le Large Language Model (LLM) de SAP Joule reçoit ce contexte pré-mâché, synthétise l'information sous un format lisible, compréhensible et emphatique, et la restitue au fournisseur dans l'interface de chat.
+\end{enumerate}
+Ce système "Agentique" modifie fondamentalement l'approche des ERP modernes, positionnant le système logiciel comme un véritable assistant proactif plutôt que comme un simple répertoire de données.
+
 \section{Conclusion}\label{ch3:conclusion}
+L'analyse méticuleuse et l'architecture détaillée établies au fil de ce chapitre constituent les fondations techniques indispensables à la viabilité du Portail Fournisseur. Le passage d'une problématique métier abstraite vers une conception système concrète a motivé des choix d'ingénierie décisifs : la responsabilisation des développeurs via le modèle \textit{Vertical Split}, l'utilisation incontournable du protocole OData V4 adossé au modèle SAP RAP pour assurer la sécurité transactionnelle, et l'implémentation audacieuse d'un bypass analytique (OData V2) garantissant la réactivité du moteur BICS pour le tableau de bord. 
+
+Ces architectures, couplées à l'intégration novatrice des mécanismes d'intelligence artificielle de SAP Joule, démontrent une maîtrise profonde des outils de transformation digitale au sein de l'écosystème S/4HANA. Cette conception robuste, documentée par nos modélisations UML, offre un cadre sécurisant pour aborder les chapitres suivants, lesquels se concentreront sur l'implémentation technique, le développement du code source, et la validation concrète de la solution métier.
 
 \chapter{Conception d\'etaill\'ee et architecture technique}\label{ch:archi-tech}
 \section{Introduction}\label{ch4:introduction}
@@ -1285,5 +1633,3 @@ Synth\`ese des r\'esultats obtenus et pistes d'\'evolution du projet.
 \end{thebibliography}
 
 \end{document}
-
-
