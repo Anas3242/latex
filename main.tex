@@ -36,9 +36,9 @@
 % Correction de la macro logobox
 \newcommand{\logobox}[2]{%
 	\IfFileExists{\detokenize{#1}}{%
-		\includegraphics[width=3.4cm]{\detokenize{#1}}%
+		\includegraphics[height=1.2cm]{\detokenize{#1}}%
 	}{%
-		\fbox{\parbox[c][1.9cm][c]{3.8cm}{\centering \small #2\\(ajoutez \detokenize{#1})}}%
+		\fbox{\parbox[c][1.2cm][c]{3.2cm}{\centering \small #2\\(ajoutez \detokenize{#1})}}%
 	}%
 }
 
@@ -48,13 +48,21 @@
 \begin{center}
 
 \noindent
-\begin{minipage}[t]{0.48\textwidth}
+\begin{minipage}[c]{0.48\textwidth}
 	\raggedright
-	\logobox{figures/Logo_INPT.png}{Logo INPT}
-\end{minipage}
-\begin{minipage}[t]{0.48\textwidth}
+	\IfFileExists{figures/Logo_INPT.png}{%
+		\includegraphics[height=1.6cm]{figures/Logo_INPT.png}%
+	}{%
+		\fbox{\parbox[c][1.6cm][c]{3.2cm}{\centering\small Logo INPT}}%
+	}
+\end{minipage}%
+\begin{minipage}[c]{0.48\textwidth}
 	\raggedleft
-	\logobox{figures/viseo-logo.png}{Logo VISEO}
+	\IfFileExists{figures/viseo-logo.png}{%
+		\includegraphics[width=3.8cm]{figures/viseo-logo.png}%
+	}{%
+		\fbox{\parbox[c][1.6cm][c]{3.8cm}{\centering\small Logo VISEO}}%
+	}
 \end{minipage}
 
 \vspace{1.35cm}
@@ -69,10 +77,11 @@
 
 \vspace{0.65cm}
 
-{\fontsize{21}{23}\selectfont\bfseries
-Mise en Place d'un Portail Fournisseur\\
-pour le Suivi des Commandes d'Achat\\
-sous SAP
+{\fontsize{18}{22}\selectfont\bfseries
+Mise en place d'un portail fournisseur\\
+pour le suivi et la confirmation\\
+des commandes d'achat sous SAP S/4HANA,\\
+enrichi par un agent conversationnel Joule
 }
 
 \vspace{0.65cm}
@@ -148,33 +157,57 @@ Mme. Sanaa Mouzaki & VISEO & - Encadrante \\
 \phantomsection
 \addcontentsline{toc}{chapter}{Nomenclature}
 \label{sec:nomenclature}
-\begin{tabular}{p{0.18\textwidth}p{0.72\textwidth}}
-ABAP & Advanced Business Application Programming \\
-ADT & ABAP Development Tools (Extensions pour Eclipse) \\
-ALP & Analytical List Page \\
-AMOA & Assistance à la Maîtrise d'Ouvrage \\
-API & Application Programming Interface \\
-BICS & Business Intelligence Consumer Services \\
-BTP & Business Technology Platform \\
-CDS & Core Data Services \\
-ERP & Enterprise Resource Planning \\
-FI/CO & Finance et Contrôle de Gestion \\
-IA & Intelligence Artificielle \\
-IDE & Integrated Development Environment \\
-JSON & JavaScript Object Notation \\
-KPI & Key Performance Indicator \\
-LLM & Large Language Model \\
-MM & Material Management (Gestion des Matériaux) \\
-OData & Open Data Protocol \\
-PO & Purchase Order (Commande d'achat) \\
-RAP & RESTful ABAP Programming Model \\
-S/4HANA & SAP Suite 4 HANA \\
-SaaS & Software as a Service \\
-SAPUI5 & SAP User Interface 5 \\
-SSO & Single Sign-On \\
-UX & User Experience (Expérience Utilisateur) \\
-VS Code & Visual Studio Code \\
+{\small
+\renewcommand{\arraystretch}{0.9}
+\begin{tabular}{p{0.20\textwidth}p{0.70\textwidth}}
+ABAP        & Advanced Business Application Programming \\
+ADR6        & Table SAP des adresses email (résolution destinataire) \\
+ADT         & ABAP Development Tools (extensions Eclipse) \\
+ALP         & Analytical List Page \\
+AMOA        & Assistance à la Maîtrise d'Ouvrage \\
+API         & Application Programming Interface \\
+ATC         & ABAP Test Cockpit \\
+BAPI        & Business Application Programming Interface \\
+BAS         & SAP Business Application Studio \\
+BDEF        & Behavior Definition (RAP) \\
+BIL         & Behavior Implementation Layer \\
+BO          & Business Object \\
+BTP         & Business Technology Platform \\
+CDS         & Core Data Services \\
+CSV         & Comma-Separated Values \\
+EML         & Entity Manipulation Language \\
+ERP         & Enterprise Resource Planning \\
+ESN         & Entreprise de Services du Numérique \\
+FI/CO       & Finance et Contrôle de Gestion \\
+FLP         & Fiori Launchpad \\
+IA          & Intelligence Artificielle \\
+IDE         & Integrated Development Environment \\
+INPT        & Institut National des Postes et Télécommunications \\
+JSON        & JavaScript Object Notation \\
+Joule       & Agent conversationnel IA de SAP \\
+KPI         & Key Performance Indicator \\
+LIFNR       & Numéro fournisseur (champ SAP) \\
+LLM         & Large Language Model \\
+MM          & Materials Management (Gestion des Matériaux) \\
+OData       & Open Data Protocol \\
+PDF         & Portable Document Format \\
+PFE         & Projet de Fin d'Études \\
+PO          & Purchase Order (Commande d'achat) \\
+RAP         & RESTful ABAP Programming Model \\
+S/4HANA     & SAP Suite 4 HANA \\
+SaaS        & Software as a Service \\
+SAPUI5      & SAP User Interface 5 \\
+SMTP        & Simple Mail Transfer Protocol \\
+SSO         & Single Sign-On \\
+TMA         & Tierce Maintenance Applicative \\
+TSV         & Tab-Separated Values \\
+UI          & User Interface (Interface Utilisateur) \\
+USR21       & Table SAP utilisateur / numéro d'adresse \\
+UX          & User Experience (Expérience Utilisateur) \\
+VDM         & Virtual Data Model \\
+VS Code     & Visual Studio Code \\
 \end{tabular}
+}
 
 \chapter*{Table des mati\`eres}
 \phantomsection
