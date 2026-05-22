@@ -161,10 +161,8 @@ Mme. Sanaa Mouzaki & VISEO & - Encadrante \\
 \renewcommand{\arraystretch}{0.9}
 \begin{tabular}{p{0.20\textwidth}p{0.70\textwidth}}
 ABAP        & Advanced Business Application Programming \\
-ADR6        & Table SAP des adresses email (résolution destinataire) \\
 ADT         & ABAP Development Tools (extensions Eclipse) \\
 ALP         & Analytical List Page \\
-AMOA        & Assistance à la Maîtrise d'Ouvrage \\
 API         & Application Programming Interface \\
 ATC         & ABAP Test Cockpit \\
 BAPI        & Business Application Programming Interface \\
@@ -174,15 +172,11 @@ BIL         & Behavior Implementation Layer \\
 BO          & Business Object \\
 BTP         & Business Technology Platform \\
 CDS         & Core Data Services \\
-CSV         & Comma-Separated Values \\
 EML         & Entity Manipulation Language \\
 ERP         & Enterprise Resource Planning \\
 ESN         & Entreprise de Services du Numérique \\
-FI/CO       & Finance et Contrôle de Gestion \\
 FLP         & Fiori Launchpad \\
-IA          & Intelligence Artificielle \\
 IDE         & Integrated Development Environment \\
-INPT        & Institut National des Postes et Télécommunications \\
 JSON        & JavaScript Object Notation \\
 Joule       & Agent conversationnel IA de SAP \\
 KPI         & Key Performance Indicator \\
@@ -190,17 +184,11 @@ LIFNR       & Numéro fournisseur (champ SAP) \\
 LLM         & Large Language Model \\
 MM          & Materials Management (Gestion des Matériaux) \\
 OData       & Open Data Protocol \\
-PDF         & Portable Document Format \\
-PFE         & Projet de Fin d'Études \\
 PO          & Purchase Order (Commande d'achat) \\
 RAP         & RESTful ABAP Programming Model \\
 S/4HANA     & SAP Suite 4 HANA \\
-SaaS        & Software as a Service \\
 SAPUI5      & SAP User Interface 5 \\
 SMTP        & Simple Mail Transfer Protocol \\
-SSO         & Single Sign-On \\
-TMA         & Tierce Maintenance Applicative \\
-TSV         & Tab-Separated Values \\
 UI          & User Interface (Interface Utilisateur) \\
 USR21       & Table SAP utilisateur / numéro d'adresse \\
 UX          & User Experience (Expérience Utilisateur) \\
@@ -227,8 +215,8 @@ VS Code     & Visual Studio Code \\
 \noindent\hspace*{2em}\hyperref[ch1:localisation]{1.2.4 Localisation et \'evolution} \dotfill \pageref*{ch1:localisation}\\
 \noindent\hspace*{2em}\hyperref[ch1:domaines]{1.2.5 Domaines d'expertise} \dotfill \pageref*{ch1:domaines}\\
 \noindent\hspace*{2em}\hyperref[ch1:chiffres]{1.2.6 Chiffres cl\'es} \dotfill \pageref*{ch1:chiffres}\\
-\noindent\hspace*{2em}\hyperref[ch1:filiale]{1.2.7 Filiale VI-ONE North Africa} \dotfill \pageref*{ch1:filiale}\\
-\noindent\hspace*{1em}\hyperref[ch1:organigramme]{1.3 Organigramme} \dotfill \pageref*{ch1:organigramme}\\
+\noindent\hspace*{2em}\hyperref[ch1:filiale]{1.2.7 Filiale Casablancaise : VI ONE NORTH AFRICA} \dotfill \pageref*{ch1:filiale}\\
+\noindent\hspace*{3em}\hyperref[ch1:organigramme]{1.2.7.1 Organigramme} \dotfill \pageref*{ch1:organigramme}\\
 \noindent\hspace*{1em}\hyperref[ch1:cahier]{1.4 Cahier des charges} \dotfill \pageref*{ch1:cahier}\\
 \noindent\hspace*{2em}\hyperref[ch1:problematique]{1.4.1 Probl\'ematique} \dotfill \pageref*{ch1:problematique}\\
 \noindent\hspace*{2em}\hyperref[ch1:objectifs]{1.4.2 Objectifs} \dotfill \pageref*{ch1:objectifs}\\
@@ -352,46 +340,42 @@ VS Code     & Visual Studio Code \\
 \setlength{\parindent}{1.2em}
 \setlength{\parskip}{0pt}
 
-Dans le contexte actuel de globalisation et de digitalisation rapide des echanges, les entreprises
-sont de plus en plus amenees a repenser leurs modes de collaboration avec leurs partenaires pour
-rester competitives. L'optimisation des relations fournisseurs represente aujourd'hui un enjeu stra-
-tegique majeur, tant sur le plan de la performance que sur celui de l'agilite des chaines logistiques.
+Dans un contexte de digitalisation croissante des échanges, l'optimisation de la relation
+fournisseur constitue un enjeu stratégique majeur pour les entreprises. Au sein des
+environnements \textbf{SAP S/4HANA}, le processus de confirmation des commandes d'achat
+souffre de plusieurs lacunes : saisie manuelle par les acheteurs, absence de traçabilité
+des rejets et aucun accès autonome pour les fournisseurs. C'est dans ce cadre que s'inscrit
+ce projet de fin d'études, réalisé au sein de \textit{VI-ONE North Africa (groupe VISEO)},
+en partenariat avec l'\textbf{INPT} de Rabat.
 
-Face a ces defis, la mise en place d'outils collaboratifs, tels que les \textbf{portails fournisseurs},
-devient essentielle. Ces plateformes permettent de centraliser les echanges d'informations, d'au-
-tomatiser les processus de suivi des commandes et de garantir une visibilite en temps reel aux
-differents acteurs impliques. C'est dans ce cadre que s'inscrit le projet decrit dans ce rapport,
-realise en collaboration avec la societe \textit{Vi-One North Africa, une filiale du groupe VISEO}, visant
-a concevoir et implementer un \textbf{Portail Fournisseur}.
+L'objectif est de concevoir un \textbf{Portail Fournisseur} sur SAP S/4HANA, fondé sur
+le framework \textbf{RAP} et les services \textbf{OData V4}, permettant aux fournisseurs
+de consulter leurs commandes, de les confirmer (unitairement ou en masse), de rejeter des
+postes avec motif traçable et de recevoir des notifications automatiques par email.
+Ce portail est enrichi d'un \textbf{agent conversationnel Joule} déployé sur \textbf{SAP BTP},
+permettant d'interagir avec ces fonctionnalités en langage naturel depuis le Fiori Launchpad.
 
-Ce projet de fin d'etudes, mene en partenariat avec l'Institut National des Postes et Tele-
-communications, s'inscrit dans une demarche d'innovation technologique orientee metier, alliant
-competences fonctionnelles et techniques pour repondre aux exigences de fluidite, de reactivite et
-de tracabilite dans la relation client-fournisseur.
+Ce rapport est structuré en cinq chapitres :
 
-Le present rapport retrace les differentes etapes de ce projet, organise en cinq parties :
-
-\begin{itemize}[label=---,itemsep=0.2em,topsep=0.2em]
-\item \textbf{Chapitre I : Contexte general du projet}
-
-Presentation de l'organisme d'accueil, l'environnement metier et technologique du projet.
-
-\item \textbf{Chapitre II : Etude et analyse de l'existant}
-
-Analyse approfondie des systemes ERP, focus sur SAP et le module MM pour la gestion des matieres.
-
-\item \textbf{Chapitre III : Etude et analyse de l'existant (Processus Cibles)}
-
-Analyse des processus actuels de gestion des commandes fournisseurs, identification des limites des methodes traditionnelles, et etude des besoins fonctionnels et non fonctionnels.
-
-\item \textbf{Chapitre IV : Analyse et conception de la solution}
-
-Conception fonctionnelle et technique du portail, choix des outils SAP (CDS, RAP, Fiori, etc.) et modelisation des flux de donnees.
-
-\item \textbf{Chapitre V : Developpement et realisation}
-
-Presentation des technologies utilisees, developpement du portail, demonstration des cas d'usage (confirmation, rejet, IA, analytique), tests et validation.
+\begin{itemize}[label=---,itemsep=0.15em,topsep=0.2em]
+\item \textbf{Chapitre 1 : Présentation de l'organisme d'accueil} ---
+Présentation de VISEO, VI-ONE North Africa, de l'INPT, du cadre du PFE,
+de la problématique et de la conduite du projet.
+\item \textbf{Chapitre 2 : État de l'art} ---
+Systèmes ERP, plateforme SAP et module MM, technologies mobilisées
+(RAP, CDS Views, OData V4, SAPUI5, SAP BTP et Joule).
+\item \textbf{Chapitre 3 : Étude et analyse de l'existant} ---
+Limites du processus actuel, analyse des solutions existantes
+et justification des choix technologiques.
+\item \textbf{Chapitre 4 : Analyse et conception} ---
+Besoins fonctionnels et non fonctionnels, modélisation UML,
+architecture en couches, maquettes et sécurité des données.
+\item \textbf{Chapitre 5 : Développement et réalisation} ---
+Backend RAP, frontend Fiori Elements, intégration au Fiori Launchpad
+et agent conversationnel Joule (skills, orchestration, exemples de conversations).
 \end{itemize}
+
+Ce rapport se conclut par un bilan des résultats obtenus et les perspectives d'évolution.
 
 \endgroup
 \chapter{Présentation de l’organisme d’accueil}\label{ch:contexte}
@@ -698,7 +682,7 @@ la p\'eriode r\'ecente.
 \label{fig:croissance-viseo}
 \end{figure}
 
-\subsection{Filiale VI-ONE North Africa}\label{ch1:filiale}
+\subsection{Filiale Casablancaise : VI ONE NORTH AFRICA}\label{ch1:filiale}
 
 Depuis 2004, le groupe VISEO op\`ere au Maroc \`a travers sa filiale casablancaise,
 \textbf{Vi-One North Africa}. Ce centre de services \textit{Nearshore} accompagne une
@@ -769,13 +753,21 @@ sa cr\'eation.
 \label{fig:collab-vione}
 \end{figure}
 
-\section{Organigramme}\label{ch1:organigramme}
+\subsubsection{Organigramme}\label{ch1:organigramme}
 
 L'organigramme de Vi-One North Africa refl\`ete une structure organisationnelle claire
 et hi\'erarchis\'ee, con\c{c}ue pour assurer une coordination efficace entre les
 diff\'erentes \'equipes et garantir la qualit\'e des prestations livr\'ees aux clients.
 Chaque p\^ole dispose d'une responsabilit\'e bien d\'efinie, favorisant la sp\'ecialisation
 et la r\'eactivit\'e face aux exigences des projets.
+
+La filiale s'organise autour de plusieurs directions compl\'ementaires. La \textbf{Direction
+G\'en\'erale} pilote la strat\'egie globale et assure la coordination avec le groupe VISEO.
+Sous sa supervision, la \textbf{Direction Technique SAP} regroupe les consultants fonctionnels
+et les d\'eveloppeurs ABAP charg\'es des projets d'int\'egration ERP. La \textbf{Direction
+des Op\'erations} g\`ere les contrats de TMA et veille au respect des SLA clients.
+Enfin, les fonctions support --- ressources humaines, finance et infrastructure IT ---
+assurent le bon fonctionnement interne de la structure.
 
 \begin{figure}[H]
 \centering
