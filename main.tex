@@ -14,7 +14,7 @@
 \usepackage{textcomp}
 \usepackage{booktabs}
 \usepackage{tabularx}
-\usepackage{microtype} % Résout les problèmes de texte qui dépasse des marges (Overfull \hbox)
+\usepackage{microtype} 
 
 % Configure enumitem
 \setlist{nosep}
@@ -33,12 +33,12 @@
 \setlength{\parindent}{1.2em}
 \setlength{\parskip}{0pt}
 
-% Correction de la macro logobox (ajout de \detokenize dans le fallback pour éviter l'erreur "Missing $")
+% Correction de la macro logobox
 \newcommand{\logobox}[2]{%
 	\IfFileExists{\detokenize{#1}}{%
-		\includegraphics[height=1.7cm]{\detokenize{#1}}%
+		\includegraphics[width=3.4cm]{\detokenize{#1}}%
 	}{%
-		\fbox{\parbox[c][2.0cm][c]{3.8cm}{\centering \small #2\\(ajoutez \detokenize{#1})}}%
+		\fbox{\parbox[c][1.9cm][c]{3.8cm}{\centering \small #2\\(ajoutez \detokenize{#1})}}%
 	}%
 }
 
@@ -48,21 +48,13 @@
 \begin{center}
 
 \noindent
-\begin{minipage}[c]{0.48\textwidth}
+\begin{minipage}[t]{0.48\textwidth}
 	\raggedright
-	\IfFileExists{figures/Logo_INPT.png}{%
-		\includegraphics[height=1.6cm]{figures/Logo_INPT.png}%
-	}{%
-		\fbox{\parbox[c][1.6cm][c]{3.2cm}{\centering\small Logo INPT}}%
-	}
-\end{minipage}%
-\begin{minipage}[c]{0.48\textwidth}
+	\logobox{figures/Logo_INPT.png}{Logo INPT}
+\end{minipage}
+\begin{minipage}[t]{0.48\textwidth}
 	\raggedleft
-	\IfFileExists{figures/viseo-logo.png}{%
-		\includegraphics[width=3.8cm]{figures/viseo-logo.png}%
-	}{%
-		\fbox{\parbox[c][1.6cm][c]{3.8cm}{\centering\small Logo VISEO}}%
-	}
+	\logobox{figures/viseo-logo.png}{Logo VISEO}
 \end{minipage}
 
 \vspace{1.35cm}
@@ -78,9 +70,9 @@
 \vspace{0.65cm}
 
 {\fontsize{21}{23}\selectfont\bfseries
-Modernisation des processus d'achat :\\[0.2cm]
-Impl\'ementation d'une solution Fiori RAP\\[0.2cm]
-avec Agent IA conversationnel sous SAP BTP
+Mise en Place d'un Portail Fournisseur\\
+pour le Suivi des Commandes d'Achat\\
+sous SAP
 }
 
 \vspace{0.65cm}
@@ -95,8 +87,12 @@ avec Agent IA conversationnel sous SAP BTP
 
 \vspace{0.45cm}
 
+
+
 \renewcommand{\arraystretch}{1.45}
 \begin{tabular}{>{\raggedright\arraybackslash}p{0.48\textwidth} >{\centering\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth}}
+
+
 M. Abdellah ZAOUIA & INPT & - Encadrant \\
 Mme. Sanaa Mouzaki & VISEO & - Encadrante \\
 \end{tabular}
@@ -154,45 +150,31 @@ Mme. Sanaa Mouzaki & VISEO & - Encadrante \\
 \label{sec:nomenclature}
 \begin{tabular}{p{0.18\textwidth}p{0.72\textwidth}}
 ABAP & Advanced Business Application Programming \\
+ADT & ABAP Development Tools (Extensions pour Eclipse) \\
 ALP & Analytical List Page \\
 AMOA & Assistance à la Maîtrise d'Ouvrage \\
 API & Application Programming Interface \\
 BICS & Business Intelligence Consumer Services \\
 BTP & Business Technology Platform \\
 CDS & Core Data Services \\
-CRM & Customer Relationship Management \\
 ERP & Enterprise Resource Planning \\
 FI/CO & Finance et Contrôle de Gestion \\
-FIFO & First In First Out \\
-GR & Goods Receipt (Réception de marchandises) \\
-HR & Human Resources (Ressources Humaines) \\
 IA & Intelligence Artificielle \\
+IDE & Integrated Development Environment \\
 JSON & JavaScript Object Notation \\
 KPI & Key Performance Indicator \\
-LIFO & Last In First Out \\
 LLM & Large Language Model \\
 MM & Material Management (Gestion des Matériaux) \\
 OData & Open Data Protocol \\
-PGI & Progiciel de Gestion Intégré \\
 PO & Purchase Order (Commande d'achat) \\
-PP & Production Planning (Planification de la Production) \\
-PS & Project Systems (Systèmes de Projets) \\
-QM & Quality Management (Gestion de Qualité) \\
-RAG & Retrieval-Augmented Generation \\
-RAP & RESTful Application Programming \\
-RFQ & Request for Quotation (Demande de Devis) \\
-RGPD & Règlement Général sur la Protection des Données \\
-ROI & Return on Investment (Retour sur Investissement) \\
+RAP & RESTful ABAP Programming Model \\
 S/4HANA & SAP Suite 4 HANA \\
 SaaS & Software as a Service \\
 SAPUI5 & SAP User Interface 5 \\
-SD & Sales and Distribution (Ventes et Distribution) \\
-SLA & Service Level Agreement \\
 SSO & Single Sign-On \\
-UI & User Interface (Interface Utilisateur) \\
 UX & User Experience (Expérience Utilisateur) \\
+VS Code & Visual Studio Code \\
 \end{tabular}
-}
 
 \chapter*{Table des mati\`eres}
 \phantomsection
@@ -212,16 +194,16 @@ UX & User Experience (Expérience Utilisateur) \\
 \noindent\hspace*{2em}\hyperref[ch1:localisation]{1.2.4 Localisation et \'evolution} \dotfill \pageref*{ch1:localisation}\\
 \noindent\hspace*{2em}\hyperref[ch1:domaines]{1.2.5 Domaines d'expertise} \dotfill \pageref*{ch1:domaines}\\
 \noindent\hspace*{2em}\hyperref[ch1:chiffres]{1.2.6 Chiffres cl\'es} \dotfill \pageref*{ch1:chiffres}\\
-\noindent\hspace*{2em}\hyperref[ch1:filiale]{1.2.7 Filiale Casablancaise : VI ONE NORTH AFRICA} \dotfill \pageref*{ch1:filiale}\\
-\noindent\hspace*{3em}\hyperref[ch1:organigramme]{1.2.7.1 Organigramme} \dotfill \pageref*{ch1:organigramme}\\
-\noindent\hspace*{1em}\hyperref[ch1:cahier]{1.3 Cahier des charges} \dotfill \pageref*{ch1:cahier}\\
-\noindent\hspace*{2em}\hyperref[ch1:problematique]{1.3.1 Probl\'ematique} \dotfill \pageref*{ch1:problematique}\\
-\noindent\hspace*{2em}\hyperref[ch1:objectifs]{1.3.2 Objectifs} \dotfill \pageref*{ch1:objectifs}\\
-\noindent\hspace*{2em}\hyperref[ch1:perimetre]{1.3.3 P\'erim\`etre} \dotfill \pageref*{ch1:perimetre}\\
-\noindent\hspace*{1em}\hyperref[ch1:gestion]{1.4 Gestion du projet} \dotfill \pageref*{ch1:gestion}\\
-\noindent\hspace*{2em}\hyperref[ch1:methodologie]{1.4.1 M\'ethodologie adopt\'ee} \dotfill \pageref*{ch1:methodologie}\\
-\noindent\hspace*{2em}\hyperref[ch1:planification]{1.4.2 Planification} \dotfill \pageref*{ch1:planification}\\
-\noindent\hspace*{1em}\hyperref[ch1:conclusion]{1.5 Conclusion} \dotfill \pageref*{ch1:conclusion}\\
+\noindent\hspace*{2em}\hyperref[ch1:filiale]{1.2.7 Filiale VI-ONE North Africa} \dotfill \pageref*{ch1:filiale}\\
+\noindent\hspace*{1em}\hyperref[ch1:organigramme]{1.3 Organigramme} \dotfill \pageref*{ch1:organigramme}\\
+\noindent\hspace*{1em}\hyperref[ch1:cahier]{1.4 Cahier des charges} \dotfill \pageref*{ch1:cahier}\\
+\noindent\hspace*{2em}\hyperref[ch1:problematique]{1.4.1 Probl\'ematique} \dotfill \pageref*{ch1:problematique}\\
+\noindent\hspace*{2em}\hyperref[ch1:objectifs]{1.4.2 Objectifs} \dotfill \pageref*{ch1:objectifs}\\
+\noindent\hspace*{2em}\hyperref[ch1:perimetre]{1.4.3 P\'erim\`etre} \dotfill \pageref*{ch1:perimetre}\\
+\noindent\hspace*{1em}\hyperref[ch1:gestion]{1.5 Gestion du projet} \dotfill \pageref*{ch1:gestion}\\
+\noindent\hspace*{2em}\hyperref[ch1:methodologie]{1.5.1 M\'ethodologie adopt\'ee} \dotfill \pageref*{ch1:methodologie}\\
+\noindent\hspace*{2em}\hyperref[ch1:planification]{1.5.2 Planification} \dotfill \pageref*{ch1:planification}\\
+\noindent\hspace*{1em}\hyperref[ch1:conclusion]{1.6 Conclusion} \dotfill \pageref*{ch1:conclusion}\\
 \noindent\hyperref[ch:existant]{Chapitre 2 : \'Etude et analyse de l'existant} \dotfill \pageref*{ch:existant}\\
 \noindent\hspace*{1em}\hyperref[ch2:introduction]{2.1 Introduction} \dotfill \pageref*{ch2:introduction}\\
 \noindent\hspace*{1em}\hyperref[ch2:erp]{2.2 Les syst\'emes ERP : concepts et r\'ole strat\'egique} \dotfill \pageref*{ch2:erp}\\
@@ -306,17 +288,18 @@ UX & User Experience (Expérience Utilisateur) \\
 \noindent\hspace*{1em}\hyperref[ch4:conclusion]{4.8 Conclusion} \dotfill \pageref*{ch4:conclusion}\\
 \noindent\hyperref[ch:dev-real]{Chapitre 5 : D\'eveloppement et r\'ealisation} \dotfill \pageref*{ch:dev-real}\\
 \noindent\hspace*{1em}\hyperref[ch5:introduction]{5.1 Introduction} \dotfill \pageref*{ch5:introduction}\\
-\noindent\hspace*{1em}\hyperref[ch5:env]{5.2 Environnement de d\'eveloppement} \dotfill \pageref*{ch5:env}\\
-\noindent\hspace*{1em}\hyperref[ch5:implementation]{5.3 Impl\'ementation} \dotfill \pageref*{ch5:implementation}\\
-\noindent\hspace*{2em}\hyperref[ch5:auth]{5.3.1 Authentification} \dotfill \pageref*{ch5:auth}\\
-\noindent\hspace*{2em}\hyperref[ch5:consult]{5.3.2 Application de consultation} \dotfill \pageref*{ch5:consult}\\
-\noindent\hspace*{2em}\hyperref[ch5:conf-rejet]{5.3.3 Application de confirmation/rejet} \dotfill \pageref*{ch5:conf-rejet}\\
-\noindent\hspace*{2em}\hyperref[ch5:masse]{5.3.4 Confirmation en masse} \dotfill \pageref*{ch5:masse}\\
-\noindent\hspace*{1em}\hyperref[ch5:reporting]{5.4 Volet reporting} \dotfill \pageref*{ch5:reporting}\\
-\noindent\hspace*{2em}\hyperref[ch5:etl]{5.4.1 Cha\^ine ETL et entrep\^ot de donn\'ees} \dotfill \pageref*{ch5:etl}\\
-\noindent\hspace*{2em}\hyperref[ch5:pbi]{5.4.2 Tableaux de bord Power BI} \dotfill \pageref*{ch5:pbi}\\
-\noindent\hspace*{1em}\hyperref[ch5:tests]{5.5 Tests et validation} \dotfill \pageref*{ch5:tests}\\
-\noindent\hspace*{1em}\hyperref[ch5:conclusion]{5.6 Conclusion} \dotfill \pageref*{ch5:conclusion}\\
+\noindent\hspace*{1em}\hyperref[ch5:tech]{5.2 Technologies et outils utilis\'es} \dotfill \pageref*{ch5:tech}\\
+\noindent\hspace*{1em}\hyperref[ch5:implementation]{5.3 Impl\'ementation et d\'emonstration de la solution} \dotfill \pageref*{ch5:implementation}\\
+\noindent\hspace*{2em}\hyperref[ch5:voir-po]{5.3.1 Visualisation des commandes (Voir les PO)} \dotfill \pageref*{ch5:voir-po}\\
+\noindent\hspace*{2em}\hyperref[ch5:confirmer]{5.3.2 Confirmation unitaire des postes (Confirmer)} \dotfill \pageref*{ch5:confirmer}\\
+\noindent\hspace*{2em}\hyperref[ch5:rejeter]{5.3.3 Rejet des postes avec motif (Rejeter)} \dotfill \pageref*{ch5:rejeter}\\
+\noindent\hspace*{2em}\hyperref[ch5:replanifier]{5.3.4 Replanification des dates de livraison (Replanifier)} \dotfill \pageref*{ch5:replanifier}\\
+\noindent\hspace*{2em}\hyperref[ch5:masse]{5.3.5 Confirmation en masse via Excel} \dotfill \pageref*{ch5:masse}\\
+\noindent\hspace*{2em}\hyperref[ch5:imprimer]{5.3.6 Impression des bons de commande (Imprimer)} \dotfill \pageref*{ch5:imprimer}\\
+\noindent\hspace*{2em}\hyperref[ch5:ia]{5.3.7 Automatisation conversationnelle (Agent IA Joule)} \dotfill \pageref*{ch5:ia}\\
+\noindent\hspace*{2em}\hyperref[ch5:dashboard]{5.3.8 Pilotage analytique et KPI (Consulter les graphiques)} \dotfill \pageref*{ch5:dashboard}\\
+\noindent\hspace*{1em}\hyperref[ch5:tests]{5.4 Tests et validation} \dotfill \pageref*{ch5:tests}\\
+\noindent\hspace*{1em}\hyperref[ch5:conclusion]{5.5 Conclusion} \dotfill \pageref*{ch5:conclusion}\\
 \noindent\hyperref[ch:conclusion]{Conclusion g\'en\'erale et perspectives} \dotfill \pageref*{ch:conclusion}\\
 \noindent\hyperref[ch:references]{R\'ef\'erences} \dotfill \pageref*{ch:references}
 
@@ -353,28 +336,29 @@ communications, s'inscrit dans une demarche d'innovation technologique orientee 
 competences fonctionnelles et techniques pour repondre aux exigences de fluidite, de reactivite et
 de tracabilite dans la relation client-fournisseur.
 
-Le present rapport retrace les differentes etapes de ce projet, organise en quatre parties :
+Le present rapport retrace les differentes etapes de ce projet, organise en cinq parties :
 
 \begin{itemize}[label=---,itemsep=0.2em,topsep=0.2em]
 \item \textbf{Chapitre I : Contexte general du projet}
 
-Presentation de l'environnement metier et technologique du projet.
+Presentation de l'organisme d'accueil, l'environnement metier et technologique du projet.
 
 \item \textbf{Chapitre II : Etude et analyse de l'existant}
 
-Analyse des processus actuels de gestion des commandes fournisseurs, identification des
-limites des methodes traditionnelles.
+Analyse approfondie des systemes ERP, focus sur SAP et le module MM pour la gestion des matieres.
 
-\item \textbf{Chapitre III : Analyse et conception de la solution}
+\item \textbf{Chapitre III : Etude et analyse de l'existant (Processus Cibles)}
 
-Conception fonctionnelle et technique du portail, choix des outils SAP (CDS, RAP, Fiori,
-etc.) et modelisation des flux de donnees.
+Analyse des processus actuels de gestion des commandes fournisseurs, identification des limites des methodes traditionnelles, et etude des besoins fonctionnels et non fonctionnels.
 
-\item \textbf{Chapitre IV : Developpement et realisation}
+\item \textbf{Chapitre IV : Analyse et conception de la solution}
 
-Developpement du portail, tests, validation et presentation des resultats obtenus.
+Conception fonctionnelle et technique du portail, choix des outils SAP (CDS, RAP, Fiori, etc.) et modelisation des flux de donnees.
+
+\item \textbf{Chapitre V : Developpement et realisation}
+
+Presentation des technologies utilisees, developpement du portail, demonstration des cas d'usage (confirmation, rejet, IA, analytique), tests et validation.
 \end{itemize}
-
 
 \endgroup
 \chapter{Présentation de l’organisme d’accueil}\label{ch:contexte}
@@ -661,6 +645,7 @@ la p\'eriode r\'ecente.
 }{%
   \fbox{\parbox[c][3.5cm][c]{\linewidth}{\centering \small \'Evolution du chiffre d'affaires\\(ajoutez figures/Chiffre d'affaires.jpg)}}%
 }
+
 \vspace{0.2cm}
 {\small\textit{(a) \'Evolution du chiffre d'affaires (M€)}}
 \end{minipage}
@@ -672,6 +657,7 @@ la p\'eriode r\'ecente.
 }{%
   \fbox{\parbox[c][3.5cm][c]{\linewidth}{\centering \small \'Evolution des effectifs\\(ajoutez figures/Evolutions du nombre de collaborateurs.jpg)}}%
 }
+
 \vspace{0.2cm}
 {\small\textit{(b) \'Evolution du nombre de collaborateurs}}
 \end{minipage}
@@ -679,7 +665,7 @@ la p\'eriode r\'ecente.
 \label{fig:croissance-viseo}
 \end{figure}
 
-\subsection{Filiale Casablancaise : VI ONE NORTH AFRICA}\label{ch1:filiale}
+\subsection{Filiale VI-ONE North Africa}\label{ch1:filiale}
 
 Depuis 2004, le groupe VISEO op\`ere au Maroc \`a travers sa filiale casablancaise,
 \textbf{Vi-One North Africa}. Ce centre de services \textit{Nearshore} accompagne une
@@ -750,7 +736,7 @@ sa cr\'eation.
 \label{fig:collab-vione}
 \end{figure}
 
-\subsubsection{Organigramme}\label{ch1:organigramme}
+\section{Organigramme}\label{ch1:organigramme}
 
 L'organigramme de Vi-One North Africa refl\`ete une structure organisationnelle claire
 et hi\'erarchis\'ee, con\c{c}ue pour assurer une coordination efficace entre les
@@ -758,7 +744,7 @@ diff\'erentes \'equipes et garantir la qualit\'e des prestations livr\'ees aux c
 Chaque p\^ole dispose d'une responsabilit\'e bien d\'efinie, favorisant la sp\'ecialisation
 et la r\'eactivit\'e face aux exigences des projets.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \IfFileExists{figures/organigramme-vione.jpg}{%
   \includegraphics[width=0.92\textwidth]{figures/organigramme-vione.jpg}
@@ -1486,7 +1472,16 @@ La confirmation des lignes de commande (partielle ou totale) nécessite aujourd'
   \item Des retards dans la mise à jour des délais de livraison.
 \end{itemize}
 
-
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/fig3-1-confirmations-sap.png}{%
+  \includegraphics[width=0.8\textwidth]{figures/fig3-1-confirmations-sap.png}
+}{%
+  \fbox{\parbox[c][5cm][c]{0.8\linewidth}{\centering \small Confirmations dans le syst\`eme SAP Standard\\(ajoutez figures/fig3-1-confirmations-sap.png)}}
+}
+\caption{Confirmations dans le syst\`eme SAP Standard}
+\label{fig:ch3-1}
+\end{figure}
 
 \subsection{Absence de traitement en masse via fichiers}\label{ch3:masse}
 
@@ -1502,7 +1497,16 @@ Il n'existe pas de mécanisme intégré permettant au fournisseur de rejeter cer
   \item La communication fluide entre les deux parties.
 \end{itemize}
 
-
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/fig3-2-rejet-sap.png}{%
+  \includegraphics[width=0.8\textwidth]{figures/fig3-2-rejet-sap.png}
+}{%
+  \fbox{\parbox[c][5cm][c]{0.8\linewidth}{\centering \small Rejet dans le syst\`eme SAP Standard\\(ajoutez figures/fig3-2-rejet-sap.png)}}
+}
+\caption{Rejet dans le syst\`eme SAP Standard}
+\label{fig:ch3-2}
+\end{figure}
 
 \subsection{Replanification des dates de livraison non gérée par le fournisseur}\label{ch3:replanification}
 
@@ -1580,7 +1584,16 @@ Afin de remédier aux limitations identifiées dans le système actuel, la solut
 
 Ce portail a pour objectif de digitaliser, automatiser et centraliser les échanges liés aux confirmations de commandes d'achat, en mettant à disposition des fournisseurs une interface sécurisée, intuitive et conforme aux standards SAP. Il permettra un gain de temps, une réduction des erreurs, ainsi qu'une traçabilité complète des interactions.
 
-
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/fig3-3-structure-solution.png}{%
+  \includegraphics[width=0.8\textwidth]{figures/fig3-3-structure-solution.png}
+}{%
+  \fbox{\parbox[c][5cm][c]{0.8\linewidth}{\centering \small Structure de la solution\\(ajoutez figures/fig3-3-structure-solution.png)}}
+}
+\caption{Structure de la solution}
+\label{fig:ch3-3}
+\end{figure}
 
 \subsection{Rapport de confirmation des commandes d'achat}\label{ch3:rapport}
 
@@ -1760,24 +1773,243 @@ L'analyse méticuleuse et l'architecture détaillée établies au fil de ce chap
 
 Ces architectures, couplées à l'intégration novatrice des mécanismes d'intelligence artificielle de SAP Joule, démontrent une maîtrise profonde des outils de transformation digitale au sein de l'écosystème S/4HANA. Cette conception robuste, documentée par nos modélisations UML, offre un cadre sécurisant pour aborder les chapitres suivants, lesquels se concentreront sur l'implémentation technique, le développement du code source, et la validation concrète de la solution métier.
 
-\chapter{Conception d\'etaill\'ee et architecture technique}\label{ch:archi-tech}
-\section{Introduction}\label{ch4:introduction}
-\section{Architecture globale de la solution}\label{ch4:architecture}
-\section{Mod\'elisation CDS}\label{ch4:cds}
-\section{Services OData et logique m\'etier}\label{ch4:odata-logique}
-\section{Conclusion}\label{ch4:conclusion}
-
 \chapter{D\'eveloppement et r\'ealisation}\label{ch:dev-real}
 \section{Introduction}\label{ch5:introduction}
-\section{Environnement de d\'eveloppement}\label{ch5:env}
-\section{Impl\'ementation}\label{ch5:implementation}
-\subsection{Authentification}\label{ch5:auth}
-\subsection{Application de consultation}\label{ch5:consult}
-\subsection{Application de confirmation/rejet}\label{ch5:conf-rejet}
-\subsection{Confirmation en masse}\label{ch5:masse}
-\section{Volet reporting}\label{ch5:reporting}
-\subsection{Cha\^ine ETL et entrep\^ot de donn\'ees}\label{ch5:etl}
-\subsection{Tableaux de bord Power BI}\label{ch5:pbi}
+Ce chapitre est consacré à la concrétisation des concepts architecturaux définis précédemment. Nous y aborderons la phase de développement et de réalisation du Portail Fournisseur. Dans un premier temps, nous exposerons la pile technologique et l'environnement de développement mis en place pour soutenir la création d'une application SAP de nouvelle génération. Ensuite, nous procéderons à une démonstration détaillée des différentes fonctionnalités développées — de la consultation des commandes à l'intégration de l'Intelligence Artificielle en passant par le traitement en masse —, en illustrant chaque scénario métier par les interfaces résultantes. Enfin, nous aborderons la phase de tests garantissant la robustesse et la fiabilité de la solution.
+
+\section{Technologies et outils utilis\'es}\label{ch5:tech}
+La réalisation de ce projet s'est appuyée sur une suite d'outils et de technologies modernes fournis par l'écosystème SAP et les standards du développement logiciel.
+
+\begin{itemize}[label=\textbullet, itemsep=0.3em]
+    \item \textbf{SAP S/4HANA :} L'ERP de dernière génération de SAP, servant de backend transactionnel (gestion des achats via les tables EKKO/EKPO) et exploitant la puissance in-memory de la base de données SAP HANA.
+    
+    \begin{center}
+    \IfFileExists{figures/sap-logo.png}{%
+        \includegraphics[height=1.5cm]{figures/sap-logo.png}
+    }{%
+        \fbox{\parbox[c][1.5cm][c]{4cm}{\centering \small Logo SAP\\(ajoutez figures/sap-logo.png)}}
+    }
+    \end{center}
+
+    \item \textbf{ABAP RAP \& CDS :} Le modèle de programmation \textit{RESTful ABAP Programming} a été utilisé conjointement avec les \textit{Core Data Services} (CDS) pour définir le modèle de données, le comportement transactionnel et exposer les services web de manière sécurisée.
+    
+    \begin{center}
+    \IfFileExists{figures/logo-rap-cds.jpg}{%
+        \includegraphics[height=1.5cm]{figures/logo-rap-cds.jpg}
+    }{%
+        \fbox{\parbox[c][1.5cm][c]{4cm}{\centering \small Logo RAP/CDS\\(ajoutez figures/logo-rap-cds.jpg)}}
+    }
+    \end{center}
+
+    \item \textbf{OData Protocol (V2/V4) :} Le standard ouvert pour la création et la consommation d'API RESTful. La version 4 a été utilisée pour les opérations transactionnelles intensives, et la version 2 pour l'analytique.
+    
+    \begin{center}
+    \IfFileExists{figures/logo-odata.png}{%
+        \includegraphics[height=1.5cm]{figures/logo-odata.png}
+    }{%
+        \fbox{\parbox[c][1.5cm][c]{4cm}{\centering \small Logo OData\\(ajoutez figures/logo-odata.png)}}
+    }
+    \end{center}
+
+    \item \textbf{SAP Fiori \& SAPUI5 :} Fiori Elements a été choisi pour assurer une expérience utilisateur cohérente, moderne et responsive, s'appuyant sur le framework JavaScript SAPUI5 pour les personnalisations spécifiques de l'interface.
+    
+    \begin{center}
+    \IfFileExists{figures/logo-fiori-ui5.png}{%
+        \includegraphics[height=1.5cm]{figures/logo-fiori-ui5.png}
+    }{%
+        \fbox{\parbox[c][1.5cm][c]{4cm}{\centering \small Logo Fiori/UI5\\(ajoutez figures/logo-fiori-ui5.png)}}
+    }
+    \end{center}
+
+    \item \textbf{SAP BTP \& SAP Joule :} La \textit{Business Technology Platform} a été mobilisée pour orchestrer l'intégration Cloud, hébergeant notamment les environnements de "Skills" et d'actions pour le moteur d'Intelligence Artificielle générative SAP Joule.
+    
+    \begin{center}
+    \IfFileExists{figures/logo-btp-joule.png}{%
+        \includegraphics[height=1.5cm]{figures/logo-btp-joule.png}
+    }{%
+        \fbox{\parbox[c][1.5cm][c]{4cm}{\centering \small Logo BTP/Joule\\(ajoutez figures/logo-btp-joule.png)}}
+    }
+    \end{center}
+
+    \item \textbf{Environnements de Développement Intégrés (IDE) :} Les développements backend (ABAP/CDS) ont été réalisés sous \textbf{Eclipse} avec les plugins ADT (ABAP Development Tools), tandis que les développements front-end (SAPUI5/JavaScript) et Node.js ont été orchestrés via \textbf{Visual Studio Code}.
+    
+    \begin{center}
+    \IfFileExists{figures/logo-ide.png}{%
+        \includegraphics[height=1.5cm]{figures/logo-ide.png}
+    }{%
+        \fbox{\parbox[c][1.5cm][c]{5cm}{\centering \small Logos Eclipse / VS Code\\(ajoutez figures/logo-ide.png)}}
+    }
+    \end{center}
+
+\end{itemize}
+
+\section{Impl\'ementation et d\'emonstration de la solution}\label{ch5:implementation}
+Cette section présente le fonctionnement de l'application aboutie à travers les différents scénarios d'utilisation conçus lors de la phase de modélisation.
+
+\subsection{Visualisation des commandes (Voir les PO)}\label{ch5:voir-po}
+L'écran principal de l'application est un rapport dynamique de type \textit{List Report} (Fiori Elements). Dès sa connexion, le fournisseur est identifié et le système filtre automatiquement les données via le \textit{Data Control Language} (DCL) pour ne lui afficher que ses propres commandes d'achat. L'interface offre des colonnes personnalisables, des filtres de recherche multi-critères, et permet d'accéder au détail d'une commande (Object Page) pour visualiser la liste des postes (lignes d'articles).
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-voir-po.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-voir-po.png}
+}{%
+    \fbox{\parbox[c][6cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Affichage des commandes (List Report)\\ (ajoutez figures/demo-voir-po.png)}}
+}
+\caption{Interface principale : Visualisation et filtrage des commandes d'achat}
+\label{fig:demo-voir-po}
+\end{figure}
+
+\subsection{Confirmation unitaire des postes (Confirmer)}\label{ch5:confirmer}
+Le processus de confirmation permet au fournisseur d'accepter contractuellement une commande. La figure~\ref{fig:demo-confirmer-action} illustre la sélection des lignes concernées dans l'interface et le déclenchement de l'action métier. Le backend procède à la validation des données et effectue un \textit{MODIFY ENTITIES} asynchrone pour mettre à jour les tables standards (EKES) et le statut de la commande. 
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-confirmer-action.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-confirmer-action.png}
+}{%
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Action de confirmation unitaire (Sélection)\\ (ajoutez figures/demo-confirmer-action.png)}}
+}
+\caption{Sélection et exécution de la confirmation unitaire des postes}
+\label{fig:demo-confirmer-action}
+\end{figure}
+
+Une fois l'opération validée par le backend, l'interface reflète ce changement immédiatement. Comme présenté dans la figure~\ref{fig:demo-confirmer-succes}, un message de confirmation est retourné à l'utilisateur et le statut visuel des lignes est mis à jour.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-confirmer-succes.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-confirmer-succes.png}
+}{%
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Résultat de la confirmation (Succès)\\ (ajoutez figures/demo-confirmer-succes.png)}}
+}
+\caption{Validation réussie et mise à jour du statut de la commande}
+\label{fig:demo-confirmer-succes}
+\end{figure}
+
+\subsection{Rejet des postes avec motif (Rejeter)}\label{ch5:rejeter}
+Lorsqu'un fournisseur n'est pas en mesure d'honorer une ligne de commande (rupture de stock, erreur de prix, etc.), il peut utiliser la fonctionnalité de rejet. L'application affiche alors une boîte de dialogue (illustrée par la figure~\ref{fig:demo-rejeter-action}) contraignant le fournisseur à sélectionner un motif de rejet parmi une liste standardisée et à fournir un commentaire textuel. 
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-rejeter-action.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-rejeter-action.png}
+}{%
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Sélection du motif et saisie du commentaire\\ (ajoutez figures/demo-rejeter-action.png)}}
+}
+\caption{Interface de saisie du motif et justification du rejet}
+\label{fig:demo-rejeter-action}
+\end{figure}
+
+Ces informations sont tracées dans notre table spécifique (Z). Dès validation, le statut de la ligne passe en "Rejeté", alertant l'acheteur concerné. La figure~\ref{fig:demo-rejeter-succes} montre l'actualisation de l'interface attestant de la prise en compte du rejet.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-rejeter-succes.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-rejeter-succes.png}
+}{%
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Statut Rejeté mis à jour\\ (ajoutez figures/demo-rejeter-succes.png)}}
+}
+\caption{Prise en compte du rejet et traçabilité dans l'application}
+\label{fig:demo-rejeter-succes}
+\end{figure}
+
+\subsection{Replanification des dates de livraison (Replanifier)}\label{ch5:replanifier}
+L'agilité logistique nécessite de pouvoir ajuster les échéances. Le portail intègre une fonctionnalité de replanification permettant au fournisseur de proposer une nouvelle date de livraison si la date initiale exigée n'est pas réalisable. Cette modification génère un nouvel échéancier au niveau de la commande dans SAP, garantissant que les prévisions de stock de l'entreprise sont basées sur des données fiables et actualisées.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-replanifier.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-replanifier.png}
+}{%
+    \fbox{\parbox[c][6cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Replanification de date\\ (ajoutez figures/demo-replanifier.png)}}
+}
+\caption{Modification interactive de la date de livraison prévue}
+\label{fig:demo-replanifier}
+\end{figure}
+
+\subsection{Confirmation en masse via Excel}\label{ch5:masse}
+Pour répondre aux contraintes de volume, nous avons développé une interface spécifique d'upload Excel. Le fournisseur télécharge le modèle, le renseigne, puis l'importe via un contrôle Fiori, comme démontré dans la figure~\ref{fig:demo-masse-action}. Le fichier est parsé en JavaScript, converti en format JSON et envoyé en un seul appel OData V4 au backend.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-masse-action.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-masse-action.png}
+}{%
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Importation du fichier Excel\\ (ajoutez figures/demo-masse-action.png)}}
+}
+\caption{Importation du fichier Excel pour le traitement massif}
+\label{fig:demo-masse-action}
+\end{figure}
+
+Une fois les données traitées massivement via l'Entity Manipulation Language (EML), le système renvoie un rapport détaillé. La figure~\ref{fig:demo-masse-succes} illustre le résultat de cette exécution, affichant les lignes intégrées avec succès ainsi que les éventuelles erreurs détectées, évitant un travail fastidieux de saisie manuelle.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-masse-succes.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-masse-succes.png}
+}{%
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Rapport d'exécution de masse (Succès/Erreurs)\\ (ajoutez figures/demo-masse-succes.png)}}
+}
+\caption{Rapport de statut suite à la confirmation en masse}
+\label{fig:demo-masse-succes}
+\end{figure}
+
+\subsection{Impression des bons de commande (Imprimer)}\label{ch5:imprimer}
+L'application intègre un moteur de génération documentaire. D'un simple clic sur le bouton "Imprimer", une requête est envoyée au backend SAP qui fait appel au service Adobe Document Services (ADS). Le système génère un bon de commande officiel au format PDF (structuré avec les informations d'en-tête, de lignes et des conditions générales), qui est retourné sous forme de flux binaire (XSTRING) pour déclencher le téléchargement automatique côté navigateur.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-imprimer.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-imprimer.png}
+}{%
+    \fbox{\parbox[c][6cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Téléchargement PDF / Adobe Forms\\ (ajoutez figures/demo-imprimer.png)}}
+}
+\caption{Génération et téléchargement du bon de commande au format PDF}
+\label{fig:demo-imprimer}
+\end{figure}
+
+\subsection{Automatisation conversationnelle (Agent IA Joule)}\label{ch5:ia}
+Cette section illustre l'intégration de l'Intelligence Artificielle dans les processus métiers standards. Via la bulle de chat flottante de SAP Joule, le fournisseur peut formuler une requête en langage naturel, comme illustré dans la figure~\ref{fig:demo-ia-action} (par exemple : "Confirme la commande 4500001234"). Le moteur LLM hébergé sur SAP BTP analyse l'intention et orchestre l'appel.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-ia-action.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-ia-action.png}
+}{%
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Saisie du prompt dans Joule\\ (ajoutez figures/demo-ia-action.png)}}
+}
+\caption{Exécution d'une action en langage naturel avec SAP Joule}
+\label{fig:demo-ia-action}
+\end{figure}
+
+Une fois l'opération validée dans le backend via le SAP Cloud Connector, Joule formule une réponse textuelle fluide et contextuelle pour confirmer le bon déroulement de l'action. La figure~\ref{fig:demo-ia-succes} présente ce retour direct dans l'interface de chat.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-ia-succes.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-ia-succes.png}
+}{%
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Réponse et validation par l'IA Joule\\ (ajoutez figures/demo-ia-succes.png)}}
+}
+\caption{Confirmation de traitement générée par l'agent IA}
+\label{fig:demo-ia-succes}
+\end{figure}
+
+\subsection{Pilotage analytique et KPI (Consulter les graphiques)}\label{ch5:dashboard}
+Afin de doter le département des achats d'une vision d'ensemble, nous avons réalisé un Dashboard basé sur le template \textit{Analytical List Page} (ALP). Exposée via le protocole OData V2 pour activer les fonctionnalités BICS de SAP HANA, cette page propose des \textit{Visual Filters}. Ces composants interactifs (graphiques en beignet, histogrammes) permettent de filtrer dynamiquement les données sous-jacentes d'un simple clic (par exemple, cliquer sur la part "Commandes en retard" filtre instantanément la liste détaillée des lignes critiques en dessous).
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-dashboard-alp.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-dashboard-alp.png}
+}{%
+    \fbox{\parbox[c][6cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Tableau de bord analytique ALP\\ (ajoutez figures/demo-dashboard-alp.png)}}
+}
+\caption{Tableau de bord de pilotage analytique avec filtres visuels}
+\label{fig:demo-dashboard-alp}
+\end{figure}
+
 \section{Tests et validation}\label{ch5:tests}
 La validation de la solution a fait l'objet d'une campagne de tests rigoureuse, couvrant à la fois les aspects fonctionnels et techniques.
 
