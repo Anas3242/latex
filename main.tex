@@ -13,7 +13,9 @@
 \usepackage{textcomp}
 \usepackage{booktabs}
 \usepackage{tabularx}
-\usepackage{microtype} % Résout les problèmes de texte qui dépasse des marges (Overfull \hbox)
+\usepackage{longtable}
+\usepackage{microtype}
+\usepackage{float} % Résout les problèmes de texte qui dépasse des marges (Overfull \hbox)
 
 % Configure enumitem
 \setlist{nosep}
@@ -33,11 +35,18 @@
 \setlength{\parskip}{0pt}
 
 % Correction de la macro logobox (ajout de \detokenize dans le fallback pour éviter l'erreur "Missing $")
+% Placeholder pour les figures à insérer
+\newcommand{\FIG}[1]{%
+  \begin{center}
+    \fbox{\parbox{0.85\textwidth}{\centering\small\textit{[Figure à insérer : #1]}}}
+  \end{center}
+}
+
 \newcommand{\logobox}[2]{%
 	\IfFileExists{\detokenize{#1}}{%
-		\includegraphics[width=3.4cm]{\detokenize{#1}}%
+		\includegraphics[height=1.7cm]{\detokenize{#1}}%
 	}{%
-		\fbox{\parbox[c][1.9cm][c]{3.8cm}{\centering \small #2\\(ajoutez \detokenize{#1})}}%
+		\fbox{\parbox[c][2.0cm][c]{3.8cm}{\centering \small #2\\(ajoutez \detokenize{#1})}}%
 	}%
 }
 
@@ -47,13 +56,21 @@
 \begin{center}
 
 \noindent
-\begin{minipage}[t]{0.48\textwidth}
+\begin{minipage}[c]{0.48\textwidth}
 	\raggedright
-	\logobox{figures/Logo_INPT.png}{Logo INPT}
-\end{minipage}
-\begin{minipage}[t]{0.48\textwidth}
+	\IfFileExists{figures/Logo_INPT.png}{%
+		\includegraphics[height=1.6cm]{figures/Logo_INPT.png}%
+	}{%
+		\fbox{\parbox[c][1.6cm][c]{3.2cm}{\centering\small Logo INPT}}%
+	}
+\end{minipage}%
+\begin{minipage}[c]{0.48\textwidth}
 	\raggedleft
-	\logobox{figures/viseo-logo.png}{Logo VISEO}
+	\IfFileExists{figures/viseo-logo.png}{%
+		\includegraphics[width=3.8cm]{figures/viseo-logo.png}%
+	}{%
+		\fbox{\parbox[c][1.6cm][c]{3.8cm}{\centering\small Logo VISEO}}%
+	}
 \end{minipage}
 
 \vspace{1.35cm}
@@ -69,9 +86,9 @@
 \vspace{0.65cm}
 
 {\fontsize{21}{23}\selectfont\bfseries
-Mise en Place d'un Portail Fournisseur\\
-pour le Suivi des Commandes d'Achat\\
-sous SAP
+Modernisation des processus d'achat :\\[0.2cm]
+Impl\'ementation d'une solution Fiori RAP\\[0.2cm]
+avec Agent IA conversationnel sous SAP BTP
 }
 
 \vspace{0.65cm}
@@ -86,12 +103,8 @@ sous SAP
 
 \vspace{0.45cm}
 
-
-
 \renewcommand{\arraystretch}{1.45}
 \begin{tabular}{>{\raggedright\arraybackslash}p{0.48\textwidth} >{\centering\arraybackslash}p{0.13\textwidth} >{\raggedright\arraybackslash}p{0.28\textwidth}}
-
-
 M. Abdellah ZAOUIA & INPT & - Encadrant \\
 Mme. Sanna Mouzakki & VISEO & - Encadrante \\
 \end{tabular}
@@ -147,46 +160,48 @@ Mme. Sanna Mouzakki & VISEO & - Encadrante \\
 \phantomsection
 \addcontentsline{toc}{chapter}{Nomenclature}
 \label{sec:nomenclature}
-\begin{tabular}{p{0.18\textwidth}p{0.72\textwidth}}
-ABAP & Advanced Business Application Programming \\
-ALP & Analytical List Page \\
-AMOA & Assistance à la Maîtrise d'Ouvrage \\
-API & Application Programming Interface \\
-BICS & Business Intelligence Consumer Services \\
-BTP & Business Technology Platform \\
-CDS & Core Data Services \\
-CRM & Customer Relationship Management \\
-ERP & Enterprise Resource Planning \\
-FI/CO & Finance et Contrôle de Gestion \\
-FIFO & First In First Out \\
-GR & Goods Receipt (Réception de marchandises) \\
-HR & Human Resources (Ressources Humaines) \\
-IA & Intelligence Artificielle \\
-JSON & JavaScript Object Notation \\
-KPI & Key Performance Indicator \\
-LIFO & Last In First Out \\
-LLM & Large Language Model \\
-MM & Material Management (Gestion des Matériaux) \\
-OData & Open Data Protocol \\
-PGI & Progiciel de Gestion Intégré \\
-PO & Purchase Order (Commande d'achat) \\
-PP & Production Planning (Planification de la Production) \\
-PS & Project Systems (Systèmes de Projets) \\
-QM & Quality Management (Gestion de Qualité) \\
-RAG & Retrieval-Augmented Generation \\
-RAP & RESTful Application Programming \\
-RFQ & Request for Quotation (Demande de Devis) \\
-RGPD & Règlement Général sur la Protection des Données \\
-ROI & Return on Investment (Retour sur Investissement) \\
-S/4HANA & SAP Suite 4 HANA \\
-SaaS & Software as a Service \\
-SAPUI5 & SAP User Interface 5 \\
-SD & Sales and Distribution (Ventes et Distribution) \\
-SLA & Service Level Agreement \\
-SSO & Single Sign-On \\
-UI & User Interface (Interface Utilisateur) \\
-UX & User Experience (Expérience Utilisateur) \\
+{\normalsize
+\renewcommand{\arraystretch}{0.82}
+\begin{tabular}{p{0.18\textwidth}p{5\textwidth}}
+ABAP        & Advanced Business Application Programming \\
+ADT         & ABAP Development Tools \\
+ALP         & Analytical List Page \\
+API         & Application Programming Interface \\
+BAPI        & Business Application Programming Interface \\
+BCS         & Business Communication Services \\
+BDEF        & Behavior Definition \\
+BIL         & Behavior Implementation Layer \\
+BO          & Business Object \\
+BTP         & Business Technology Platform \\
+CDS         & Core Data Services \\
+CRUD        & Create, Read, Update, Delete \\
+EKES        & Table SAP des confirmations de commandes \\
+EKKO        & Table SAP des en-têtes de commandes d'achat \\
+EKPO        & Table SAP des postes de commandes d'achat \\
+EML         & Entity Manipulation Language \\
+FLP         & Fiori Launchpad \\
+HANA        & High-performance ANalytic Appliance \\
+HTML        & HyperText Markup Language \\
+HTTP        & HyperText Transfer Protocol \\
+LIFNR       & Numéro fournisseur \\
+LR          & List Report \\
+ME22N/ME23N & Transactions de modification / affichage d'une commande d'achat \\
+MM          & Materials Management \\
+OData       & Open Data Protocol \\
+PO          & Purchase Order \\
+RAP         & RESTful Application Programming Model \\
+S/4HANA     & SAP Business Suite 4 HANA \\
+SAP         & Systeme, Anwendungen und Produkte in der Datenverarbeitung \\
+SAP GUI     & SAP Graphical User Interface \\
+SAPUI5      & SAP User Interface for HTML5 \\
+SMTP        & Simple Mail Transfer Protocol \\
+UI          & User Interface \\
+UML         & Unified Modeling Language \\
+USR21       & Table SAP utilisateur / numéro d'adresse \\
+VDM         & Virtual Data Model \\
+VS Code     & Visual Studio Code \\
 \end{tabular}
+}
 
 \chapter*{Table des mati\`eres}
 \phantomsection
@@ -206,16 +221,16 @@ UX & User Experience (Expérience Utilisateur) \\
 \noindent\hspace*{2em}\hyperref[ch1:localisation]{1.2.4 Localisation et \'evolution} \dotfill \pageref*{ch1:localisation}\\
 \noindent\hspace*{2em}\hyperref[ch1:domaines]{1.2.5 Domaines d'expertise} \dotfill \pageref*{ch1:domaines}\\
 \noindent\hspace*{2em}\hyperref[ch1:chiffres]{1.2.6 Chiffres cl\'es} \dotfill \pageref*{ch1:chiffres}\\
-\noindent\hspace*{2em}\hyperref[ch1:filiale]{1.2.7 Filiale VI-ONE North Africa} \dotfill \pageref*{ch1:filiale}\\
-\noindent\hspace*{1em}\hyperref[ch1:organigramme]{1.3 Organigramme} \dotfill \pageref*{ch1:organigramme}\\
-\noindent\hspace*{1em}\hyperref[ch1:cahier]{1.4 Cahier des charges} \dotfill \pageref*{ch1:cahier}\\
-\noindent\hspace*{2em}\hyperref[ch1:problematique]{1.4.1 Probl\'ematique} \dotfill \pageref*{ch1:problematique}\\
-\noindent\hspace*{2em}\hyperref[ch1:objectifs]{1.4.2 Objectifs} \dotfill \pageref*{ch1:objectifs}\\
-\noindent\hspace*{2em}\hyperref[ch1:perimetre]{1.4.3 P\'erim\`etre} \dotfill \pageref*{ch1:perimetre}\\
-\noindent\hspace*{1em}\hyperref[ch1:gestion]{1.5 Gestion du projet} \dotfill \pageref*{ch1:gestion}\\
-\noindent\hspace*{2em}\hyperref[ch1:methodologie]{1.5.1 M\'ethodologie adopt\'ee} \dotfill \pageref*{ch1:methodologie}\\
-\noindent\hspace*{2em}\hyperref[ch1:planification]{1.5.2 Planification} \dotfill \pageref*{ch1:planification}\\
-\noindent\hspace*{1em}\hyperref[ch1:conclusion]{1.6 Conclusion} \dotfill \pageref*{ch1:conclusion}\\
+\noindent\hspace*{2em}\hyperref[ch1:filiale]{1.2.7 Filiale Casablancaise : VI ONE NORTH AFRICA} \dotfill \pageref*{ch1:filiale}\\
+\noindent\hspace*{3em}\hyperref[ch1:organigramme]{1.2.7.1 Organigramme} \dotfill \pageref*{ch1:organigramme}\\
+\noindent\hspace*{1em}\hyperref[ch1:cahier]{1.3 Cahier des charges} \dotfill \pageref*{ch1:cahier}\\
+\noindent\hspace*{2em}\hyperref[ch1:problematique]{1.3.1 Probl\'ematique} \dotfill \pageref*{ch1:problematique}\\
+\noindent\hspace*{2em}\hyperref[ch1:objectifs]{1.3.2 Objectifs} \dotfill \pageref*{ch1:objectifs}\\
+\noindent\hspace*{2em}\hyperref[ch1:perimetre]{1.3.3 P\'erim\`etre} \dotfill \pageref*{ch1:perimetre}\\
+\noindent\hspace*{1em}\hyperref[ch1:gestion]{1.4 Gestion du projet} \dotfill \pageref*{ch1:gestion}\\
+\noindent\hspace*{2em}\hyperref[ch1:methodologie]{1.4.1 M\'ethodologie adopt\'ee} \dotfill \pageref*{ch1:methodologie}\\
+\noindent\hspace*{2em}\hyperref[ch1:planification]{1.4.2 Planification} \dotfill \pageref*{ch1:planification}\\
+\noindent\hspace*{1em}\hyperref[ch1:conclusion]{1.5 Conclusion} \dotfill \pageref*{ch1:conclusion}\\
 \noindent\hyperref[ch:existant]{Chapitre 2 : \'Etude et analyse de l'existant} \dotfill \pageref*{ch:existant}\\
 \noindent\hspace*{1em}\hyperref[ch2:introduction]{2.1 Introduction} \dotfill \pageref*{ch2:introduction}\\
 \noindent\hspace*{1em}\hyperref[ch2:erp]{2.2 Les syst\'emes ERP : concepts et r\'ole strat\'egique} \dotfill \pageref*{ch2:erp}\\
@@ -297,8 +312,14 @@ UX & User Experience (Expérience Utilisateur) \\
 \noindent\hspace*{1em}\hyperref[ch5:reporting]{5.4 Volet reporting} \dotfill \pageref*{ch5:reporting}\\
 \noindent\hspace*{2em}\hyperref[ch5:etl]{5.4.1 Cha\^ine ETL et entrep\^ot de donn\'ees} \dotfill \pageref*{ch5:etl}\\
 \noindent\hspace*{2em}\hyperref[ch5:pbi]{5.4.2 Tableaux de bord Power BI} \dotfill \pageref*{ch5:pbi}\\
-\noindent\hspace*{1em}\hyperref[ch5:tests]{5.5 Tests et validation} \dotfill \pageref*{ch5:tests}\\
-\noindent\hspace*{1em}\hyperref[ch5:conclusion]{5.6 Conclusion} \dotfill \pageref*{ch5:conclusion}\\
+\noindent\hspace*{1em}\hyperref[ch5:joule]{5.5 Agent conversationnel Joule} \dotfill \pageref*{ch5:joule}\\
+\noindent\hspace*{2em}\hyperref[ch5:joule-archi]{5.5.1 Architecture de bout en bout} \dotfill \pageref*{ch5:joule-archi}\\
+\noindent\hspace*{2em}\hyperref[ch5:joule-dest]{5.5.2 Configuration Cloud Connector et Destination BTP} \dotfill \pageref*{ch5:joule-dest}\\
+\noindent\hspace*{2em}\hyperref[ch5:joule-skills]{5.5.3 Conception des skills Joule} \dotfill \pageref*{ch5:joule-skills}\\
+\noindent\hspace*{2em}\hyperref[ch5:joule-agent]{5.5.4 Orchestration via SupplierPortalAssistant} \dotfill \pageref*{ch5:joule-agent}\\
+\noindent\hspace*{2em}\hyperref[ch5:joule-demo]{5.5.5 Exemples de conversations} \dotfill \pageref*{ch5:joule-demo}\\
+\noindent\hspace*{1em}\hyperref[ch5:tests]{5.6 Tests et validation} \dotfill \pageref*{ch5:tests}\\
+\noindent\hspace*{1em}\hyperref[ch5:conclusion]{5.7 Conclusion} \dotfill \pageref*{ch5:conclusion}\\
 \noindent\hyperref[ch:conclusion]{Conclusion g\'en\'erale et perspectives} \dotfill \pageref*{ch:conclusion}\\
 \noindent\hyperref[ch:references]{R\'ef\'erences} \dotfill \pageref*{ch:references}
 
@@ -318,44 +339,43 @@ UX & User Experience (Expérience Utilisateur) \\
 \setlength{\parindent}{1.2em}
 \setlength{\parskip}{0pt}
 
-Dans le contexte actuel de globalisation et de digitalisation rapide des echanges, les entreprises
-sont de plus en plus amenees a repenser leurs modes de collaboration avec leurs partenaires pour
-rester competitives. L'optimisation des relations fournisseurs represente aujourd'hui un enjeu stra-
-tegique majeur, tant sur le plan de la performance que sur celui de l'agilite des chaines logistiques.
+Dans un contexte de digitalisation croissante des échanges, l'optimisation de la relation
+fournisseur constitue un enjeu stratégique majeur pour les entreprises. Au sein des
+environnements \textbf{SAP S/4HANA}, le processus de confirmation des commandes d'achat
+souffre de plusieurs lacunes : saisie manuelle par les acheteurs, absence de traçabilité
+des rejets et aucun accès autonome pour les fournisseurs. C'est dans ce cadre que s'inscrit
+ce projet de fin d'études, réalisé au sein de \textit{VI-ONE North Africa (groupe VISEO)},
+en partenariat avec l'\textbf{INPT} de Rabat.
 
-Face a ces defis, la mise en place d'outils collaboratifs, tels que les \textbf{portails fournisseurs},
-devient essentielle. Ces plateformes permettent de centraliser les echanges d'informations, d'au-
-tomatiser les processus de suivi des commandes et de garantir une visibilite en temps reel aux
-differents acteurs impliques. C'est dans ce cadre que s'inscrit le projet decrit dans ce rapport,
-realise en collaboration avec la societe \textit{Vi-One North Africa, une filiale du groupe VISEO}, visant
-a concevoir et implementer un \textbf{Portail Fournisseur}.
+L'objectif est de concevoir un \textbf{Portail Fournisseur} sur SAP S/4HANA, fondé sur
+le framework \textbf{RAP} et les services \textbf{OData V4}, permettant aux fournisseurs
+de consulter leurs commandes, de les confirmer (unitairement ou en masse), de rejeter des
+postes avec motif traçable et de recevoir des notifications automatiques par email.
+Ce portail est enrichi d'un \textbf{agent conversationnel Joule} déployé sur \textbf{SAP BTP},
+qui permet aux utilisateurs d'interagir avec l'ensemble de ces fonctionnalités en langage
+naturel --- consulter, confirmer ou rejeter des commandes par simple message, sans naviguer
+dans les écrans Fiori.
 
-Ce projet de fin d'etudes, mene en partenariat avec l'Institut National des Postes et Tele-
-communications, s'inscrit dans une demarche d'innovation technologique orientee metier, alliant
-competences fonctionnelles et techniques pour repondre aux exigences de fluidite, de reactivite et
-de tracabilite dans la relation client-fournisseur.
+Ce rapport est structuré en cinq chapitres :
 
-Le present rapport retrace les differentes etapes de ce projet, organise en quatre parties :
-
-\begin{itemize}[label=---,itemsep=0.2em,topsep=0.2em]
-\item \textbf{Chapitre I : Contexte general du projet}
-
-Presentation de l'environnement metier et technologique du projet.
-
-\item \textbf{Chapitre II : Etude et analyse de l'existant}
-
-Analyse des processus actuels de gestion des commandes fournisseurs, identification des
-limites des methodes traditionnelles.
-
-\item \textbf{Chapitre III : Analyse et conception de la solution}
-
-Conception fonctionnelle et technique du portail, choix des outils SAP (CDS, RAP, Fiori,
-etc.) et modelisation des flux de donnees.
-
-\item \textbf{Chapitre IV : Developpement et realisation}
-
-Developpement du portail, tests, validation et presentation des resultats obtenus.
+\begin{itemize}[label=---,itemsep=0.15em,topsep=0.2em]
+\item \textbf{Chapitre 1 : Présentation de l'organisme d'accueil} ---
+Présentation de VISEO, VI-ONE North Africa, de l'INPT, du cadre du PFE,
+de la problématique et de la conduite du projet.
+\item \textbf{Chapitre 2 : État de l'art} ---
+Systèmes ERP, plateforme SAP et module MM, technologies mobilisées
+(RAP, CDS Views, OData V4, SAPUI5, SAP BTP et Joule).
+\item \textbf{Chapitre 3 : Étude et analyse de l'existant} ---
+Limites du processus actuel, analyse des solutions existantes
+et justification des choix technologiques.
+\item \textbf{Chapitre 4 : Analyse et conception} ---
+Besoins fonctionnels et non fonctionnels, modélisation UML,
+architecture en couches, maquettes et sécurité des données.
+\item \textbf{Chapitre 5 : Développement et réalisation} ---
+Backend RAP, frontend Fiori Elements, intégration au Fiori Launchpad
+et agent conversationnel Joule (skills, orchestration, exemples de conversations).
 \end{itemize}
+
 
 \endgroup
 \chapter{Présentation de l’organisme d’accueil}\label{ch:contexte}
@@ -665,7 +685,6 @@ la p\'eriode r\'ecente.
 }{%
   \fbox{\parbox[c][3.5cm][c]{\linewidth}{\centering \small \'Evolution du chiffre d'affaires\\(ajoutez figures/Chiffre d'affaires.jpg)}}%
 }
-
 \vspace{0.2cm}
 {\small\textit{(a) \'Evolution du chiffre d'affaires (M€)}}
 \end{minipage}
@@ -677,7 +696,6 @@ la p\'eriode r\'ecente.
 }{%
   \fbox{\parbox[c][3.5cm][c]{\linewidth}{\centering \small \'Evolution des effectifs\\(ajoutez figures/Evolutions du nombre de collaborateurs.jpg)}}%
 }
-
 \vspace{0.2cm}
 {\small\textit{(b) \'Evolution du nombre de collaborateurs}}
 \end{minipage}
@@ -685,7 +703,7 @@ la p\'eriode r\'ecente.
 \label{fig:croissance-viseo}
 \end{figure}
 
-\subsection{Filiale VI-ONE North Africa}\label{ch1:filiale}
+\subsection{Filiale Casablancaise : VI ONE NORTH AFRICA}\label{ch1:filiale}
 
 Depuis 2004, le groupe VISEO op\`ere au Maroc \`a travers sa filiale casablancaise,
 \textbf{Vi-One North Africa}. Ce centre de services \textit{Nearshore} accompagne une
@@ -745,7 +763,7 @@ La figure suivante illustre la progression du nombre de collaborateurs au sein d
 Vi-One North Africa, t\'emoignant de la croissance soutenue de la filiale depuis
 sa cr\'eation.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \IfFileExists{figures/Evolution du nombre de Collaborateurs au sein de VI-One North Africa.jpg}{%
   \includegraphics[width=0.85\textwidth]{figures/Evolution du nombre de Collaborateurs au sein de VI-One North Africa.jpg}
@@ -756,7 +774,7 @@ sa cr\'eation.
 \label{fig:collab-vione}
 \end{figure}
 
-\section{Organigramme}\label{ch1:organigramme}
+\subsubsection{Organigramme}\label{ch1:organigramme}
 
 L'organigramme de Vi-One North Africa refl\`ete une structure organisationnelle claire
 et hi\'erarchis\'ee, con\c{c}ue pour assurer une coordination efficace entre les
@@ -764,7 +782,20 @@ diff\'erentes \'equipes et garantir la qualit\'e des prestations livr\'ees aux c
 Chaque p\^ole dispose d'une responsabilit\'e bien d\'efinie, favorisant la sp\'ecialisation
 et la r\'eactivit\'e face aux exigences des projets.
 
-\begin{figure}[h!]
+La filiale s'organise autour de plusieurs directions comp\'ementaires. La \textbf{Direction
+G\'en\'erale} pilote la strat\'egie globale et assure la coordination avec le groupe VISEO.
+Sous sa supervision, la \textbf{Direction Technique SAP} regroupe les consultants fonctionnels
+et les d\'eveloppeurs ABAP charg\'es des projets d'int\'egration ERP. La \textbf{Direction
+des Op\'erations} g\`ere les contrats de TMA et veille au respect des SLA clients.
+Enfin, les fonctions support --- ressources humaines, finance et infrastructure IT ---
+assurent le bon fonctionnement interne de la structure.
+
+Cette organisation matricielle permet \`a Vi-One North Africa de mobiliser rapidement
+les comp\'etences ad\'equates selon la nature et la complexit\'e de chaque mission client,
+qu'il s'agisse d'un projet de d\'eploiement SAP S/4HANA, d'une maintenance applicative
+ou d'un d\'eveloppement sp\'ecifique comme le pr\'esent projet de fin d'\'etudes.
+
+\begin{figure}[H]
 \centering
 \IfFileExists{figures/organigramme-vione.jpg}{%
   \includegraphics[width=0.92\textwidth]{figures/organigramme-vione.jpg}
@@ -1586,12 +1617,207 @@ L'analyse méticuleuse et l'architecture détaillée établies au fil de ce chap
 
 Ces architectures, couplées à l'intégration novatrice des mécanismes d'intelligence artificielle de SAP Joule, démontrent une maîtrise profonde des outils de transformation digitale au sein de l'écosystème S/4HANA. Cette conception robuste, documentée par nos modélisations UML, offre un cadre sécurisant pour aborder les chapitres suivants, lesquels se concentreront sur l'implémentation technique, le développement du code source, et la validation concrète de la solution métier.
 
-\chapter{Conception d\'etaill\'ee et architecture technique}\label{ch:archi-tech}
+\chapter{Réalisation : backend RAP}\label{ch:backend-rap}
+
 \section{Introduction}\label{ch4:introduction}
-\section{Architecture globale de la solution}\label{ch4:architecture}
-\section{Mod\'elisation CDS}\label{ch4:cds}
-\section{Services OData et logique m\'etier}\label{ch4:odata-logique}
+
+Dans ce chapitre, nous présentons la réalisation technique du backend du Portail Fournisseur. Nous décrivons l'environnement de développement retenu, les conventions de nommage appliquées, puis nous détaillons, couche par couche, la construction du modèle RAP (RESTful Application Programming Model) : vues d'interface, vues de projection, définitions et implémentations de comportement, actions métier, pattern de sauvegarde différée, intégration aux APIs SAP standard, notifications email et génération PDF. Chaque section justifie les choix techniques effectués et illustre leur articulation dans l'architecture globale de la solution.
+
+% ----------------------------------------------------------------
+\section{Environnement technique}\label{ch4:env}
+
+Le développement du backend s'appuie sur \textbf{SAP S/4HANA 2025 On-Premise}, déployé sur le système de développement interne VISEO accessible à l'adresse \texttt{https://aca-web.viseo.net}. L'outillage principal est \textbf{ADT} (ABAP Development Tools), le plugin Eclipse dédié au développement ABAP en mode cloud-ready, qui offre l'éditeur CDS, le débogueur ABAP, et l'intégration à l'ATC (ABAP Test Cockpit) pour l'analyse statique du code.
+
+Le développement est réalisé dans le périmètre \textbf{ABAP Cloud}, qui impose les restrictions « clean core » : seules les APIs SAP publiées et stables sont autorisées, les appels directs aux tables standard via \texttt{SELECT} sont proscrits au profit des vues CDS et des BOs managés. Cette contrainte garantit la compatibilité de la solution avec les futures mises à jour du système.
+
+L'\textbf{ATC} est systématiquement exécuté avant chaque transport pour détecter les violations de politique cloud, les problèmes de performance et les failles de sécurité potentielles.
+
+\FIG{Capture de l'environnement ADT/Eclipse avec le package ZPO\_CONFIRMATION\_PFE\_AEL ouvert}
+
+% ----------------------------------------------------------------
+\section{Package et conventions de nommage}\label{ch4:package}
+
+L'ensemble des objets développés est regroupé dans le package \textbf{\texttt{ZPO\_CONFIRMATION\_PFE\_AEL}}. Ce package constitue l'unité de transport de la solution et facilite l'identification immédiate des objets du projet dans le système.
+
+La convention de nommage appliquée est la suivante :
+\begin{itemize}
+    \item \textbf{Suffixe \texttt{\_AEL}} : apposé à tous les objets custom pour identifier l'auteur (Anas El Wahabi) et éviter tout conflit de nommage avec les objets du prédécesseur (\texttt{\_ALO}) ou d'autres projets.
+    \item \textbf{Préfixe \texttt{ZR\_}} : réservé aux vues d'interface (couche data).
+    \item \textbf{Préfixe \texttt{ZC\_}} : réservé aux vues de projection (couche consommation).
+    \item \textbf{Préfixe \texttt{ZUI\_}} : réservé au service binding (exposition OData V4).
+    \item \textbf{Préfixe \texttt{ZSD\_}} : réservé à la définition de service.
+    \item \textbf{Préfixe \texttt{zmm005\_}} : réservé aux tables custom du module MM.
+\end{itemize}
+
+Ces conventions assurent la cohérence, la lisibilité et la maintenabilité de l'ensemble des objets tout au long du cycle de vie du projet.
+
+% ----------------------------------------------------------------
+\section{Couche data : vues d'interface et de projection}\label{ch4:data-layer}
+
+La couche data constitue le socle du modèle RAP. Elle est composée de trois vues d'interface (\textit{Interface Views}) qui lisent les tables standard SAP, et de trois vues de projection (\textit{Projection Views}) qui exposent les données à la couche service.
+
+\subsection{Vues d'interface}
+
+\begin{itemize}
+    \item \textbf{\texttt{ZR\_POConfirmation\_AEL}} : vue racine représentant l'en-tête de commande d'achat. Elle lit la table standard \texttt{EKKO} et calcule des agrégats (quantité totale commandée, quantité confirmée cumulée, statut global de confirmation).
+    \item \textbf{\texttt{ZR\_POConfirmeItem\_AEL}} : vue enfant représentant les postes de commande. Elle lit \texttt{EKPO} et dérive les quantités restantes à confirmer (\texttt{QuantityRemaining = OrderQuantity - QuantityConfirmed}).
+    \item \textbf{\texttt{ZR\_POSuplrConfirm\_AEL}} : vue petite-fille représentant les confirmations existantes. Elle lit la table \texttt{EKES} et expose les champs \texttt{ConfirmedQuantity}, \texttt{DeliveryDate} et le numéro séquentiel de confirmation.
+\end{itemize}
+
+\subsection{Vues de projection}
+
+\begin{itemize}
+    \item \textbf{\texttt{ZC\_POHeader\_AEL}} : projection de \texttt{ZR\_POConfirmation\_AEL}, point d'entrée racine du modèle RAP exposé dans le service.
+    \item \textbf{\texttt{ZC\_POItem\_AEL}} : projection de \texttt{ZR\_POConfirmeItem\_AEL}, avec les annotations UI (criticité, value helps, filtres).
+    \item \textbf{\texttt{ZC\_POConfirmation\_AEL}} : projection de \texttt{ZR\_POSuplrConfirm\_AEL}, autorisant les opérations CRUD standard sur les confirmations.
+\end{itemize}
+
+\FIG{Diagramme de la couche data : ZR\_* → ZC\_* → Service Definition}
+
+% ----------------------------------------------------------------
+\section{Table de rejet et value help des motifs}\label{ch4:tables-custom}
+
+Deux tables custom ont été créées pour gérer le processus de rejet des postes :
+
+\begin{itemize}
+    \item \textbf{\texttt{zmm005\_po\_reject}} : table de persistance des rejets. Elle stocke pour chaque poste rejeté : la commande d'achat (\texttt{ebeln}), le numéro de poste (\texttt{ebelp}), l'identifiant du motif (\texttt{reject\_reason\_id}), ainsi que les champs de traçabilité (\texttt{created\_by}, \texttt{created\_at}, \texttt{last\_changed\_by}, \texttt{last\_changed\_at}).
+    \item \textbf{\texttt{ztreject\_reason}} : table de référentiel des motifs de rejet, utilisée comme value help dans l'action \texttt{rejectItem}. Elle contient un identifiant court et un libellé descriptif du motif.
+\end{itemize}
+
+La séparation entre la table des rejets et le référentiel des motifs garantit la cohérence des données et facilite l'évolution du référentiel sans impact sur l'historique des rejets.
+
+% ----------------------------------------------------------------
+\section{Behavior Definition et Behavior Implementation}\label{ch4:bdef-bil}
+
+\subsection{Behavior Definition}
+
+La Behavior Definition (BDEF) est déclarée en mode \textbf{managed hybrid} sur \texttt{ZR\_POConfirmation\_AEL}. Ce mode délègue la gestion du cycle de vie CRUD à la plateforme RAP pour les opérations standard, tout en permettant une logique custom dans les handlers et le saver.
+
+Les trois entités du modèle (\texttt{POHeader}, \texttt{POItem}, \texttt{POConfirmation}) sont définies avec leurs associations, leurs actions et leurs autorisations d'instance dynamiques. Le mode \textit{draft} est désactivé car le processus de confirmation est une opération transactionnelle directe ne nécessitant pas de persistance intermédiaire.
+
+\subsection{Behavior Implementation}
+
+L'implémentation du comportement est réalisée dans une classe globale ABAP contenant cinq classes locales :
+
+\begin{itemize}
+    \item \textbf{\texttt{lhc\_POHeader}} : handler du nœud racine ; implémente les actions \texttt{massConfirmUpload} et \texttt{downloadTemplate}.
+    \item \textbf{\texttt{lhc\_POItem}} : handler du nœud poste ; implémente \texttt{confirmAsOrdered}, \texttt{rejectItem}, \texttt{printConfirmation}, et les autorisations d'instance dynamiques.
+    \item \textbf{\texttt{lhc\_POConfirmation}} : handler du nœud confirmation ; implémente \texttt{update} et \texttt{delete} sur les confirmations existantes.
+    \item \textbf{\texttt{lsc\_ZR\_POCONFIRMATION\_AEL}} : saver class ; exécute la logique différée (rejets et notifications email) en phase \texttt{save()}.
+    \item \textbf{\texttt{lcl\_buffer}} : buffer statique partagé entre les handlers et le saver via l'attribut \texttt{gt\_po\_change\_buffer}.
+\end{itemize}
+
+\FIG{Diagramme de classes UML : lhc\_POHeader, lhc\_POItem, lhc\_POConfirmation, lsc\_*, lcl\_buffer}
+
+% ----------------------------------------------------------------
+\section{Autorisations d'instance dynamiques sur POItem}\label{ch4:dyn-auth}
+
+Les autorisations d'instance dynamiques (\textit{dynamic feature control}) permettent de désactiver ou masquer des actions selon l'état courant d'un poste, offrant une expérience utilisateur cohérente et prévenant les opérations invalides.
+
+Les règles appliquées sur \texttt{POItem} sont les suivantes :
+
+\begin{itemize}
+    \item L'action \textbf{\texttt{confirmAsOrdered}} est désactivée si la quantité déjà confirmée est supérieure ou égale à la quantité commandée, ou si le poste est marqué comme rejeté dans \texttt{zmm005\_po\_reject}.
+    \item L'action \textbf{\texttt{rejectItem}} est désactivée si une confirmation existe déjà pour le poste (quantité confirmée $> 0$), ou si le poste est déjà rejeté.
+\end{itemize}
+
+Ces contrôles sont évalués à chaque lecture du nœud \texttt{POItem}, garantissant que les boutons d'action dans l'interface Fiori reflètent toujours l'état réel des données.
+
+% ----------------------------------------------------------------
+\section{Actions métier}\label{ch4:actions}
+
+\subsection{confirmAsOrdered}
+
+L'action \texttt{confirmAsOrdered} crée une confirmation de commande sur le BO managé SAP \texttt{R\_SupplierConfirmationTP}. Elle accepte deux paramètres : \texttt{ConfirmedQuantity} et \texttt{DeliveryDate}. Les validations préalables couvrent : item non rejeté, quantité strictement positive et inférieure ou égale à la quantité restante, date de livraison dans le futur. La création est effectuée en trois niveaux hiérarchiques (header, item, line) avec la catégorie de confirmation \texttt{'AB'}.
+
+Cette action supporte nativement les \textbf{confirmations partielles et éclatées} : plusieurs appels successifs sont possibles tant qu'il reste de la quantité à confirmer, permettant de modéliser des livraisons en plusieurs fois.
+
+\subsection{rejectItem}
+
+L'action \texttt{rejectItem} accepte un paramètre obligatoire \texttt{RejectReasonID} issu de la value help \texttt{ztreject\_reason}. Elle empile une opération \texttt{'REJECT'} dans \texttt{lcl\_buffer=>gt\_po\_change\_buffer} ; le traitement réel est délégué à la saver class en phase \texttt{save()} (voir section~\ref{ch4:deferred-save}).
+
+\subsection{massConfirmUpload}
+
+L'action \texttt{massConfirmUpload} reçoit le contenu d'un fichier Excel (\texttt{FileContent} de type \texttt{xstring}). Chaque ligne est validée individuellement (PO/poste existants, quantité valide, date future) et les confirmations valides sont agrégées par PO avant d'être soumises en une seule opération à \texttt{R\_SupplierConfirmationTP}, minimisant ainsi le nombre de sauvegardes.
+
+\subsection{downloadTemplate}
+
+L'action \texttt{downloadTemplate} génère et retourne un fichier Excel pré-formaté (\texttt{FileContent}, \texttt{FileName}, \texttt{MimeType}) que le fournisseur peut remplir hors ligne avant de le re-soumettre via \texttt{massConfirmUpload}.
+
+\subsection{printConfirmation}
+
+L'action \texttt{printConfirmation} déclenche la génération du bon de confirmation au format PDF via Adobe Forms et retourne un message de succès à l'interface.
+
+% ----------------------------------------------------------------
+\section{Pattern « deferred save » via lcl\_buffer}\label{ch4:deferred-save}
+
+Le pattern \textit{deferred save} est utilisé pour les opérations dont les effets de bord (écriture en table custom, appel BAPI, envoi email) doivent impérativement avoir lieu \textbf{après} la validation complète de la transaction RAP, c'est-à-dire en phase \texttt{save()}.
+
+Le buffer \texttt{lcl\_buffer=>gt\_po\_change\_buffer} est une table interne statique qui accumule les opérations en attente durant la phase de traitement (\textit{interaction phase}). Chaque entrée contient la clé du poste concerné et un code d'action (\texttt{'REJECT'} ou \texttt{'UPDATE'}).
+
+En phase \texttt{save()}, la saver class \texttt{lsc\_ZR\_POCONFIRMATION\_AEL} itère sur ce buffer et exécute pour chaque entrée :
+\begin{itemize}
+    \item \textbf{Pour \texttt{'REJECT'}} : insertion dans \texttt{zmm005\_po\_reject}, appel de \texttt{BAPI\_PO\_CHANGE} pour positionner l'indicateur de suppression \texttt{LOEKZ = 'L'} sur le poste \texttt{EKPO}, puis envoi de l'email de notification à l'acheteur.
+    \item \textbf{Pour \texttt{'UPDATE'}} : envoi de l'email de notification signalant la mise à jour de la confirmation.
+\end{itemize}
+
+\FIG{Diagramme de flux RAP : interaction phase → deferred save → buffer → saver class}
+
+% ----------------------------------------------------------------
+\section{Intégration aux APIs SAP standard}\label{ch4:sap-apis}
+
+La solution s'appuie exclusivement sur des APIs SAP publiées, conformément aux exigences ABAP Cloud :
+
+\begin{itemize}
+    \item \textbf{\texttt{R\_SupplierConfirmationTP}} : BO managé SAP constituant le point d'entrée unique pour la création, la mise à jour et la suppression des confirmations fournisseur. Toutes les opérations CRUD sur les confirmations transitent par ce BO.
+    \item \textbf{\texttt{I\_POSupplierConfirmationAPI01}} et \textbf{\texttt{I\_SupplierConfirmationLine}} : vues de résolution de clés SAP utilisées pour retrouver les clés techniques internes (\texttt{SupplierConfirmation}, \texttt{SupplierConfirmationLine}) à partir des clés métier (numéro de commande, numéro de poste, numéro séquentiel).
+    \item \textbf{\texttt{BAPI\_PO\_CHANGE}} : BAPI standard SAP appelé lors d'un rejet pour positionner le deletion indicator \texttt{'L'} (\texttt{LOEKZ}) sur le poste \texttt{EKPO}, signalant ainsi à l'acheteur que le poste est à supprimer ou à remplacer.
+\end{itemize}
+
+% ----------------------------------------------------------------
+\section{Notifications email via CL\_BCS}\label{ch4:email}
+
+Les notifications email sont gérées par la classe SAP \texttt{CL\_BCS} (Business Communication Services), associée à \texttt{CL\_DOCUMENT\_BCS} pour la composition du corps du message.
+
+Deux événements déclenchent une notification à l'acheteur :
+\begin{itemize}
+    \item \textbf{Rejet d'un poste} : email avec badge rouge « REJECTED », contenant les détails du poste, le motif de rejet et la mention de l'activation du deletion indicator.
+    \item \textbf{Mise à jour d'une confirmation} : email avec badge bleu « UPDATED », présentant l'ancienne et la nouvelle quantité/date de livraison.
+\end{itemize}
+
+La résolution de l'adresse email du destinataire suit la chaîne suivante : \texttt{CreatedByUser} (champ de \texttt{ZR\_POConfirmation\_AEL}) → table \texttt{USR21} (association utilisateur/adresse) → table \texttt{ADR6} (adresse email par défaut). En cas d'échec de résolution, une adresse de repli \texttt{procurement@yourcompany.com} est utilisée.
+
+Les exceptions de type \texttt{cx\_bcs} et \texttt{cx\_root} sont \textbf{silencieusement attrapées} : une panne du serveur SMTP ne doit jamais provoquer le rollback d'une confirmation ou d'un rejet. La transaction métier prime sur la notification.
+
+\FIG{Diagramme de résolution email : CreatedByUser → USR21 → ADR6}
+
+% ----------------------------------------------------------------
+\section{Génération du PDF de confirmation via Adobe Forms}\label{ch4:pdf}
+
+La génération du bon de confirmation au format PDF est assurée par \textbf{Adobe Forms} (aussi appelé \textit{Interactive Forms} dans SAP). L'action \texttt{printConfirmation} de \texttt{lhc\_POItem} appelle le formulaire Adobe configuré avec les données de la commande et de la confirmation, et retourne le document généré à l'interface Fiori pour téléchargement ou impression.
+
+Adobe Forms offre une mise en page professionnelle et standardisée, compatible avec les exigences d'archivage et de traçabilité documentaire des processus achat.
+
+\textbf{[TODO ANAS :} Préciser le nom du formulaire Adobe Forms utilisé et joindre une capture du rendu PDF.\textbf{]}
+
+% ----------------------------------------------------------------
+\section{Exposition du service OData V4}\label{ch4:service}
+
+L'exposition du modèle RAP en tant que service OData V4 se fait en deux étapes :
+
+\begin{enumerate}
+    \item \textbf{Service Definition \texttt{ZSD\_SPLR\_PORTAL\_AEL}} : sélectionne les entités à exposer (\texttt{POHeader}, \texttt{POItem}, \texttt{POConfirmation}) et leurs associations depuis les vues de projection.
+    \item \textbf{Service Binding \texttt{ZUI\_SPLR\_PORTAL\_AEL}} : lie la définition de service au protocole OData V4 en mode UI, génère automatiquement les endpoints REST et les métadonnées \texttt{\$metadata} consommés par SAP Fiori Elements.
+\end{enumerate}
+
+Une fois le service binding activé, le service est enregistré dans le catalogue SAP et devient accessible via l'URL \texttt{/sap/opu/odata4/sap/zui\_splr\_portal\_ael/...}. Les applications Fiori Elements consomment ce service pour le rendu automatique du List Report et de l'Object Page, sans développement UI supplémentaire pour les fonctionnalités standard.
+
+\FIG{Capture de l'activation du Service Binding ZUI\_SPLR\_PORTAL\_AEL dans ADT}
+
+% ----------------------------------------------------------------
 \section{Conclusion}\label{ch4:conclusion}
+
+Ce chapitre a présenté la construction complète du backend RAP du Portail Fournisseur, depuis la mise en place de l'environnement de développement jusqu'à l'exposition du service OData V4. La structuration en couches (data, behavior, service) propre au modèle RAP a permis une séparation claire des responsabilités et une implémentation modulaire et maintenable. Le pattern \textit{deferred save}, les autorisations d'instance dynamiques et l'intégration aux APIs SAP standard illustrent la maturité de l'approche technique retenue. Le chapitre suivant aborde la réalisation du frontend Fiori, qui consomme ce service pour offrir aux fournisseurs une interface moderne et ergonomique.
 
 \chapter{D\'eveloppement et r\'ealisation}\label{ch:dev-real}
 \section{Introduction}\label{ch5:introduction}
@@ -1604,6 +1830,133 @@ Ces architectures, couplées à l'intégration novatrice des mécanismes d'intel
 \section{Volet reporting}\label{ch5:reporting}
 \subsection{Cha\^ine ETL et entrep\^ot de donn\'ees}\label{ch5:etl}
 \subsection{Tableaux de bord Power BI}\label{ch5:pbi}
+% ----------------------------------------------------------------
+\section{Agent conversationnel Joule}\label{ch5:joule}
+
+Cette section présente la réalisation de l'extension IA du portail : un agent conversationnel
+\textbf{Joule} déployé sur \textbf{SAP BTP}, permettant aux utilisateurs d'interagir avec
+les fonctionnalités du portail en langage naturel, sans naviguer dans les écrans Fiori.
+
+% ----------------------------------------------------------------
+\subsection{Architecture de bout en bout}\label{ch5:joule-archi}
+
+L'architecture de la couche Joule repose sur une chaîne de composants BTP qui expose les
+services OData du portail à l'agent :
+
+\begin{enumerate}
+    \item Le \textbf{Cloud Connector} établit un tunnel sécurisé entre le système
+          SAP S/4HANA On-Premise et SAP BTP, en mappant l'hôte interne
+          (\texttt{https://aca-web.viseo.net}, port 8050) vers un nom d'hôte virtuel.
+    \item La \textbf{Destination BTP} \texttt{S41\_SUPPLIER\_PORTAL} référence ce
+          tunnel et expose le service OData aux composants BTP.
+    \item L'\textbf{Action Project} Joule consomme la Destination pour générer
+          automatiquement les appels OData V4 depuis les skills.
+    \item Les \textbf{Skills} implémentent les intentions utilisateur en appelant
+          les endpoints OData correspondants.
+    \item L'\textbf{Agent orchestrateur} \texttt{SupplierPortalAssistant} sélectionne
+          le skill adéquat selon l'intention détectée et gère le contexte conversationnel.
+\end{enumerate}
+
+\FIG{Diagramme de flux Joule : Cloud Connector → Destination BTP → Action Project → Skills → Agent}
+
+% ----------------------------------------------------------------
+\subsection{Configuration Cloud Connector et Destination BTP}\label{ch5:joule-dest}
+
+Le \textbf{Cloud Connector} est configuré avec un mappage virtuel/interne pointant vers
+le système S/4HANA On-Premise. Les ressources accessibles sont restreintes au chemin
+\texttt{/sap/opu/odata4/sap/zui\_splr\_portal\_ael/} pour limiter la surface d'exposition.
+
+La \textbf{Destination} \texttt{S41\_SUPPLIER\_PORTAL} est créée dans le sous-compte BTP
+avec les trois propriétés additionnelles obligatoires pour l'intégration Joule :
+
+\begin{itemize}
+    \item \texttt{sap.processautomation.enabled = true}
+    \item \texttt{sap.applicationdevelopment.actions.enabled = true}
+    \item \texttt{sap.build.usage = odata\_gen}
+\end{itemize}
+
+Ces propriétés permettent à Joule Studio de découvrir automatiquement le service OData
+et de générer les appels d'action correspondants dans l'Action Project.
+
+\FIG{Capture de la Destination S41\_SUPPLIER\_PORTAL dans le cockpit BTP}
+
+% ----------------------------------------------------------------
+\subsection{Conception des skills Joule}\label{ch5:joule-skills}
+
+Cinq skills ont été conçus pour couvrir les cas d'usage principaux du portail :
+
+\begin{itemize}
+    \item \textbf{\texttt{ListPendingPO}} : liste les commandes d'achat en attente de
+          confirmation pour le fournisseur connecté (filtre sur \texttt{LIFNR}).
+    \item \textbf{\texttt{ConfirmPO}} : déclenche l'action \texttt{confirmAsOrdered}
+          pour un poste donné avec une quantité et une date de livraison fournies
+          en paramètre par l'utilisateur.
+    \item \textbf{\texttt{RejectPO}} : déclenche l'action \texttt{rejectItem} ;
+          l'agent demande le motif de rejet à l'utilisateur et le transmet comme
+          paramètre \texttt{RejectReasonID}.
+    \item \textbf{\texttt{RejectedPOs}} : interroge la table \texttt{zmm005\_po\_reject}
+          pour afficher la liste des commandes rejetées avec leur motif.
+    \item \textbf{\texttt{DashboardKPI}} : retourne les agrégats clés (nombre de PO
+          en attente, confirmées, rejetées) pour un résumé rapide.
+\end{itemize}
+
+Chaque skill est défini dans l'Action Project avec ses paramètres d'entrée, le mapping
+vers l'endpoint OData V4 correspondant et le format de réponse attendu.
+
+\FIG{Capture de l'Action Project dans Joule Studio avec les skills configurés}
+
+% ----------------------------------------------------------------
+\subsection{Orchestration via SupplierPortalAssistant}\label{ch5:joule-agent}
+
+L'agent \textbf{\texttt{SupplierPortalAssistant}} est l'orchestrateur central qui :
+
+\begin{itemize}
+    \item Analyse l'intention de l'utilisateur à partir de son message en langage naturel.
+    \item Sélectionne le skill approprié parmi les cinq disponibles.
+    \item Extrait les entités nécessaires (numéro de PO, numéro de poste, quantité, date)
+          depuis le message ou les demande à l'utilisateur si elles sont manquantes.
+    \item Formate la réponse OData en une réponse lisible et structurée.
+\end{itemize}
+
+Les instructions système de l'agent définissent le périmètre métier (gestion des commandes
+fournisseur), le ton attendu (professionnel, concis) et les règles de sécurité (l'agent
+ne traite que les données du fournisseur connecté).
+
+\FIG{Capture de la configuration de l'agent SupplierPortalAssistant dans Joule Studio}
+
+% ----------------------------------------------------------------
+\subsection{Exemples de conversations}\label{ch5:joule-demo}
+
+Les échanges suivants illustrent les capacités de l'agent en conditions réelles :
+
+\vspace{0.3cm}
+\noindent\textbf{Exemple 1 — Consultation des commandes en attente :}
+\begin{quote}
+\textit{Utilisateur :} « Montre-moi mes commandes en attente de confirmation. »\\
+\textit{Joule :} « Vous avez 3 commandes en attente : PO 4500002708 (5 postes),
+PO 4500002715 (2 postes), PO 4500002731 (1 poste). »
+\end{quote}
+
+\noindent\textbf{Exemple 2 — Confirmation d'un poste :}
+\begin{quote}
+\textit{Utilisateur :} « Confirme le poste 10 de la commande 4500002708
+pour 100 pièces livrables le 15 juin 2026. »\\
+\textit{Joule :} « Confirmation enregistrée. Poste 10 de PO 4500002708 :
+100 pcs, livraison prévue le 15/06/2026. »
+\end{quote}
+
+\noindent\textbf{Exemple 3 — Rejet d'un poste :}
+\begin{quote}
+\textit{Utilisateur :} « Je souhaite rejeter le poste 20 de la PO 4500002715. »\\
+\textit{Joule :} « Quel est le motif du rejet ? (Rupture de stock / Prix non convenu
+/ Délai incompatible / Autre) »\\
+\textit{Utilisateur :} « Rupture de stock. »\\
+\textit{Joule :} « Rejet enregistré. L'acheteur a été notifié par email. »
+\end{quote}
+
+\FIG{TODO[ANAS] : Captures d'écran des conversations Joule dans le Fiori Launchpad}
+
+% ----------------------------------------------------------------
 \section{Tests et validation}\label{ch5:tests}
 \section{Conclusion}\label{ch5:conclusion}
 
