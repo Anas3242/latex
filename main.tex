@@ -329,8 +329,8 @@ VS Code     & Visual Studio Code \\
 \noindent\hspace*{2em}\hyperref[ch5:imprimer]{5.4.6 Impression des bons de commande (Imprimer)} \dotfill \pageref*{ch5:imprimer}\\
 \noindent\hspace*{2em}\hyperref[ch5:ia]{5.4.7 Automatisation conversationnelle (Agent IA Joule)} \dotfill \pageref*{ch5:ia}\\
 \noindent\hspace*{2em}\hyperref[ch5:dashboard]{5.4.8 Pilotage analytique et KPI (Consulter les graphiques)} \dotfill \pageref*{ch5:dashboard}\\
-\noindent\hspace*{1em}\hyperref[ch5:tests]{5.5 Tests et validation} \dotfill \pageref*{ch5:tests}\\
-\noindent\hspace*{1em}\hyperref[ch5:conclusion]{5.6 Conclusion} \dotfill \pageref*{ch5:conclusion}\\
+\noindent\hspace*{2em}\hyperref[ch5:app-rejects]{5.4.9 Application de gestion et d\'annulation des rejets} \dotfill \pageref*{ch5:app-rejects}\\
+\noindent\hspace*{1em}\hyperref[ch5:conclusion]{5.5 Conclusion} \dotfill \pageref*{ch5:conclusion}\\
 \noindent\hyperref[ch:conclusion]{Conclusion g\'en\'erale et perspectives} \dotfill \pageref*{ch:conclusion}\\
 \noindent\hyperref[ch:references]{R\'ef\'erences} \dotfill \pageref*{ch:references}
 
@@ -2506,6 +2506,32 @@ Une fois l'opération validée par le backend, l'interface reflète ce changemen
 \label{fig:demo-confirmer-succes}
 \end{figure}
 
+Afin de s'assurer de l'int\'egrit\'e transactionnelle de l'op\'eration, la figure ci-dessous illustre la r\'epercussion imm\'ediate de cette confirmation dans le standard SAP. La consultation de la commande via la transaction classique ME22N confirme que les quantit\'es et dates ont \'et\'e correctement int\'egr\'ees dans l'onglet des confirmations.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-confirm-me22n.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-confirm-me22n.png}
+}{% 
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Vérification de la confirmation dans SAP Standard\\ (ajoutez figures/demo-confirm-me22n.png)}}
+}
+\caption{Vérification transactionnelle : Confirmation visible dans la transaction ME22N}
+\label{fig:demo-confirm-me22n}
+\end{figure}
+
+En parall\`ele de la mise \`a jour de la base de donn\'ees, le syst\`eme d\'eclenche l'envoi asynchrone d'une notification par courrier \'electronique. La figure suivante pr\'esente l'e-mail re\c{c}u par l'acheteur, r\'ecapitulant les d\'etails de la confirmation et assurant une communication fluide entre les parties.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-confirm-email.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-confirm-email.png}
+}{% 
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d\'ecran : Notification Email de Confirmation\\ (ajoutez figures/demo-confirm-email.png)}}
+}
+\caption{Notification email asynchrone confirmant la prise en compte au fournisseur}
+\label{fig:demo-confirm-email}
+\end{figure}
+
 \subsection{Rejet des postes avec motif (Rejeter)}\label{ch5:rejeter}
 Lorsqu'un fournisseur n'est pas en mesure d'honorer une ligne de commande (rupture de stock, erreur de prix, etc.), il peut utiliser la fonctionnalité de rejet. L'application affiche alors une boîte de dialogue (illustrée par la figure~\ref{fig:demo-rejeter-action}) contraignant le fournisseur à sélectionner un motif de rejet parmi une liste standardisée et à fournir un commentaire textuel. 
 
@@ -2547,6 +2573,19 @@ L'agilité logistique nécessite de pouvoir ajuster les échéances. Le portail 
 \label{fig:demo-replanifier}
 \end{figure}
 
+Toute modification de l'\'ech\'eancier par le fournisseur fait l'objet d'une notification proactive. La figure suivante montre l'e-mail d'alerte g\'en\'er\'e automatiquement et transmis \`a l'acheteur, lui permettant de prendre en compte la nouvelle date de livraison propos\'ee pour ajuster sa planification logistique.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-replan-email.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-replan-email.png}
+}{% 
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d\'ecran : Notification Email de Replanification\\ (ajoutez figures/demo-replan-email.png)}}
+}
+\caption{Alerte email transmise à l'acheteur suite à la replanification}
+\label{fig:demo-replan-email}
+\end{figure}
+
 \subsection{Confirmation en masse via Excel}\label{ch5:masse}
 Pour répondre aux contraintes de volume, nous avons développé une interface spécifique d'upload Excel. Le fournisseur télécharge le modèle, le renseigne, puis l'importe via un contrôle Fiori, comme démontré dans la figure~\ref{fig:demo-masse-action}. Le fichier est parsé en JavaScript, converti en format JSON et envoyé en un seul appel OData V4 au backend.
 
@@ -2561,17 +2600,30 @@ Pour répondre aux contraintes de volume, nous avons développé une interface s
 \label{fig:demo-masse-action}
 \end{figure}
 
-Une fois les données traitées massivement via l'Entity Manipulation Language (EML), le système renvoie un rapport détaillé. La figure~\ref{fig:demo-masse-succes} illustre le résultat de cette exécution, affichant les lignes intégrées avec succès ainsi que les éventuelles erreurs détectées, évitant un travail fastidieux de saisie manuelle.
+le fournisseur peut voir un preview des données extraites du fichier, lui permettant de vérifier la cohérence avant de confirmer l'opération. 
 
 \begin{figure}[H]
 \centering
 \IfFileExists{figures/demo-masse-succes.png}{%
     \includegraphics[width=0.85\textwidth]{figures/demo-masse-succes.png}
 }{%
-    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Rapport d'exécution de masse (Succès/Erreurs)\\ (ajoutez figures/demo-masse-succes.png)}}
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d\'ecran : Rapport d\'ex\'ecution de masse (Succ\`es/Erreurs)\\ (ajoutez figures/demo-masse-succes.png)}}
 }
 \caption{Rapport de statut suite à la confirmation en masse}
 \label{fig:demo-masse-succes}
+\end{figure}
+
+Une fois les données traitées massivement via l'Entity Manipulation Language (EML), le système renvoie un rapport détaillé. La figure 5.12 illustre le résultat de cette exécution, affichant les lignes intégrées avec succès ainsi que les éventuelles erreurs détectées, évitant un travail fastidieux de saisie manuelle.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-mass-verify.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-mass-verify.png}
+}{% 
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d\'ecran : V\'erification de la confirmation en masse dans SAP\\ (ajoutez figures/demo-mass-verify.png)}}
+}
+\caption{Vérification transactionnelle : Confirmations massives visibles dans le standard SAP}
+\label{fig:demo-mass-verify}
 \end{figure}
 
 \subsection{Impression des bons de commande (Imprimer)}\label{ch5:imprimer}
@@ -2582,37 +2634,51 @@ L'application intègre un moteur de génération documentaire. D'un simple clic 
 \IfFileExists{figures/demo-imprimer.png}{%
     \includegraphics[width=0.85\textwidth]{figures/demo-imprimer.png}
 }{%
-    \fbox{\parbox[c][6cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Téléchargement PDF / Adobe Forms\\ (ajoutez figures/demo-imprimer.png)}}
+    \fbox{\parbox[c][6cm][c]{0.85\linewidth}{\centering \small Capture d\'ecran : T\'el\'echargement PDF / Adobe Forms\\ (ajoutez figures/demo-imprimer.png)}}
 }
 \caption{Génération et téléchargement du bon de commande au format PDF}
 \label{fig:demo-imprimer}
 \end{figure}
 
 \subsection{Automatisation conversationnelle (Agent IA Joule)}\label{ch5:ia}
-Cette section illustre l'intégration de l'Intelligence Artificielle dans les processus métiers standards. Via la bulle de chat flottante de SAP Joule, le fournisseur peut formuler une requête en langage naturel, comme illustré dans la figure~\ref{fig:demo-ia-action} (par exemple : "Confirme la commande 4500001234"). Le moteur LLM hébergé sur SAP BTP analyse l'intention et orchestre l'appel.
+
+Le premier sc\'enario d'interaction avec SAP Joule consiste \`a requ\^eter l'\'etat des commandes. Comme le montre la figure ci-dessous, le fournisseur interroge l'agent en langage naturel pour afficher ses commandes. L'IA interpr\`ete l'intention, interroge le backend OData et restitue les donn\'ees sous forme de cartes interactives (Cards) directement dans l'interface de chat.
 
 \begin{figure}[H]
 \centering
-\IfFileExists{figures/demo-ia-action.png}{%
-    \includegraphics[width=0.85\textwidth]{figures/demo-ia-action.png}
+\IfFileExists{figures/joule-view-po.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/joule-view-po.png}
 }{%
-    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Saisie du prompt dans Joule\\ (ajoutez figures/demo-ia-action.png)}}
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d\'ecran : Consultation des commandes via Joule \\ (ajoutez figures/joule-view-po.png)}}
 }
-\caption{Exécution d'une action en langage naturel avec SAP Joule}
-\label{fig:demo-ia-action}
+\caption{Sc\'enario 1 : Consultation des commandes en langage naturel avec SAP Joule}
+\label{fig:joule-view-po}
 \end{figure}
 
-Une fois l'opération validée dans le backend via le SAP Cloud Connector, Joule formule une réponse textuelle fluide et contextuelle pour confirmer le bon déroulement de l'action. La figure~\ref{fig:demo-ia-succes} présente ce retour direct dans l'interface de chat.
+Au-del\`a de la simple consultation, Joule permet d'ex\'ecuter des actions transactionnelles. La figure suivante illustre le fournisseur demandant la confirmation d'une commande sp\'ecifique. L'agent extrait le contexte m\'etier (identifiant EBELN), sollicite le framework RAP et confirme l'op\'eration, offrant ainsi une exp\'erience utilisateur 'Hands-free'.
 
 \begin{figure}[H]
 \centering
-\IfFileExists{figures/demo-ia-succes.png}{%
-    \includegraphics[width=0.85\textwidth]{figures/demo-ia-succes.png}
+\IfFileExists{figures/joule-confirm-po.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/joule-confirm-po.png}
 }{%
-    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Réponse et validation par l'IA Joule\\ (ajoutez figures/demo-ia-succes.png)}}
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d\'ecran : Confirmation de commande via Joule \\ (ajoutez figures/joule-confirm-po.png)}}
 }
-\caption{Confirmation de traitement générée par l'agent IA}
-\label{fig:demo-ia-succes}
+\caption{Sc\'enario 2 : Ex\'ecution d'actions transactionnelles (Confirmation) en langage naturel}
+\label{fig:joule-confirm-po}
+\end{figure}
+
+Le traitement des exceptions est \'egalement pris en charge par l'assistant cognitif. Sur la figure ci-dessous, le fournisseur ordonne le rejet d'une ligne de commande. Joule guide l'utilisateur pour collecter le motif de rejet exact et le commentaire associ\'e, puis ex\'ecute la transaction de mani\`ere s\'ecuris\'ee, assurant une tra\c{c}abilit\'e identique \`a celle de l'interface Fiori classique.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/joule-reject-po.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/joule-reject-po.png}
+}{%
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d\'ecran : Rejet de commande via Joule \\ (ajoutez figures/joule-reject-po.png)}}
+}
+\caption{Sc\'enario 3 : Gestion des exceptions (Rejet) en langage naturel avec tra\c{c}abilit\'e compl\`ete}
+\label{fig:joule-reject-po}
 \end{figure}
 
 \subsection{Pilotage analytique et KPI (Consulter les graphiques)}\label{ch5:dashboard}
@@ -2629,16 +2695,22 @@ Afin de doter le département des achats d'une vision d'ensemble, nous avons ré
 \label{fig:demo-dashboard-alp}
 \end{figure}
 
-\section{Tests et validation}\label{ch5:tests}
-La validation de la solution a fait l'objet d'une campagne de tests rigoureuse, couvrant à la fois les aspects fonctionnels et techniques.
+\subsection{Application de gestion et d'annulation des rejets}\label{ch5:app-rejects}
 
-\begin{itemize}[label=\textbullet, itemsep=0.3em]
-    \item \textbf{Tests Unitaires (Backend) :} Validation de la logique ABAP des "Behavior Implementations" pour s'assurer que les statuts de rejet et les contrôles sur les dates de livraison réagissent correctement face à des jeux de données d'erreur.
-    \item \textbf{Tests d'Intégration OData :} Utilisation du \textit{SAP Gateway Client} et d'outils externes (comme Postman) pour valider les payloads JSON et les codes de statut HTTP renvoyés lors de l'import massif Excel.
-    \item \textbf{Tests Utilisateurs (UAT) :} Déploiement de l'application Fiori sur l'environnement de qualification (QUAL). Les profils acheteurs et fournisseurs simulés ont parcouru l'ensemble des cas d'utilisation pour valider l'ergonomie, les temps de réponse de l'interface, ainsi que la pertinence des réponses générées par l'agent IA Joule.
-\end{itemize}
+Afin de ne pas surcharger le flux transactionnel principal, une application a \'et\'e d\'evelopp\'ee sp\'ecifiquement pour la gestion des rejets. La figure ci-dessous pr\'esente cette interface d\'edi\'ee (bas\'ee sur une impl\'ementation RAP manag\'ee) qui liste l'historique complet des rejets. Elle permet aux utilisateurs autoris\'es de consulter les motifs d\'etaill\'es et, si n\'ecessaire, d'annuler un rejet. Cette action d\'eclenche de mani\`ere transparente un nettoyage des tables de journalisation sp\'ecifiques (Z) et une restauration du statut de la commande via une BAPI standard dans le c\oe ur de l'ERP.
 
-L'ensemble des anomalies identifiées durant cette phase a été corrigé avant la validation finale du livrable, garantissant une application stable et prête pour une mise en production.
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-app-rejects.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-app-rejects.png}
+}{%
+    \fbox{\parbox[c][6cm][c]{0.85\linewidth}{\centering \small Capture d\'ecran : Application de gestion des anomalies \\ (ajoutez figures/demo-app-rejects.png)}}
+}
+\caption{Interface d\'edi\'ee pour la consultation et l'annulation des rejets}
+\label{fig:demo-app-rejects}
+\end{figure}
+
+
 
 \section{Conclusion}\label{ch5:conclusion}
 Ce chapitre a permis de démontrer la transformation d'une conception théorique en une solution logicielle concrète, moderne et robuste. En exploitant un panel technologique de pointe (SAP RAP, Fiori, OData, SAP HANA In-Memory) combiné aux innovations du Cloud (SAP BTP et Joule), nous avons réussi à digitaliser et automatiser intégralement le processus de suivi des commandes d'achat.
