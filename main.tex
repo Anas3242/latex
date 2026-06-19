@@ -14,7 +14,8 @@
 \usepackage{textcomp}
 \usepackage{booktabs}
 \usepackage{tabularx}
-\usepackage{microtype} 
+\usepackage{microtype}
+\usepackage{tikz}
 
 % Configure enumitem
 \setlist{nosep}
@@ -215,6 +216,15 @@ VS Code     & Visual Studio Code \\
 \noindent\hspace*{2em}\hyperref[ch1:chiffres]{1.2.6 Chiffres cl\'es} \dotfill \pageref*{ch1:chiffres}\\
 \noindent\hspace*{2em}\hyperref[ch1:filiale]{1.2.7 Filiale Casablancaise : VI ONE NORTH AFRICA} \dotfill \pageref*{ch1:filiale}\\
 \noindent\hspace*{3em}\hyperref[ch1:organigramme]{1.2.7.1 Organigramme} \dotfill \pageref*{ch1:organigramme}\\
+\noindent\hspace*{2em}\hyperref[ch1:metier]{1.2.8 M\'etier du consultant technique SAP} \dotfill \pageref*{ch1:metier}\\
+\noindent\hspace*{1em}\hyperref[ch1:presentation-projet]{1.3 Pr\'esentation du projet} \dotfill \pageref*{ch1:presentation-projet}\\
+\noindent\hspace*{2em}\hyperref[ch1:contexte-projet]{1.3.1 Contexte du projet} \dotfill \pageref*{ch1:contexte-projet}\\
+\noindent\hspace*{2em}\hyperref[ch1:problematique-projet]{1.3.2 Probl\'ematique} \dotfill \pageref*{ch1:problematique-projet}\\
+\noindent\hspace*{2em}\hyperref[ch1:objectifs-projet]{1.3.3 Objectifs} \dotfill \pageref*{ch1:objectifs-projet}\\
+\noindent\hspace*{3em}\hyperref[ch1:obj-general]{1.3.3.1 Objectif g\'en\'eral} \dotfill \pageref*{ch1:obj-general}\\
+\noindent\hspace*{3em}\hyperref[ch1:obj-specifiques]{1.3.3.2 Objectifs sp\'ecifiques} \dotfill \pageref*{ch1:obj-specifiques}\\
+\noindent\hspace*{3em}\hyperref[ch1:obj-transverses]{1.3.3.3 Objectifs transverses} \dotfill \pageref*{ch1:obj-transverses}\\
+\noindent\hspace*{2em}\hyperref[ch1:gestion-projet]{1.3.4 Gestion de projet} \dotfill \pageref*{ch1:gestion-projet}\\
 \noindent\hspace*{1em}\hyperref[ch1:cahier]{1.4 Cahier des charges} \dotfill \pageref*{ch1:cahier}\\
 \noindent\hspace*{2em}\hyperref[ch1:problematique]{1.4.1 Probl\'ematique} \dotfill \pageref*{ch1:problematique}\\
 \noindent\hspace*{2em}\hyperref[ch1:objectifs]{1.4.2 Objectifs} \dotfill \pageref*{ch1:objectifs}\\
@@ -302,17 +312,24 @@ VS Code     & Visual Studio Code \\
 \noindent\hyperref[ch:dev-real]{Chapitre 5 : D\'eveloppement et r\'ealisation} \dotfill \pageref*{ch:dev-real}\\
 \noindent\hspace*{1em}\hyperref[ch5:introduction]{5.1 Introduction} \dotfill \pageref*{ch5:introduction}\\
 \noindent\hspace*{1em}\hyperref[ch5:tech]{5.2 Technologies et outils utilis\'es} \dotfill \pageref*{ch5:tech}\\
-\noindent\hspace*{1em}\hyperref[ch5:implementation]{5.3 Impl\'ementation et d\'emonstration de la solution} \dotfill \pageref*{ch5:implementation}\\
-\noindent\hspace*{2em}\hyperref[ch5:voir-po]{5.3.1 Visualisation des commandes (Voir les PO)} \dotfill \pageref*{ch5:voir-po}\\
-\noindent\hspace*{2em}\hyperref[ch5:confirmer]{5.3.2 Confirmation unitaire des postes (Confirmer)} \dotfill \pageref*{ch5:confirmer}\\
-\noindent\hspace*{2em}\hyperref[ch5:rejeter]{5.3.3 Rejet des postes avec motif (Rejeter)} \dotfill \pageref*{ch5:rejeter}\\
-\noindent\hspace*{2em}\hyperref[ch5:replanifier]{5.3.4 Replanification des dates de livraison (Replanifier)} \dotfill \pageref*{ch5:replanifier}\\
-\noindent\hspace*{2em}\hyperref[ch5:masse]{5.3.5 Confirmation en masse via Excel} \dotfill \pageref*{ch5:masse}\\
-\noindent\hspace*{2em}\hyperref[ch5:imprimer]{5.3.6 Impression des bons de commande (Imprimer)} \dotfill \pageref*{ch5:imprimer}\\
-\noindent\hspace*{2em}\hyperref[ch5:ia]{5.3.7 Automatisation conversationnelle (Agent IA Joule)} \dotfill \pageref*{ch5:ia}\\
-\noindent\hspace*{2em}\hyperref[ch5:dashboard]{5.3.8 Pilotage analytique et KPI (Consulter les graphiques)} \dotfill \pageref*{ch5:dashboard}\\
-\noindent\hspace*{1em}\hyperref[ch5:tests]{5.4 Tests et validation} \dotfill \pageref*{ch5:tests}\\
-\noindent\hspace*{1em}\hyperref[ch5:conclusion]{5.5 Conclusion} \dotfill \pageref*{ch5:conclusion}\\
+\noindent\hspace*{1em}\hyperref[ch5:realisation]{5.3 Architecture et réalisation de la solution} \dotfill \pageref*{ch5:realisation}\\
+\noindent\hspace*{2em}\hyperref[ch5:structure]{5.3.1 Structure générale de la solution} \dotfill \pageref*{ch5:structure}\\
+\noindent\hspace*{2em}\hyperref[ch5:cds]{5.3.2 Modélisation des données : les vues CDS} \dotfill \pageref*{ch5:cds}\\
+\noindent\hspace*{2em}\hyperref[ch5:rap]{5.3.3 Logique métier et transactions : le modèle RAP} \dotfill \pageref*{ch5:rap}\\
+\noindent\hspace*{2em}\hyperref[ch5:services-fiori]{5.3.4 Exposition des services et interfaces Fiori} \dotfill \pageref*{ch5:services-fiori}\\
+\noindent\hspace*{2em}\hyperref[ch5:securite]{5.3.5 Sécurité et gestion des autorisations} \dotfill \pageref*{ch5:securite}\\
+\noindent\hspace*{2em}\hyperref[ch5:joule-impl]{5.3.6 Intégration de l'IA générative (SAP BTP \& Joule)} \dotfill \pageref*{ch5:joule-impl}\\
+\noindent\hspace*{1em}\hyperref[ch5:implementation]{5.4 D\'emonstration de la solution} \dotfill \pageref*{ch5:implementation}\\
+\noindent\hspace*{2em}\hyperref[ch5:voir-po]{5.4.1 Visualisation des commandes (Voir les PO)} \dotfill \pageref*{ch5:voir-po}\\
+\noindent\hspace*{2em}\hyperref[ch5:confirmer]{5.4.2 Confirmation unitaire des postes (Confirmer)} \dotfill \pageref*{ch5:confirmer}\\
+\noindent\hspace*{2em}\hyperref[ch5:rejeter]{5.4.3 Rejet des postes avec motif (Rejeter)} \dotfill \pageref*{ch5:rejeter}\\
+\noindent\hspace*{2em}\hyperref[ch5:replanifier]{5.4.4 Replanification des dates de livraison (Replanifier)} \dotfill \pageref*{ch5:replanifier}\\
+\noindent\hspace*{2em}\hyperref[ch5:masse]{5.4.5 Confirmation en masse via Excel} \dotfill \pageref*{ch5:masse}\\
+\noindent\hspace*{2em}\hyperref[ch5:imprimer]{5.4.6 Impression des bons de commande (Imprimer)} \dotfill \pageref*{ch5:imprimer}\\
+\noindent\hspace*{2em}\hyperref[ch5:ia]{5.4.7 Automatisation conversationnelle (Agent IA Joule)} \dotfill \pageref*{ch5:ia}\\
+\noindent\hspace*{2em}\hyperref[ch5:dashboard]{5.4.8 Pilotage analytique et KPI (Consulter les graphiques)} \dotfill \pageref*{ch5:dashboard}\\
+\noindent\hspace*{1em}\hyperref[ch5:tests]{5.5 Tests et validation} \dotfill \pageref*{ch5:tests}\\
+\noindent\hspace*{1em}\hyperref[ch5:conclusion]{5.6 Conclusion} \dotfill \pageref*{ch5:conclusion}\\
 \noindent\hyperref[ch:conclusion]{Conclusion g\'en\'erale et perspectives} \dotfill \pageref*{ch:conclusion}\\
 \noindent\hyperref[ch:references]{R\'ef\'erences} \dotfill \pageref*{ch:references}
 
@@ -745,7 +762,9 @@ sa cr\'eation.
 \label{fig:collab-vione}
 \end{figure}
 
+\setcounter{secnumdepth}{3}
 \subsubsection{Organigramme}\label{ch1:organigramme}
+\setcounter{secnumdepth}{2}
 
 L'organigramme de Vi-One North Africa refl\`ete une structure organisationnelle claire
 et hi\'erarchis\'ee, con\c{c}ue pour assurer une coordination efficace entre les
@@ -771,6 +790,231 @@ assurent le bon fonctionnement interne de la structure.
 \caption{Organigramme de VI-ONE North Africa}
 \label{fig:organigramme-vione}
 \end{figure}
+
+\clearpage
+\subsection{M\'etier du consultant technique SAP}\label{ch1:metier}
+
+Le consultant technique SAP occupe un r\^ole central dans la mise en \oe uvre et
+l'\'evolution des solutions ERP. \`A l'interface entre les besoins m\'etiers exprim\'es
+par les consultants fonctionnels et la r\'ealit\'e technique du syst\`eme, il traduit
+les sp\'ecifications fonctionnelles en d\'eveloppements concrets, performants et
+maintenables.
+
+De par sa position charni\`ere, le consultant technique doit conjuguer une solide
+ma\^itrise des langages et frameworks de la plateforme SAP avec une bonne
+compr\'ehension des processus m\'etiers (achats, ventes, finance, logistique).
+Cette double comp\'etence lui permet de proposer des solutions techniques pertinentes,
+align\'ees sur les enjeux op\'erationnels de l'entreprise, tout en anticipant les
+contraintes de performance, de s\'ecurit\'e et de maintenabilit\'e. Il joue ainsi un
+r\^ole de \og traducteur \fg{} entre le langage m\'etier et le langage informatique,
+\'el\'ement indispensable \`a la r\'eussite des projets d'int\'egration ERP.
+
+Au quotidien, il \'evolue dans un environnement de d\'eveloppement outill\'e ---
+principalement les \textbf{ABAP Development Tools} (ADT) sous Eclipse --- et s'appuie
+sur des pratiques d'ing\'enierie logicielle \'eprouv\'ees : gestion de versions
+(\textbf{abapGit}, ordres de transport), tests unitaires (\textbf{ABAP Unit}), revue
+de code et contr\^oles qualit\'e automatis\'es (\textbf{ATC}, \textit{Code Inspector}).
+Cette rigueur garantit la fiabilit\'e des livrables, r\'eduit la dette technique et
+facilite leur \'evolution dans le temps.
+
+Au sein de la \textbf{Direction Technique SAP} de VI-One North Africa, le consultant
+technique intervient principalement sur la couche de d\'eveloppement et d'extension
+du syst\`eme. Ses missions couvrent notamment :
+
+\begin{itemize}[label=---, itemsep=0.15em]
+	\item Le d\'eveloppement et la maintenance de programmes \textbf{ABAP} (rapports,
+	      traitements par lots, interfaces) ;
+	\item La conception de mod\`eles de donn\'ees \`a l'aide des \textbf{CDS Views} et
+	      l'exposition de services via le mod\`ele \textbf{RAP} (RESTful ABAP Programming) ;
+	\item Le d\'eveloppement d'applications \textbf{SAP Fiori / SAPUI5} et leur
+	      int\'egration au Fiori Launchpad ;
+	\item La mise en place et la consommation de services \textbf{OData} pour les
+	      \'echanges entre le back-end et les interfaces utilisateurs ;
+	\item Le d\'eveloppement de \textbf{CDS analytiques} (vues de consommation,
+	      cubes et requ\^etes) et de \textbf{tableaux de bord} (dashboards) pour le
+	      reporting et le pilotage d\'ecisionnel ;
+	\item L'int\'egration du syst\`eme SAP avec des applications tierces
+	      (interfaces, API, middleware) ;
+	\item Le d\'eveloppement et le d\'eploiement d'applications sur la plateforme
+	      \textbf{SAP BTP} (Business Technology Platform), notamment via les
+	      environnements \textbf{ABAP Environment} (Steampunk) et \textbf{Cloud Foundry} ;
+	\item La conception et le d\'eveloppement d'\textbf{agents intelligents} et de
+	      sc\'enarios d'\textbf{IA g\'en\'erative} (SAP Joule, services \textbf{SAP AI Core}
+	      et \textit{Generative AI Hub}) pour automatiser les t\^aches m\'etiers ;
+	\item Le respect des principes du \textbf{Clean Core} et des bonnes pratiques de
+	      d\'eveloppement dans un contexte \textbf{ABAP Cloud} / S/4HANA.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  font=\small,
+  hub/.style={rectangle, rounded corners, draw=RoyalBlue!85, fill=RoyalBlue!75,
+              text=white, font=\bfseries, align=center,
+              minimum width=3.4cm, minimum height=1.3cm},
+  comp/.style={rectangle, rounded corners, draw=RoyalBlue!55, fill=RoyalBlue!10,
+               align=center, text width=2.7cm, minimum height=1cm, inner sep=4pt},
+  link/.style={draw=RoyalBlue!50, line width=0.9pt}
+]
+  \node[hub] (c) at (0,0) {Consultant\\Technique SAP};
+
+  \node[comp] (abap)  at (90:4.0)   {D\'eveloppement\\\textbf{ABAP}};
+  \node[comp] (cds)   at (50:4.9)   {Mod\'elisation\\\textbf{CDS / RAP}};
+  \node[comp] (anaC) at (10:5.3) {\textbf{CDS}\\\textbf{analytiques}\\\& Dashboards};
+  \node[comp] (fiori) at (-30:5.0)  {\textbf{SAP Fiori}\\/ SAPUI5};
+  \node[comp] (odata) at (-70:4.7)  {Services\\\textbf{OData}};
+  \node[comp] (btp)   at (-110:4.7) {\textbf{SAP BTP}\\(Cloud)};
+  \node[comp] (ia)    at (-150:5.0) {Agents IA\\\textbf{(SAP Joule)}};
+  \node[comp] (integ) at (170:5.2)  {Int\'egration\\\& API};
+  \node[comp] (clean) at (130:4.9)  {\textbf{Clean Core}\\S/4HANA};
+
+  \foreach \n in {abap,cds,anaC,fiori,odata,btp,ia,integ,clean}{%
+    \draw[link] (c) -- (\n);}
+\end{tikzpicture}
+\caption{P\^oles de comp\'etences du consultant technique SAP}
+\label{fig:metier-consultant}
+\end{figure}
+
+Au-del\`a de la simple production de code, le consultant technique garantit la
+\textbf{qualit\'e}, la \textbf{performance} et la \textbf{p\'erennit\'e} des
+d\'eveloppements. Il participe \'egalement aux phases d'analyse, de tests et de
+documentation, et collabore \'etroitement avec les \'equipes fonctionnelles afin
+d'assurer l'ad\'equation entre la solution livr\'ee et les exigences m\'etiers.
+
+C'est pr\'ecis\'ement dans ce cadre que s'inscrit le pr\'esent projet, qui mobilise
+l'ensemble de ces comp\'etences techniques pour concevoir et d\'evelopper une
+solution d'optimisation du processus de confirmation des commandes d'achat.
+
+\clearpage
+\section{Présentation du projet}\label{ch1:presentation-projet}
+
+\subsection{Contexte du projet}\label{ch1:contexte-projet}
+
+Ce projet de fin d'études s'inscrit dans le cadre d'un stage réalisé au sein de
+\textbf{VISEO Maroc (VI-ONE North Africa)}, à Casablanca, entité spécialisée dans
+le conseil en transformation digitale et l'intégration des solutions SAP. La mission
+s'articule autour de la plateforme \textbf{SAP S/4HANA On-Premise} et mobilise les
+technologies les plus récentes de l'éditeur : le modèle de programmation
+\textbf{RAP (ABAP RESTful Application Programming Model)}, l'interface utilisateur
+\textbf{SAP Fiori}, la plateforme \textbf{SAP Business Technology Platform (BTP)} et
+l'assistant d'intelligence artificielle générative \textbf{Joule}.
+
+Le périmètre fonctionnel relève du domaine \textbf{Achats (module MM --- Materials
+Management)}, et plus précisément du cycle de collaboration entre l'acheteur et le
+fournisseur. Dans un processus \textit{Procure-to-Pay} standard, une fois la commande
+d'achat émise par l'acheteur, le fournisseur doit en accuser réception : il confirme
+les quantités et les dates de livraison de chaque poste, ou les rejette lorsqu'il ne
+peut pas les honorer. Cette étape de \textbf{confirmation de commande (Order
+Acknowledgement)} est déterminante pour la fiabilité du planning d'approvisionnement.
+
+Or, dans de nombreuses organisations, cette interaction reste largement
+\textbf{manuelle et hors-système} : les échanges se font par e-mail, téléphone ou
+tableur, puis font l'objet d'une ressaisie dans le système par les équipes achats.
+Côté SAP, la solution actuelle repose sur la transaction standard \textbf{ME22N}
+(modification de la commande d'achat et saisie des confirmations dans l'onglet
+«~Confirmations~»), accessible uniquement aux acheteurs internes : le fournisseur,
+lui, ne dispose d'aucun accès direct au système pour confirmer ou rejeter ses postes. Le projet vise à digitaliser
+et automatiser ce processus à travers la conception d'un \textbf{écosystème de portail
+fournisseur intelligent}, intégré nativement à S/4HANA et augmenté par l'intelligence
+artificielle.
+
+\subsection{Problématique}\label{ch1:problematique-projet}
+
+La gestion traditionnelle de la confirmation des commandes d'achat présente plusieurs
+limites structurelles :
+
+\begin{itemize}[label=---, itemsep=0.35em]
+	\item \textbf{Un processus manuel et non intégré.} Les confirmations transitant
+	      par e-mail ou téléphone doivent être ressaisies dans le système, ce qui
+	      génère des erreurs, des retards et une \textbf{absence de traçabilité} des
+	      engagements pris par le fournisseur.
+	\item \textbf{L'absence de canal en self-service.} Le fournisseur ne dispose
+	      d'aucun moyen d'agir directement et de manière autonome sur les postes de
+	      commande : il ne peut ni confirmer, ni rejeter avec un motif, ni ajuster une
+	      date de livraison sans passer par un interlocuteur humain.
+	\item \textbf{Un manque de visibilité pour l'acheteur.} Faute d'outil analytique,
+	      l'acheteur ne dispose pas d'une vision temps réel des indicateurs clés :
+	      taux de confirmation, postes en retard, taux de rejet ou performance des
+	      fournisseurs.
+	\item \textbf{Une saisie unitaire chronophage.} Lorsqu'un fournisseur doit traiter
+	      un grand nombre de postes, l'absence de \textbf{traitement de masse} rend
+	      l'opération longue et fastidieuse.
+	\item \textbf{Une interaction encore trop technique.} Même avec une interface
+	      moderne, l'utilisateur doit naviguer dans plusieurs écrans pour accomplir
+	      une action simple, sans possibilité de s'exprimer en langage naturel.
+\end{itemize}
+
+Ces constats conduisent à la question centrale qui structure ce travail :
+
+\begin{quote}
+\itshape\textbf{Comment concevoir, sur SAP S/4HANA, une solution de collaboration
+fournisseur intégrée et en self-service, qui automatise la confirmation et le rejet
+des commandes d'achat, offre à l'acheteur une visibilité analytique en temps réel,
+et exploite l'intelligence artificielle conversationnelle --- tout en respectant les
+standards modernes de développement SAP (RAP, Fiori, principe du Clean Core) ?}
+\end{quote}
+
+\subsection{Objectifs}\label{ch1:objectifs-projet}
+
+\setcounter{secnumdepth}{3}
+\subsubsection{Objectif général}\label{ch1:obj-general}
+
+Concevoir et développer un \textbf{écosystème «~Portail Fournisseur Intelligent~»}
+sur SAP S/4HANA On-Premise, couvrant l'ensemble du cycle de confirmation des commandes
+d'achat, de l'interaction self-service du fournisseur jusqu'au pilotage analytique de
+l'acheteur, le tout enrichi par un assistant conversationnel basé sur l'IA générative.
+
+\subsubsection{Objectifs spécifiques}\label{ch1:obj-specifiques}
+
+L'écosystème se décline en \textbf{quatre applications complémentaires} :
+
+\begin{enumerate}[itemsep=0.35em, leftmargin=1.6em]
+	\item \textbf{Le Portail Fournisseur} (Fiori Elements + RAP non managé avec
+	      brouillon). Application centrale permettant au fournisseur de consulter ses
+	      commandes et d'agir sur chaque poste : confirmation, rejet motivé, mise à
+	      jour de la date de livraison, \textbf{confirmation de masse par fichier
+	      Excel}, génération de PDF de confirmation (Adobe Forms) et notifications
+	      e-mail automatiques vers l'acheteur.
+	\item \textbf{L'Application de Gestion des Rejets} (RAP managé avec brouillon).
+	      Application dédiée à la gestion et à l'historisation des postes rejetés, avec
+	      contrôles métier (interdiction de rejeter un poste déjà confirmé
+	      partiellement).
+	\item \textbf{Le Tableau de Bord Analytique} (Fiori Analytical List Page,
+	      \textit{embedded analytics}). Restitution des indicateurs de performance ---
+	      taux de confirmation, postes en retard, montants, statut des commandes ---
+	      au travers de filtres visuels et de graphiques interactifs.
+	\item \textbf{L'Assistant IA Joule} (SAP BTP). Agent conversationnel permettant à
+	      l'utilisateur de \textbf{lister, confirmer ou rejeter les commandes en
+	      langage naturel}, en s'appuyant sur les services OData du portail.
+\end{enumerate}
+
+\subsubsection{Objectifs transverses}\label{ch1:obj-transverses}
+
+Au-delà des fonctionnalités, le projet poursuit plusieurs exigences de qualité :
+
+\begin{itemize}[label=---, itemsep=0.2em]
+	\item le respect du principe du \textbf{Clean Core} (développement par extensions,
+	      sans modification du standard SAP) ;
+	\item la \textbf{gestion multilingue} 	sur l'ensemble des
+	      applications ;
+	\item la \textbf{sécurité et la gestion des autorisations} (filtrage par
+	      fournisseur, contrôle des actions) ;
+	\item l'application des \textbf{bonnes pratiques RAP} et d'une architecture en
+	      couches maintenable et évolutive.
+\end{itemize}
+\setcounter{secnumdepth}{2}
+
+\subsection{Gestion de projet}\label{ch1:gestion-projet}
+
+Le projet a été conduit selon une approche \textbf{Agile}, privilégiant des cycles de
+développement courts et itératifs ainsi qu'une collaboration étroite avec le client et
+les équipes métiers. Cette organisation a permis de valider régulièrement les
+incréments livrés et d'ajuster les priorités au fil de l'avancement.
+
+Étalé sur une durée d'environ \textbf{cinq mois}, le projet s'est structuré en plusieurs
+phases : initialisation et cadrage, développement des fonctionnalités, tests et recette,
+puis préparation à la mise en production. La méthodologie retenue et le planning détaillé
+sont présentés plus loin dans ce chapitre (section~\ref{ch1:gestion}).
 
 \clearpage
 \section{Cahier des charges}\label{ch1:cahier}
@@ -1790,7 +2034,91 @@ La réalisation de ce projet s'est appuyée sur une suite d'outils et de technol
 
 \end{itemize}
 
-\section{Impl\'ementation et d\'emonstration de la solution}\label{ch5:implementation}
+\section{Architecture et réalisation de la solution}\label{ch5:realisation}
+Avant d'illustrer le fonctionnement de l'application, cette section détaille la manière
+dont la solution a été effectivement construite. La réalisation suit une
+\textbf{architecture en couches} conforme aux standards modernes de SAP : un modèle de
+données déclaratif (CDS), une couche de logique métier transactionnelle (RAP), une
+exposition de services normalisée (OData) et des interfaces utilisateurs générées par
+Fiori Elements. Chaque couche est décrite ci-après.
+
+\subsection{Structure générale de la solution}\label{ch5:structure}
+La solution est organisée en \textbf{quatre applications} complémentaires qui partagent
+un même socle technique : le \textbf{Portail Fournisseur}, l'\textbf{application de
+gestion des rejets}, le \textbf{tableau de bord analytique} et l'\textbf{assistant
+conversationnel Joule}. Toutes reposent sur la même chaîne de réalisation, depuis la
+persistance des données jusqu'à l'interface utilisateur :
+
+\begin{itemize}[label=\textbullet, itemsep=0.25em]
+    \item \textbf{Couche de persistance} : tables standards SAP du module achats ---
+          \texttt{EKKO} (en-têtes de commande), \texttt{EKPO} (postes) et \texttt{EKES}
+          (confirmations fournisseurs) ;
+    \item \textbf{Couche de modélisation} : vues \textbf{CDS} (interface, composition et
+          projection) définissant le modèle de données sémantique ;
+    \item \textbf{Couche applicative} : définitions de comportement \textbf{RAP}
+          (actions, validations et déterminations) portant la logique transactionnelle ;
+    \item \textbf{Couche de service} : \textit{Service Definition} et \textit{Service
+          Binding} publiant les API \textbf{OData} ;
+    \item \textbf{Couche de présentation} : applications \textbf{Fiori Elements}
+          (\textit{List Report}, \textit{Object Page}, \textit{Analytical List Page}).
+\end{itemize}
+
+\subsection{Modélisation des données : les vues CDS}\label{ch5:cds}
+Le modèle de données s'appuie sur une hiérarchie de \textit{Core Data Services}. Les
+\textbf{vues d'interface} exposent et enrichissent les données des tables standards
+(\texttt{EKKO}/\texttt{EKPO}/\texttt{EKES}) en y ajoutant des éléments sémantiques
+(libellés, types de devise et de quantité, textes associés). Au-dessus, les
+\textbf{vues de projection} (consumption views) sélectionnent et adaptent les champs
+réellement nécessaires à chaque application. Les \textbf{associations} relient
+l'en-tête de commande à ses postes puis à leurs confirmations, ce qui permet une
+navigation naturelle dans l'interface. Enfin, des \textbf{Metadata Extensions} ---
+fichiers d'annotations séparés --- portent la présentation (regroupements, facettes,
+colonnes), respectant ainsi la séparation entre le modèle et la couche d'affichage.
+
+\subsection{Logique métier et transactions : le modèle RAP}\label{ch5:rap}
+Le comportement transactionnel est défini à l'aide du modèle \textbf{RAP} (\textit{RESTful
+ABAP Programming}). Le \textbf{Portail Fournisseur} repose sur une implémentation
+\textbf{non managée avec brouillon} (\textit{draft}), car il agit directement sur des
+tables standards déjà prises en charge par le noyau achats : la persistance y est donc
+gérée manuellement. Les \textbf{actions métier} --- \texttt{confirmer}, \texttt{rejeter}
+et \texttt{replanifier} --- encapsulent les règles applicables à chaque poste. Des
+\textbf{validations} garantissent la cohérence (par exemple l'interdiction de rejeter un
+poste déjà confirmé partiellement) et des \textbf{déterminations} calculent
+automatiquement certains champs dérivés (statut, quantités restantes). Les mises à jour
+sont réalisées par des instructions \textbf{EML} (\texttt{MODIFY ENTITIES}) de manière
+asynchrone. L'\textbf{application de gestion des rejets}, plus simple, utilise quant à
+elle une implémentation \textbf{managée avec brouillon} adossée à une table d'historisation
+dédiée.
+
+\subsection{Exposition des services et interfaces Fiori}\label{ch5:services-fiori}
+Chaque modèle est publié au travers d'une \textbf{Service Definition} (liste des entités
+exposées), puis d'un \textbf{Service Binding} qui génère l'API \textbf{OData} : la version
+\textbf{V4} est employée pour les opérations transactionnelles, la version \textbf{V2}
+pour les scénarios analytiques. Côté front-end, les applications sont produites avec
+\textbf{Fiori Elements}, dont l'interface est essentiellement pilotée par
+\textbf{annotations} : un \textit{List Report} couplé à une \textit{Object Page} pour le
+portail, et une \textit{Analytical List Page} pour le tableau de bord. Le code
+\textbf{SAPUI5}/JavaScript n'intervient que pour les personnalisations spécifiques non
+couvertes par le standard.
+
+\subsection{Sécurité et gestion des autorisations}\label{ch5:securite}
+La confidentialité des données repose sur le \textbf{Data Control Language} (DCL) : une
+règle d'\textit{access control} filtre automatiquement les commandes afin de ne présenter
+à chaque fournisseur que ses propres données. Les actions sensibles sont en outre
+protégées par des \textbf{contrôles d'autorisation}, assurant qu'un utilisateur ne peut
+agir que dans son périmètre. Cette approche, fondée exclusivement sur des extensions,
+respecte le principe du \textbf{Clean Core} (aucune modification du standard SAP).
+
+\subsection{Intégration de l'IA générative (SAP BTP \& Joule)}\label{ch5:joule-impl}
+L'assistant \textbf{SAP Joule} a été configuré sur \textbf{SAP BTP} sous forme de
+\textit{Skills} et d'\textit{Action Projects} : les demandes formulées en langage naturel
+sont interprétées, puis converties en appels aux services \textbf{OData} du portail
+(lister, confirmer ou rejeter des commandes). La \textbf{connectivité sécurisée} entre la
+couche cloud et le back-end S/4HANA \textit{on-premise} est assurée par le
+\textbf{Destination Service} et le \textbf{Cloud Connector}, garantissant la propagation
+de l'identité de l'utilisateur.
+
+\section{Démonstration de la solution}\label{ch5:implementation}
 Cette section présente le fonctionnement de l'application aboutie à travers les différents scénarios d'utilisation conçus lors de la phase de modélisation.
 
 \subsection{Visualisation des commandes (Voir les PO)}\label{ch5:voir-po}
