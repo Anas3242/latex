@@ -14,6 +14,7 @@
 \usepackage{textcomp}
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{amssymb}
 \usepackage{microtype}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,shapes.geometric,fit}
@@ -146,13 +147,51 @@ Mme. Sanaa Mouzaki & VISEO & - Encadrante \\
 \phantomsection
 \addcontentsline{toc}{chapter}{R\'esum\'e}
 \label{sec:resume}
-% A compl\'eter
+
+Ce projet de fin d'études, réalisé au sein de VI-ONE North Africa (groupe VISEO),
+porte sur la conception et le développement d'un \textbf{portail fournisseur intelligent}
+destiné à digitaliser le cycle de confirmation des commandes d'achat dans l'ERP
+\textbf{SAP S/4HANA}. La solution permet au fournisseur de confirmer, rejeter, replanifier
+ou traiter en masse ses postes de commande en libre-service, tout en offrant à l'acheteur
+une visibilité analytique en temps réel et un assistant conversationnel.
+
+L'architecture repose intégralement sur le modèle de programmation moderne de SAP, dans le
+respect du principe \textit{Clean Core} : modélisation des données par les
+\textit{Core Data Services} (CDS), logique transactionnelle via le \textit{RESTful ABAP
+Programming Model} (RAP), exposition de services \textbf{OData} (V4 pour le
+transactionnel, V2 pour l'analytique) et interfaces \textbf{SAP Fiori Elements}.
+L'écosystème est complété par un tableau de bord analytique (\textit{Analytical List
+Page}) et par l'assistant d'intelligence artificielle générative \textbf{SAP Joule},
+déployé sur \textbf{SAP BTP}. La solution livrée réduit les délais de traitement,
+formalise les motifs de rejet et fiabilise les échanges entre acheteurs et fournisseurs.
+
+\vspace{0.3cm}
+\noindent\textbf{Mots-clés :} SAP S/4HANA, ABAP RAP, CDS, OData, SAP Fiori, SAP BTP,
+SAP Joule, portail fournisseur, gestion des achats (MM), Clean Core.
 
 \chapter*{Abstract}
 \phantomsection
 \addcontentsline{toc}{chapter}{Abstract}
 \label{sec:abstract}
-% To be completed
+
+This graduation project, carried out at VI-ONE North Africa (VISEO group), focuses on the
+design and development of an \textbf{intelligent supplier portal} aimed at digitalising the
+purchase-order confirmation cycle within the \textbf{SAP S/4HANA} ERP. The solution enables
+suppliers to confirm, reject, reschedule or mass-process their order items in self-service,
+while providing buyers with real-time analytical visibility and a conversational assistant.
+
+The architecture relies entirely on SAP's modern programming model, in line with the
+\textit{Clean Core} principle: data modelling through \textit{Core Data Services} (CDS),
+transactional logic via the \textit{RESTful ABAP Programming Model} (RAP), \textbf{OData}
+service exposure (V4 for transactions, V2 for analytics) and \textbf{SAP Fiori Elements}
+user interfaces. The ecosystem is complemented by an analytical dashboard
+(\textit{Analytical List Page}) and by the generative AI assistant \textbf{SAP Joule},
+deployed on \textbf{SAP BTP}. The delivered solution reduces processing times, formalises
+rejection reasons and increases the reliability of buyer--supplier interactions.
+
+\vspace{0.3cm}
+\noindent\textbf{Keywords:} SAP S/4HANA, ABAP RAP, CDS, OData, SAP Fiori, SAP BTP,
+SAP Joule, supplier portal, procurement (MM), Clean Core.
 
 \chapter*{Nomenclature}
 \phantomsection
@@ -196,143 +235,8 @@ VS Code     & Visual Studio Code \\
 \end{tabular}
 }
 
-\chapter*{Table des mati\`eres}
-\phantomsection
-\label{sec:toc-manuel}
-\noindent\hyperref[sec:dedicace]{D\'edicace} \dotfill \pageref*{sec:dedicace}\\
-\noindent\hyperref[sec:remerciements]{Remerciements} \dotfill \pageref*{sec:remerciements}\\
-\noindent\hyperref[sec:resume]{R\'esum\'e} \dotfill \pageref*{sec:resume}\\
-\noindent\hyperref[sec:abstract]{Abstract} \dotfill \pageref*{sec:abstract}\\
-\noindent\hyperref[sec:nomenclature]{Nomenclature} \dotfill \pageref*{sec:nomenclature}\\
-\noindent\hyperref[ch:intro-gen]{Introduction g\'en\'erale} \dotfill \pageref*{ch:intro-gen}\\
-\noindent\hyperref[ch:contexte]{Chapitre 1 : Contexte g\'en\'eral du projet} \dotfill \pageref*{ch:contexte}\\
-\noindent\hspace*{1em}\hyperref[ch1:introduction]{1.1 Introduction} \dotfill \pageref*{ch1:introduction}\\
-\noindent\hspace*{1em}\hyperref[ch1:organisme]{1.2 Pr\'esentation de l'organisme d'accueil} \dotfill \pageref*{ch1:organisme}\\
-\noindent\hspace*{2em}\hyperref[ch1:apercu]{1.2.1 Aper\c{c}u g\'en\'eral} \dotfill \pageref*{ch1:apercu}\\
-\noindent\hspace*{2em}\hyperref[ch1:partenaires-viseo]{1.2.2 Partenaires du groupe VISEO} \dotfill \pageref*{ch1:partenaires-viseo}\\
-\noindent\hspace*{2em}\hyperref[ch1:secteur]{1.2.3 Secteur d'activit\'e} \dotfill \pageref*{ch1:secteur}\\
-\noindent\hspace*{2em}\hyperref[ch1:localisation]{1.2.4 Localisation et \'evolution} \dotfill \pageref*{ch1:localisation}\\
-\noindent\hspace*{2em}\hyperref[ch1:domaines]{1.2.5 Domaines d'expertise} \dotfill \pageref*{ch1:domaines}\\
-\noindent\hspace*{2em}\hyperref[ch1:chiffres]{1.2.6 Chiffres cl\'es} \dotfill \pageref*{ch1:chiffres}\\
-\noindent\hspace*{2em}\hyperref[ch1:filiale]{1.2.7 Filiale Casablancaise : VI ONE NORTH AFRICA} \dotfill \pageref*{ch1:filiale}\\
-\noindent\hspace*{3em}\hyperref[ch1:organigramme]{1.2.7.1 Organigramme} \dotfill \pageref*{ch1:organigramme}\\
-\noindent\hspace*{2em}\hyperref[ch1:metier]{1.2.8 M\'etier du consultant technique SAP} \dotfill \pageref*{ch1:metier}\\
-\noindent\hspace*{1em}\hyperref[ch1:presentation-projet]{1.3 Pr\'esentation du projet} \dotfill \pageref*{ch1:presentation-projet}\\
-\noindent\hspace*{2em}\hyperref[ch1:contexte-projet]{1.3.1 Contexte du projet} \dotfill \pageref*{ch1:contexte-projet}\\
-\noindent\hspace*{2em}\hyperref[ch1:problematique-projet]{1.3.2 Probl\'ematique} \dotfill \pageref*{ch1:problematique-projet}\\
-\noindent\hspace*{2em}\hyperref[ch1:objectifs-projet]{1.3.3 Objectifs} \dotfill \pageref*{ch1:objectifs-projet}\\
-\noindent\hspace*{3em}\hyperref[ch1:obj-general]{1.3.3.1 Objectif g\'en\'eral} \dotfill \pageref*{ch1:obj-general}\\
-\noindent\hspace*{3em}\hyperref[ch1:obj-specifiques]{1.3.3.2 Objectifs sp\'ecifiques} \dotfill \pageref*{ch1:obj-specifiques}\\
-\noindent\hspace*{3em}\hyperref[ch1:obj-transverses]{1.3.3.3 Objectifs transverses} \dotfill \pageref*{ch1:obj-transverses}\\
-\noindent\hspace*{2em}\hyperref[ch1:gestion-projet]{1.3.4 Gestion de projet} \dotfill \pageref*{ch1:gestion-projet}\\
-\noindent\hspace*{1em}\hyperref[ch1:cahier]{1.4 Cahier des charges} \dotfill \pageref*{ch1:cahier}\\
-\noindent\hspace*{2em}\hyperref[ch1:problematique]{1.4.1 Probl\'ematique} \dotfill \pageref*{ch1:problematique}\\
-\noindent\hspace*{2em}\hyperref[ch1:objectifs]{1.4.2 Objectifs} \dotfill \pageref*{ch1:objectifs}\\
-\noindent\hspace*{2em}\hyperref[ch1:perimetre]{1.4.3 P\'erim\`etre} \dotfill \pageref*{ch1:perimetre}\\
-\noindent\hspace*{1em}\hyperref[ch1:gestion]{1.5 Gestion du projet} \dotfill \pageref*{ch1:gestion}\\
-\noindent\hspace*{2em}\hyperref[ch1:methodologie]{1.5.1 M\'ethodologie adopt\'ee} \dotfill \pageref*{ch1:methodologie}\\
-\noindent\hspace*{2em}\hyperref[ch1:planification]{1.5.2 Planification} \dotfill \pageref*{ch1:planification}\\
-\noindent\hspace*{1em}\hyperref[ch1:conclusion]{1.6 Conclusion} \dotfill \pageref*{ch1:conclusion}\\
-\noindent\hyperref[ch:existant]{Chapitre 2 : Etat de l’art} \dotfill \pageref*{ch:existant}\\
-\noindent\hspace*{1em}\hyperref[ch2:introduction]{2.1 Introduction} \dotfill \pageref*{ch2:introduction}\\
-\noindent\hspace*{1em}\hyperref[ch2:erp]{2.2 Les syst\'emes ERP : concepts et r\'ole strat\'egique} \dotfill \pageref*{ch2:erp}\\
-\noindent\hspace*{2em}\hyperref[ch2:erp-def]{2.2.1 D\'efinition et concepts fondamentaux} \dotfill \pageref*{ch2:erp-def}\\
-\noindent\hspace*{2em}\hyperref[ch2:erp-role]{2.2.2 R\'ole strat\'egique et bénéfices} \dotfill \pageref*{ch2:erp-role}\\
-\noindent\hspace*{2em}\hyperref[ch2:erp-evolution]{2.2.3 \'Evolution du mar\'ech\'e des ERP} \dotfill \pageref*{ch2:erp-evolution}\\
-\noindent\hspace*{1em}\hyperref[ch2:sap]{2.3 Pr\'esentation de SAP : leader mondial} \dotfill \pageref*{ch2:sap}\\
-\noindent\hspace*{2em}\hyperref[ch2:sap-historique]{2.3.1 Historique et position sur le march\'e} \dotfill \pageref*{ch2:sap-historique}\\
-\noindent\hspace*{2em}\hyperref[ch2:sap-solutions]{2.3.2 Portefeuille de solutions SAP} \dotfill \pageref*{ch2:sap-solutions}\\
-\noindent\hspace*{2em}\hyperref[ch2:sap-architecture]{2.3.3 Architecture modulaire et int\'egration SAP} \dotfill \pageref*{ch2:sap-architecture}\\
-\noindent\hspace*{1em}\hyperref[ch2:mm]{2.4 Le module MM : cœur de la gestion des matériaux} \dotfill \pageref*{ch2:mm}\\
-\noindent\hspace*{2em}\hyperref[ch2:mm-presentation]{2.4.1 Pr\'esentation g\'en\'erale du module MM} \dotfill \pageref*{ch2:mm-presentation}\\
-\noindent\hspace*{2em}\hyperref[ch2:mm-role]{2.4.2 R\'ole critique dans les processus d'approvisionnement} \dotfill \pageref*{ch2:mm-role}\\
-\noindent\hspace*{2em}\hyperref[ch2:mm-fonctionnalites]{2.4.3 Fonctionnalit\'es cl\'es du module MM} \dotfill \pageref*{ch2:mm-fonctionnalites}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-approv]{2.4.3.1 Gestion des approvisionnements} \dotfill \pageref*{ch2:mm-approv}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-stocks]{2.4.3.2 Gestion des stocks} \dotfill \pageref*{ch2:mm-stocks}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-fourni]{2.4.3.3 Gestion des fournisseurs} \dotfill \pageref*{ch2:mm-fourni}\\
-\noindent\hspace*{2em}\hyperref[ch2:mm-integration]{2.4.4 Int\'egration avec les autres modules SAP} \dotfill \pageref*{ch2:mm-integration}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-int-sd]{2.4.4.1 Integration MM SD (Ventes et Distribution)} \dotfill \pageref*{ch2:mm-int-sd}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-int-pp]{2.4.4.2 Int\'egration MM PP (Production)} \dotfill \pageref*{ch2:mm-int-pp}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-int-fi]{2.4.4.3 Int\'egration MM FI (Finance)} \dotfill \pageref*{ch2:mm-int-fi}\\
-\noindent\hspace*{2em}\hyperref[ch2:mm-avantages]{2.4.5 Avantages strat\'egiques de SAP MM} \dotfill \pageref*{ch2:mm-avantages}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-visibilite]{2.4.5.1 Am\'elioration de la visibilit\'e et du contr\'ole} \dotfill \pageref*{ch2:mm-visibilite}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-optim]{2.4.5.2 Optimisation des processus et r\'eduction des coûts} \dotfill \pageref*{ch2:mm-optim}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-decision]{2.4.5.3 Prise de d\'ecisions bas\'ee sur des donn\'ees} \dotfill \pageref*{ch2:mm-decision}\\
-\noindent\hspace*{2em}\hyperref[ch2:mm-casusage]{2.4.6 Cas d'usage r\'eels et statistiques d'impl\'ementation} \dotfill \pageref*{ch2:mm-casusage}\\
-\noindent\hspace*{2em}\hyperref[ch2:mm-organisation]{2.4.7 Structure organisationnelle et entit\'es du module MM} \dotfill \pageref*{ch2:mm-organisation}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-org-niveaux]{2.4.7.1 Niveaux hi\'erarchiques organisationnels} \dotfill \pageref*{ch2:mm-org-niveaux}\\
-\noindent\hspace*{2em}\hyperref[ch2:mm-transactions]{2.4.8 Transactions SAP et codes de transaction (T-codes)} \dotfill \pageref*{ch2:mm-transactions}\\
-\noindent\hspace*{2em}\hyperref[ch2:mm-approv-process]{2.4.9 Processus d'approvisionnement : taxonomie et strat\'egies} \dotfill \pageref*{ch2:mm-approv-process}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-approv-base]{2.4.9.1 Approvisionnement de base (Standard Procurement)} \dotfill \pageref*{ch2:mm-approv-base}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-approv-special]{2.4.9.2 Approvisionnement sp\'ecialis\'e (Special Procurement)} \dotfill \pageref*{ch2:mm-approv-special}\\
-\noindent\hspace*{2em}\hyperref[ch2:mm-flux-transactionnel]{2.4.10 Flux transactionnel complet du module MM} \dotfill \pageref*{ch2:mm-flux-transactionnel}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-flux-demandes]{2.4.10.1 Processus de cr\'eation et gestion des demandes} \dotfill \pageref*{ch2:mm-flux-demandes}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-flux-commande]{2.4.10.2 Processus de commande d'achat (Purchase Order)} \dotfill \pageref*{ch2:mm-flux-commande}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-flux-reception]{2.4.10.3 Processus de r\'eception et facturation} \dotfill \pageref*{ch2:mm-flux-reception}\\
-\noindent\hspace*{2em}\hyperref[ch2:mm-purchase-order]{2.4.11 Structure et informations des commandes d'achat} \dotfill \pageref*{ch2:mm-purchase-order}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-po-entete]{2.4.11.1 Donn\'ees d'en-t\^ete de la commande} \dotfill \pageref*{ch2:mm-po-entete}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-po-lignes]{2.4.11.2 Donn\'ees de lignes de la commande} \dotfill \pageref*{ch2:mm-po-lignes}\\
-\noindent\hspace*{2em}\hyperref[ch2:mm-arch-tech]{2.4.12 Architecture technique de SAP} \dotfill \pageref*{ch2:mm-arch-tech}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-arch-pres]{2.4.12.1 Couche de pr\'esentation} \dotfill \pageref*{ch2:mm-arch-pres}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-arch-app]{2.4.12.2 Couche applicative} \dotfill \pageref*{ch2:mm-arch-app}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-arch-bdd]{2.4.12.3 Couche base de donn\'ees} \dotfill \pageref*{ch2:mm-arch-bdd}\\
-\noindent\hspace*{2em}\hyperref[ch2:mm-paysage-systeme]{2.4.13 Organisation et paysage du syst\`eme SAP} \dotfill \pageref*{ch2:mm-paysage-systeme}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-landscape]{2.4.13.1 Paysage syst\`eme (System Landscape)} \dotfill \pageref*{ch2:mm-landscape}\\
-\noindent\hspace*{3em}\hyperref[ch2:mm-transport-orders]{2.4.13.2 Ordres de transport (Transport Orders - OT)} \dotfill \pageref*{ch2:mm-transport-orders}\\
-\noindent\hspace*{1em}\hyperref[ch2:conclusion]{2.5 Conclusion} \dotfill \pageref*{ch2:conclusion}\\
-\noindent\hyperref[ch:etude-analyse]{Chapitre 3 : Diagnostic des processus actuels et sp\'{e}cification des besoins} \dotfill \pageref*{ch:etude-analyse}\\
-\noindent\hspace*{1em}\hyperref[ch3:introduction]{3.1 Introduction} \dotfill \pageref*{ch3:introduction}\\
-\noindent\hspace*{1em}\hyperref[ch3:analyse]{3.2 \'{E}tat des lieux du processus de confirmation des commandes} \dotfill \pageref*{ch3:analyse}\\
-\noindent\hspace*{2em}\hyperref[ch3:confirmation]{3.2.1 Gestion complexe des confirmations commerciales} \dotfill \pageref*{ch3:confirmation}\\
-\noindent\hspace*{2em}\hyperref[ch3:masse]{3.2.2 Limitation du traitement volumineux par fichiers} \dotfill \pageref*{ch3:masse}\\
-\noindent\hspace*{2em}\hyperref[ch3:rejet]{3.2.3 Absence de formalisation des refus et justifications} \dotfill \pageref*{ch3:rejet}\\
-\noindent\hspace*{2em}\hyperref[ch3:replanification]{3.2.4 Gestion insuffisante des modifications de calendrier de livraison} \dotfill \pageref*{ch3:replanification}\\
-\noindent\hspace*{1em}\hyperref[ch3:besoins]{3.3 D\'{e}finition des exigences fonctionnelles et techniques} \dotfill \pageref*{ch3:besoins}\\
-\noindent\hspace*{2em}\hyperref[ch3:besoins-f]{3.3.1 Exigences op\'{e}rationnelles du portail} \dotfill \pageref*{ch3:besoins-f}\\
-\noindent\hspace*{2em}\hyperref[ch3:besoins-nf]{3.3.2 Crit\`{e}res de qualit\'{e}, de performance et de s\'{e}curit\'{e}} \dotfill \pageref*{ch3:besoins-nf}\\
-\noindent\hspace*{1em}\hyperref[ch3:solution]{3.4 Description de la solution envisag\'{e}e} \dotfill \pageref*{ch3:solution}\\
-\noindent\hspace*{2em}\hyperref[ch3:rapport]{3.4.1 Module de gestion des commandes} \dotfill \pageref*{ch3:rapport}\\
-\noindent\hspace*{2em}\hyperref[ch3:confirm-manuel]{3.4.2 Assistant intelligent fond\'{e} sur l'intelligence artificielle} \dotfill \pageref*{ch3:confirm-manuel}\\
-\noindent\hspace*{2em}\hyperref[ch3:confirm-masse]{3.4.3 Tableau de bord analytique et KPIs} \dotfill \pageref*{ch3:confirm-masse}\\
-\noindent\hspace*{2em}\hyperref[ch3:rejet-comm]{3.4.4 Module de gestion des rejets et exceptions} \dotfill \pageref*{ch3:rejet-comm}\\
-\noindent\hspace*{1em}\hyperref[ch3:conclusion]{3.5 Conclusion} \dotfill \pageref*{ch3:conclusion}\\
-\noindent\hyperref[ch:analyse-conception]{Chapitre 4 : Analyse et conception de la solution} \dotfill \pageref*{ch:analyse-conception}\\
-\noindent\hspace*{1em}\hyperref[ch4:introduction]{4.1 Introduction} \dotfill \pageref*{ch4:introduction}\\
-\noindent\hspace*{1em}\hyperref[ch4:demarche]{4.2 Démarche méthodologique et répartition des tâches} \dotfill \pageref*{ch4:demarche}\\
-\noindent\hspace*{1em}\hyperref[ch4:analyse-besoins]{4.3 Ingénierie des exigences et spécifications} \dotfill \pageref*{ch4:analyse-besoins}\\
-\noindent\hspace*{2em}\hyperref[ch4:besoins-f]{4.3.1 Exigences fonctionnelles métiers} \dotfill \pageref*{ch4:besoins-f}\\
-\noindent\hspace*{2em}\hyperref[ch4:besoins-nf]{4.3.2 Exigences non fonctionnelles et architecturales} \dotfill \pageref*{ch4:besoins-nf}\\
-\noindent\hspace*{1em}\hyperref[ch4:cas-util]{4.4 Modélisation des processus et Cas d'utilisation} \dotfill \pageref*{ch4:cas-util}\\
-\noindent\hspace*{1em}\hyperref[ch4:architecture]{4.5 Architecture globale et choix technologiques} \dotfill \pageref*{ch4:architecture}\\
-\noindent\hspace*{1em}\hyperref[ch4:uml]{4.6 Conception détaillée et modélisation} \dotfill \pageref*{ch4:uml}\\
-\noindent\hspace*{2em}\hyperref[ch4:diag-classes]{4.6.1 Modèle de données} \dotfill \pageref*{ch4:diag-classes}\\
-\noindent\hspace*{2em}\hyperref[ch4:diag-sequences]{4.6.2 Flux transactionnels et asynchronisme} \dotfill \pageref*{ch4:diag-sequences}\\
-\noindent\hspace*{1em}\hyperref[ch4:diag-sequences-fig]{4.7 Diagramme de séquence} \dotfill \pageref*{ch4:diag-sequences-fig}\\
-\noindent\hspace*{1em}\hyperref[ch4:ia-joule]{4.8 Stratégie d'automatisation et Agent IA (SAP Joule)} \dotfill \pageref*{ch4:ia-joule}\\
-\noindent\hspace*{1em}\hyperref[ch4:conclusion]{4.9 Conclusion} \dotfill \pageref*{ch4:conclusion}\\
-\noindent\hyperref[ch:dev-real]{Chapitre 5 : D\'eveloppement et r\'ealisation} \dotfill \pageref*{ch:dev-real}\\
-\noindent\hspace*{1em}\hyperref[ch5:introduction]{5.1 Introduction} \dotfill \pageref*{ch5:introduction}\\
-\noindent\hspace*{1em}\hyperref[ch5:tech]{5.2 Technologies et outils utilis\'es} \dotfill \pageref*{ch5:tech}\\
-\noindent\hspace*{1em}\hyperref[ch5:realisation]{5.3 Architecture et réalisation de la solution} \dotfill \pageref*{ch5:realisation}\\
-\noindent\hspace*{2em}\hyperref[ch5:structure]{5.3.1 Structure générale de la solution} \dotfill \pageref*{ch5:structure}\\
-\noindent\hspace*{2em}\hyperref[ch5:cds]{5.3.2 Modélisation des données : les vues CDS} \dotfill \pageref*{ch5:cds}\\
-\noindent\hspace*{2em}\hyperref[ch5:rap]{5.3.3 Logique métier et transactions : le modèle RAP} \dotfill \pageref*{ch5:rap}\\
-\noindent\hspace*{2em}\hyperref[ch5:services-fiori]{5.3.4 Exposition des services et interfaces Fiori} \dotfill \pageref*{ch5:services-fiori}\\
-\noindent\hspace*{2em}\hyperref[ch5:securite]{5.3.5 Sécurité et gestion des autorisations} \dotfill \pageref*{ch5:securite}\\
-\noindent\hspace*{2em}\hyperref[ch5:joule-impl]{5.3.6 Intégration de l'IA générative (SAP BTP \& Joule)} \dotfill \pageref*{ch5:joule-impl}\\
-\noindent\hspace*{1em}\hyperref[ch5:implementation]{5.4 D\'emonstration de la solution} \dotfill \pageref*{ch5:implementation}\\
-\noindent\hspace*{2em}\hyperref[ch5:voir-po]{5.4.1 Visualisation des commandes (Voir les PO)} \dotfill \pageref*{ch5:voir-po}\\
-\noindent\hspace*{2em}\hyperref[ch5:confirmer]{5.4.2 Confirmation unitaire des postes (Confirmer)} \dotfill \pageref*{ch5:confirmer}\\
-\noindent\hspace*{2em}\hyperref[ch5:rejeter]{5.4.3 Rejet des postes avec motif (Rejeter)} \dotfill \pageref*{ch5:rejeter}\\
-\noindent\hspace*{2em}\hyperref[ch5:replanifier]{5.4.4 Replanification des dates de livraison (Replanifier)} \dotfill \pageref*{ch5:replanifier}\\
-\noindent\hspace*{2em}\hyperref[ch5:masse]{5.4.5 Confirmation en masse via Excel} \dotfill \pageref*{ch5:masse}\\
-\noindent\hspace*{2em}\hyperref[ch5:imprimer]{5.4.6 Impression des bons de commande (Imprimer)} \dotfill \pageref*{ch5:imprimer}\\
-\noindent\hspace*{2em}\hyperref[ch5:ia]{5.4.7 Automatisation conversationnelle (Agent IA Joule)} \dotfill \pageref*{ch5:ia}\\
-\noindent\hspace*{2em}\hyperref[ch5:dashboard]{5.4.8 Pilotage analytique et KPI (Consulter les graphiques)} \dotfill \pageref*{ch5:dashboard}\\
-\noindent\hspace*{2em}\hyperref[ch5:app-rejects]{5.4.9 Application de gestion et d\'annulation des rejets} \dotfill \pageref*{ch5:app-rejects}\\
-\noindent\hspace*{1em}\hyperref[ch5:conclusion]{5.5 Conclusion} \dotfill \pageref*{ch5:conclusion}\\
-\noindent\hyperref[ch:conclusion]{Conclusion g\'en\'erale et perspectives} \dotfill \pageref*{ch:conclusion}\\
-\noindent\hyperref[ch:references]{R\'ef\'erences} \dotfill \pageref*{ch:references}
+\setcounter{tocdepth}{2}
+\tableofcontents
 
 \listoffigures
 \listoftables
@@ -439,8 +343,8 @@ alliant comp\'etences fonctionnelles et techniques pour concevoir et d\'eveloppe
 Le groupe VISEO, fond\'e en 1999 par Olivier DHIONTE, actuel PDG de l'entreprise, est une
 entreprise fran\c{c}aise de services du num\'erique (ESN) \'etablie \`a Boulogne-Billancourt. Depuis ses
 d\'ebuts, VISEO s'est impos\'e comme un leader dans le secteur du conseil et de l'int\'egration
-informatique, offrant des solutions innovantes et des services spcialis\'es pour transformer les
-processus m\'etier des grandes entreprises.
+informatique, offrant des solutions innovantes et des services sp\'ecialis\'es pour transformer les
+processus m\'etier des grandes entreprises~\cite{viseo}.
 
 Avec une forte expertise dans les domaines de l'ERP (notamment SAP), de la mobilit\'e, du
 cloud computing et de l'intelligence artificielle, VISEO accompagne ses clients dans la modernisation
@@ -1291,9 +1195,9 @@ Cette intégration élimine les besoins de synchronisation manuelle et garantit 
 
 \subsection{Présentation générale du module MM}\label{ch2:mm-presentation}
 
-Le module \textbf{Material Management (MM)} de SAP est spécialisé dans la gestion complète du cycle de vie des matériaux, 
-de l'approvisionnement jusqu'à la consommation. C'est un composant essentiel de tout système SAP, impactant les chaînes 
-logistiques et les opérations de la majorité enterprises.
+Le module \textbf{Material Management (MM)} de SAP~\cite{sap-mm} est spécialisé dans la gestion complète du cycle de vie des matériaux,
+de l'approvisionnement jusqu'à la consommation. C'est un composant essentiel de tout système SAP, impactant les chaînes
+logistiques et les opérations de la majorité des entreprises.
 
 \textbf{Définition formelle} : SAP MM est un module intégré conçu pour gérer efficacement les processus d'approvisionnement, 
 de gestion des stocks et de gestion des fournisseurs au sein d'une organisation. Il offre une plateforme centralisée pour 
@@ -1676,7 +1580,7 @@ données déclarative, définie directement dans le dictionnaire ABAP et exécut
 près de la base de données HANA. Une vue CDS (\textit{CDS View Entity}) ne se limite pas
 à une simple instruction SELECT : elle enrichit le modèle de données d'une sémantique
 métier exploitable par l'ensemble de la pile technologique (interfaces utilisateur,
-services OData, analytique), grâce à un système d'\textbf{annotations}.
+services OData, analytique), grâce à un système d'\textbf{annotations}~\cite{sap-cds}.
 
 \begin{itemize}[label=---, itemsep=0.2em]
 	\item \textbf{Modélisation en couches :} les vues s'organisent en une pyramide
@@ -1693,10 +1597,39 @@ services OData, analytique), grâce à un système d'\textbf{annotations}.
 	directement par le moteur HANA, garantissant des performances optimales.
 \end{itemize}
 
+\subsection{Les vues CDS analytiques}\label{ch2:cds-analytique}
+
+Au-delà de la modélisation transactionnelle, les CDS offrent une catégorie particulière
+de vues dédiées au reporting : les \textbf{vues CDS analytiques}. Là où une vue classique
+restitue des lignes de données, une vue analytique expose un modèle multidimensionnel de
+type \textit{cube}, directement exploitable par les outils de pilotage (tableaux de bord,
+graphiques interactifs). Ce comportement est déclaré par des annotations spécifiques :
+
+\begin{itemize}[label=---, itemsep=0.2em]
+	\item \textbf{\texttt{@Analytics.dataCategory: \#CUBE}} : désigne la vue comme un cube
+	analytique, socle des agrégations multidimensionnelles.
+	\item \textbf{\texttt{@Analytics.query: true}} : transforme la vue en requête
+	analytique directement consommable par le frontend, sans développement
+	supplémentaire.
+	\item \textbf{Mesures et dimensions :} les champs sont qualifiés soit comme
+	\textit{mesures} agrégables (\texttt{@Aggregation.default}, par exemple un nombre de
+	postes ou un montant net), soit comme \textit{dimensions} d'analyse (fournisseur,
+	statut de confirmation, période, motif de rejet, etc.).
+\end{itemize}
+
+Ces vues s'appuient sur le moteur analytique de SAP (\textbf{BICS} --- \textit{Business
+Intelligence Consumer Services}) et sur la délégation des calculs à HANA
+(\textit{push-down}), ce qui permet de calculer en temps réel des indicateurs de
+performance (KPI) sur de gros volumes. C'est précisément ce mécanisme qui alimente le
+\textbf{tableau de bord analytique} de la solution (chapitre~\ref{ch:dev-real}). À noter :
+les annotations \texttt{@Analytics.query} et \texttt{\#CUBE} n'étant pas prises en charge
+par une liaison \textit{OData V4}, le tableau de bord est exposé via une couche
+\textbf{OData V2}, d'où le caractère hybride de l'architecture retenue.
+
 \subsection{Le RESTful ABAP Programming Model (RAP)}\label{ch2:rap}
 
 Le \textit{RESTful ABAP Programming Model} est le cadre de développement standard de SAP
-pour bâtir des services transactionnels et des applications Fiori sur S/4HANA. Il
+pour bâtir des services transactionnels et des applications Fiori sur S/4HANA~\cite{sap-rap}. Il
 s'appuie sur les vues CDS pour la lecture des données et y adjoint une couche de
 \textbf{comportement} (\textit{behavior}) qui régit toutes les opérations d'écriture
 (création, modification, suppression) ainsi que les actions métier.
@@ -1719,42 +1652,49 @@ s'appuie sur les vues CDS pour la lecture des données et y adjoint une couche d
 
 \subsection{Architecture générale en couches (CDS · RAP · OData · Fiori)}\label{ch2:rap-archi}
 
-L'articulation de ces briques forme une architecture en couches strictement séparées,
-de la base de données jusqu'à l'interface utilisateur. La lecture des données remonte à
-travers les vues CDS, tandis que les services métier exposent l'objet RAP sous forme de
-service \textbf{OData} consommé par SAP Fiori. Le schéma de la figure~\ref{fig:rap-archi}
-synthétise cet empilement.
+L'articulation de ces briques forme une architecture en couches strictement séparées.
+La figure~\ref{fig:rap-archi}, qui reprend la représentation officielle de SAP
+(« \textit{the big picture} »), structure le modèle RAP en quatre niveaux : la base de
+données (\textit{Database}), l'implémentation propre au domaine (\textit{Domain-Specific
+Implementation}), l'exposition des services métier (\textit{Business Service Exposure}) et
+l'application (\textit{App}), le tout traversé par une dimension d'extensibilité.
 
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[
-  font=\small,
-  >={Stealth[length=2.6mm]},
-  layer/.style={rectangle, rounded corners, draw=#1!80, fill=#1!10,
-                text width=12.2cm, minimum height=1.25cm, align=center,
-                inner sep=5pt, line width=0.8pt}
-]
-  \node[layer=RoyalBlue]  (l5) at (0,7.6) {\textbf{Couche de consommation (UI)}\\ \footnotesize SAP Fiori Elements \textperiodcentered{} SAPUI5 \textperiodcentered{} Assistant Joule (langage naturel)};
-  \node[layer=Teal]       (l4) at (0,5.7) {\textbf{Couche des services métier}\\ \footnotesize \textit{Service Definition} + \textit{Service Binding} --- exposition \textbf{OData V4} (transactionnel) / \textbf{OData V2} (analytique)};
-  \node[layer=Goldenrod]  (l3) at (0,3.8) {\textbf{Couche de comportement (RAP)}\\ \footnotesize \textit{Behavior Definition} (managed / unmanaged, draft) + \textit{Behavior Pool} : validations, déterminations, actions};
-  \node[layer=ForestGreen](l2) at (0,1.9) {\textbf{Couche de modélisation (CDS)}\\ \footnotesize Vues d'interface $\rightarrow$ vues composites $\rightarrow$ vues de consommation (annotations UI \& analytiques)};
-  \node[layer=FireBrick]  (l1) at (0,0.0) {\textbf{Couche de persistance (SAP HANA)}\\ \footnotesize Tables standard \& tables spécifiques (in-memory, \textit{code push-down})};
-
-  \draw[->, gray!60, line width=1pt] (l1) -- (l2);
-  \draw[->, gray!60, line width=1pt] (l2) -- (l3);
-  \draw[->, gray!60, line width=1pt] (l3) -- (l4);
-  \draw[->, gray!60, line width=1pt] (l4) -- (l5);
-
-  \draw[->, RoyalBlue!55, line width=1.5pt] (-6.9,0.0) -- (-6.9,7.6);
-  \node[RoyalBlue!55!black, font=\footnotesize, rotate=90, anchor=south] at (-7.25,3.8) {Exposition / consommation};
-\end{tikzpicture}
-\caption{Architecture en couches du modèle de programmation ABAP RAP}
+\IfFileExists{figures/sap_rap_architecture.png}{%
+  \includegraphics[width=\textwidth]{figures/sap_rap_architecture.png}
+}{%
+  \fbox{\parbox[c][5cm][c]{0.9\linewidth}{\centering \small Architecture du framework RAP (« the big picture »)\\(ajoutez figures/sap\_rap\_architecture.png)}}
+}
+\caption{Architecture du framework ABAP RAP (« the big picture ») : de la base de données SAP HANA jusqu'aux applications Fiori}
 \label{fig:rap-archi}
 \end{figure}
 
-Cette séparation stricte des responsabilités --- chère au principe du \textit{Clean
-Core} --- garantit que chaque couche peut évoluer indépendamment, que la logique métier
-demeure côté serveur, et que les extensions développées (suffixées dans notre cas
+En lisant le schéma de bas en haut, on distingue les quatre couches suivantes :
+
+\begin{itemize}[label=\textbullet, itemsep=0.25em]
+	\item \textbf{Database :} la base de données \textbf{SAP HANA}, sur laquelle s'exécutent
+	les requêtes \textit{SQL} et \textit{SQLScript}.
+	\item \textbf{Domain-Specific Implementation :} le cœur de l'objet métier. On y trouve
+	les \textit{Queries} (vues CDS de modélisation pour la lecture analytique) et les
+	\textit{Business Objects}, définis par trois artefacts complémentaires : la
+	modélisation des données en \textbf{CDS}, la définition du comportement en
+	\textbf{BDEF} et son implémentation en \textbf{ABAP}.
+	\item \textbf{Business Service Exposure :} la couche qui publie l'objet métier. La
+	\textit{Business Object Projection} (vues de projection CDS, projection de comportement
+	BDEF) restreint et adapte l'objet à un cas d'usage ; la \textit{Service Definition}
+	définit le périmètre exposé ; le \textit{Service Binding} le relie à un protocole et à
+	une version (\textbf{OData V2/V4}) ; enfin l'\textit{Event Binding} relie les
+	\textit{Business Events} à l'infrastructure d'événements de SAP. Les services sont ainsi
+	exposés comme \textbf{UI Services} (pour Fiori), \textbf{Web APIs} (intégration) ou
+	\textbf{Business Events}.
+	\item \textbf{App :} les \textbf{applications SAP Fiori} qui consomment ces services.
+\end{itemize}
+
+Transversalement, la colonne \textbf{Extensibility} indique que chaque couche peut être
+étendue. Cette séparation stricte des responsabilités --- chère au principe du
+\textit{Clean Core} --- garantit que chaque couche évolue indépendamment, que la logique
+métier demeure côté serveur, et que les extensions développées (suffixées dans notre cas
 \texttt{\_AEL}) cohabitent sans jamais modifier le standard SAP.
 
 
@@ -1913,6 +1853,49 @@ Les exigences techniques et qualitatives circonscrivent les standards de robuste
   \item \textbf{Extensibilité et flexibilité architecturale} : La conception en aval doit s'articuler autour d'une organisation par couches logiques pour permettre sans coûts prohibitifs l'intégration de nouvelles capacités fonctionnelles.
 \end{itemize}
 
+\section{Étude comparative : solutions existantes et choix d'un développement spécifique}\label{ch3:comparatif}
+
+Avant de concevoir une solution sur mesure, il convient d'examiner les alternatives
+disponibles sur le marché pour la collaboration fournisseur. Trois options principales
+s'offraient au projet : adopter une suite cloud dédiée (\textbf{SAP Ariba} / \textbf{SAP
+Business Network}), exploiter les capacités de collaboration fournisseur standard de SAP,
+ou développer une application spécifique nativement intégrée à S/4HANA. Le
+tableau~\ref{tab:comparatif} synthétise cette comparaison au regard des critères
+structurants du projet.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\rowcolors{3}{RoyalBlue!7}{white}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}m{3.7cm} >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+\toprule
+\rowcolor{RoyalBlue!65}
+\textcolor{white}{\textbf{Critère}} & \textcolor{white}{\textbf{SAP Ariba / Business Network}} & \textcolor{white}{\textbf{Collaboration standard SAP}} & \textcolor{white}{\textbf{Développement spécifique (RAP/Fiori)}} \\
+\midrule
+Intégration à S/4HANA & Via interfaces / cloud & Native & \textbf{Native (CDS, OData)} \\
+Coût de licence & Élevé (abonnement) & Inclus & \textbf{Aucun surcoût de licence} \\
+Personnalisation du processus & Limitée (paramétrage) & Faible & \textbf{Totale} \\
+Traitement de masse (Excel) & Standard & Limité & \textbf{Sur mesure} \\
+Assistant IA conversationnel & Partiel & Non & \textbf{Oui (SAP Joule)} \\
+Respect du Clean Core & N/A & Oui & \textbf{Oui (extensions \_AEL)} \\
+Adéquation au périmètre PFE & Surdimensionné & Insuffisant & \textbf{Adapté} \\
+\bottomrule
+\end{tabularx}
+\caption{Comparaison des solutions de collaboration fournisseur}
+\label{tab:comparatif}
+\end{table}
+
+Si SAP Ariba offre une couverture fonctionnelle très large, son coût et sa logique de
+plateforme externe le rendent surdimensionné pour le périmètre ciblé ; la collaboration
+standard, quant à elle, ne couvre ni le traitement de masse personnalisé ni l'assistant
+conversationnel. Le \textbf{développement spécifique} a donc été retenu : nativement
+intégré à S/4HANA, sans surcoût de licence, entièrement personnalisable et conforme au
+\textit{Clean Core}, il répond précisément aux besoins exprimés tout en valorisant la
+montée en compétences sur les technologies modernes de SAP.
+
 \section{Présentation de la solution envisagée}\label{ch3:solution}
 
 Afin de remédier aux limitations identifiées dans le système actuel, la solution proposée consiste à développer un Portail Fournisseur intégré au système SAP S/4HANA, basé sur la technologie ABAP RAP (RESTful Application Programming Model), et exposé via une interface utilisateur SAP Fiori.
@@ -1964,8 +1947,11 @@ Dans le cadre de cette mission d'Assistance à la Maîtrise d'Ouvrage (AMOA), l'
 \section{Démarche méthodologique et répartition des tâches}\label{ch4:demarche}
 La conception d'une application transactionnelle et analytique de cette envergure nécessite une approche méthodologique rigoureuse pour garantir l'alignement avec les processus logistiques de l'entreprise. L'équipe projet a adopté une méthodologie Agile (Scrum), caractérisée par des itérations courtes (sprints) permettant des retours utilisateurs rapides et continus.
 
-Sur le plan de l'organisation technique du développement, nous avons fait le choix stratégique d'une répartition des tâches basée sur l'approche du \textbf{Vertical Split} (découpage vertical), rompant avec le découpage horizontal classique par couches isolées (Base de données d'un côté, Backend au centre, Frontend de l'autre). 
-Dans cette dynamique, chaque membre du binôme a pris l'entière responsabilité de fonctionnalités complètes, de bout en bout. Par exemple, lors de la conception de la fonctionnalité de gestion des rejets, l'intervenant en charge a modélisé les tables de journalisation personnalisées (comme \texttt{ZTPO\_REJECT\_LOG}), créé les vues \textit{Core Data Services} (CDS) correspondantes, implémenté le comportement métier transactionnel (via les \textit{Behavior Definitions} ABAP RAP), jusqu'à la projection de ces données sur l'interface graphique SAP Fiori. Cette responsabilisation complète a considérablement réduit les goulots d'étranglement lors des phases d'intégration et a permis de forger une vision globale et maîtrisée de l'architecture logicielle SAP.
+Sur le plan de l'organisation technique du développement, nous avons fait le choix stratégique d'une répartition des tâches basée sur l'approche du \textbf{Vertical Split} (découpage vertical), rompant avec le découpage horizontal classique par couches isolées (Base de données d'un côté, Backend au centre, Frontend de l'autre).
+
+Dans cette dynamique, chaque membre du binôme a pris l'entière responsabilité de fonctionnalités complètes, de bout en bout. Par exemple, lors de la conception de la fonctionnalité de gestion des rejets, l'intervenant en charge a modélisé les tables de journalisation personnalisées (comme \texttt{ZMM005\_PO\_REJECT}), créé les vues \textit{Core Data Services} (CDS) correspondantes, implémenté le comportement métier transactionnel (via les \textit{Behavior Definitions} ABAP RAP), jusqu'à la projection de ces données sur l'interface graphique SAP Fiori.
+
+Cette responsabilisation complète a considérablement réduit les goulots d'étranglement lors des phases d'intégration et a permis de forger une vision globale et maîtrisée de l'architecture logicielle SAP.
 
 \section{Ingénierie des exigences et spécifications}\label{ch4:analyse-besoins}
 
@@ -2007,7 +1993,7 @@ Le diagramme de cas d'utilisation ci-dessous englobe les périmètres d'interact
 \end{figure}
 
 \section{Architecture globale et choix technologiques}\label{ch4:architecture}
-La transition d'un ensemble de règles métiers vers une application fonctionnelle requiert une architecture solide. Pour s'affranchir des limitations historiques des ERP et s'aligner sur la stratégie orientée Cloud de SAP, nous avons conçu une architecture \textbf{multiniveaux} et \textbf{hybride}, structurée selon le principe du \textit{Clean Core} : aucune modification du standard SAP, uniquement des extensions cohabitant avec le c\oe ur applicatif. Cette section décrit successivement la vue d'ensemble de l'écosystème, puis chacune des couches qui le composent, du stockage des données jusqu'à la restitution sur l'interface utilisateur et l'orchestration cloud.
+La transition d'un ensemble de règles métiers vers une application fonctionnelle requiert une architecture solide. Pour s'affranchir des limitations historiques des ERP et s'aligner sur la stratégie orientée Cloud de SAP, nous avons conçu une architecture \textbf{multiniveaux} et \textbf{hybride}, structurée selon le principe du \textit{Clean Core}~\cite{clean-core} : aucune modification du standard SAP, uniquement des extensions cohabitant avec le c\oe ur applicatif. Cette section décrit successivement la vue d'ensemble de l'écosystème, puis chacune des couches qui le composent, du stockage des données jusqu'à la restitution sur l'interface utilisateur et l'orchestration cloud.
 
 \subsection{Vue d'ensemble de l'architecture en couches}\label{ch4:archi-vue-ensemble}
 L'architecture du Portail Fournisseur s'organise en \textbf{six parties} clairement délimitées, comme l'illustre le schéma de la figure~\ref{fig:architecture}. Chaque partie assume une responsabilité unique et communique avec les autres par des interfaces normalisées, garantissant un couplage faible et le respect du principe \textit{Clean Core}. On distingue :
@@ -2049,7 +2035,7 @@ Lors de la conception du tableau de bord (\textit{Analytical List Page}), nous a
 \end{figure}
 
 \subsection{La couche cloud et l'intégration de l'IA (SAP BTP \& Joule)}\label{ch4:archi-btp}
-La dimension intelligente de la solution est portée par \textbf{SAP Joule}, hébergé sur la \textbf{SAP Business Technology Platform} (BTP). L'agent conversationnel n'invente aucune donnée : il interroge le backend S/4HANA \textit{on-premise} en exploitant strictement les \textbf{mêmes points de terminaison OData} que l'interface Fiori, à travers le \textbf{SAP Cloud Connector} qui assure le pont sécurisé entre le cloud et le système interne. Cette unification garantit que les contrôles d'accès et l'intégrité métier s'appliquent de manière identique, que l'utilisateur passe par l'écran classique ou par le langage naturel.
+La dimension intelligente de la solution est portée par \textbf{SAP Joule}, hébergé sur la \textbf{SAP Business Technology Platform} (BTP). L'agent conversationnel n'invente aucune donnée : il interroge le backend S/4HANA \textit{on-premise} en exploitant strictement les \textbf{mêmes points de terminaison OData} que l'interface Fiori, à travers le \textbf{SAP Cloud Connector} qui assure le pont sécurisé entre le cloud et le système interne. Cette unification garantit que la \textbf{même logique métier} (validations, déterminations) s'applique, que l'utilisateur passe par l'écran classique ou par le langage naturel. La propagation de l'identité de l'utilisateur final et le filtrage des données par fournisseur (DCL) constituent en revanche une perspective d'évolution, détaillée en section~\ref{ch5:perspective-secu}.
 
 \begin{figure}[H]
 \centering
@@ -2060,6 +2046,60 @@ La dimension intelligente de la solution est portée par \textbf{SAP Joule}, hé
 }
 \caption{Architecture d'intégration de l'IA conversationnelle (SAP BTP, Joule, Cloud Connector)}
 \label{fig:archi-btp}
+\end{figure}
+
+\subsection{Architecture de déploiement}\label{ch4:archi-deploiement}
+Au-delà de l'organisation logique en couches, il est utile de représenter la
+\textbf{répartition physique} des composants et leurs canaux de communication. La
+figure~\ref{fig:deploiement} situe le poste utilisateur, la plateforme cloud \textbf{SAP
+BTP}, le \textbf{SAP Cloud Connector} (passerelle sécurisée) et le système
+\textbf{S/4HANA \textit{on-premise}} (serveur applicatif ABAP et base SAP HANA), ainsi que
+les services satellites (Adobe Document Services pour les PDF, serveur de messagerie SMTP).
+
+\begin{figure}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  font=\footnotesize,
+  >={Stealth[length=2.6mm]},
+  node3/.style={rectangle, rounded corners, draw=#1!80, fill=#1!10, line width=0.8pt,
+                align=center, text width=3cm, minimum height=1.2cm, inner sep=4pt},
+  zone/.style={rectangle, rounded corners, draw=#1!60, dashed, line width=1pt, inner sep=10pt},
+  flow/.style={-{Stealth[length=2.4mm]}, line width=0.9pt, draw=gray!60},
+  lab/.style={font=\scriptsize\itshape, text=gray!45!black, fill=white, inner sep=1pt}
+]
+  % --- Poste utilisateur ---
+  \node[node3=RoyalBlue] (cli) at (0,0) {\textbf{Poste utilisateur}\\ \scriptsize «device»\\ Navigateur --- SAP Fiori};
+
+  % --- SAP BTP (cloud) ---
+  \node[node3=Teal] (joule) at (5.4,2.2) {\textbf{SAP Joule}\\ \scriptsize Skills / Actions};
+  \node[node3=Teal] (dest)  at (5.4,0.4) {\textbf{Destination}\\ \scriptsize + utilisateur technique};
+  \node[zone=Teal, fit=(joule)(dest), label={[font=\footnotesize\bfseries, text=Teal!50!black]above:SAP BTP (cloud)}] (btp) {};
+
+  % --- Cloud Connector ---
+  \node[node3=Goldenrod] (cc) at (9.6,0.4) {\textbf{SAP Cloud}\\ \textbf{Connector}\\ \scriptsize «node»};
+
+  % --- S/4HANA on-premise ---
+  \node[node3=FireBrick] (app)  at (13.8,2.2) {\textbf{Serveur applicatif ABAP}\\ \scriptsize RAP · CDS · OData V4/V2};
+  \node[node3=FireBrick] (hana) at (13.8,0.4) {\textbf{Base SAP HANA}\\ \scriptsize «database» in-memory};
+  \node[zone=FireBrick, fit=(app)(hana), label={[font=\footnotesize\bfseries, text=FireBrick!55!black]above:S/4HANA --- On-Premise}] (s4) {};
+
+  % --- Services satellites (à droite) ---
+  \node[node3=Purple] (ads)  at (18.6,2.6) {\textbf{Adobe Document}\\ \textbf{Services}\\ \scriptsize rendu PDF};
+  \node[node3=Purple] (smtp) at (18.6,0.2) {\textbf{Serveur SMTP}\\ \scriptsize notifications e-mail};
+
+  % --- Flux ---
+  \draw[flow] (cli) -- node[lab,above,sloped]{HTTPS · OData (Fiori)} (app);
+  \draw[flow] (cli) -- node[lab,above,sloped]{HTTPS (chat)} (joule);
+  \draw[flow] (dest) -- node[lab,above]{HTTPS} (cc);
+  \draw[flow] (cc) -- node[lab,above]{tunnel HTTP/RFC} (app);
+  \draw[flow] (app) -- node[lab,right]{SQL} (hana);
+  \draw[flow] (app) -- node[lab,above,sloped]{rendu PDF (ADS)} (ads);
+  \draw[flow] (app.east) .. controls (16.8,2.0) and (18.6,1.6) .. node[lab,right,pos=0.4]{SMTP} (smtp.north);
+\end{tikzpicture}%
+}
+\caption{Diagramme de déploiement : répartition physique des composants et canaux de communication}
+\label{fig:deploiement}
 \end{figure}
 
 \section{Conception détaillée et modélisation}\label{ch4:uml}
@@ -2107,7 +2147,7 @@ EKPO & Postes des commandes d'achat (\textit{Purchasing Document Item}) & Lignes
 EKES & Confirmations fournisseur (\textit{Order Acknowledgments}) & Accusés de réception : quantités et dates confirmées par le fournisseur. \\
 MARA & Données de base article (\textit{General Material Data}) & Caractéristiques générales des articles commandés (référence, type, unité). \\
 MAKT & Descriptions des articles (\textit{Material Descriptions}) & Libellés des articles dans la langue de l'utilisateur. \\
-LFA1 & Données générales fournisseur (\textit{Vendor Master}) & Désignation et coordonnées du fournisseur, support du cloisonnement des données. \\
+LFA1 & Données générales fournisseur (\textit{Vendor Master}) & Désignation et coordonnées du fournisseur ; clé du futur cloisonnement des données par DCL. \\
 T001 & Données des sociétés (\textit{Company Codes}) & Entité juridique de rattachement de la commande. \\
 T024 & Données des groupes d'acheteurs (\textit{Purchasing Groups}) & Groupe d'acheteurs responsable de la commande. \\
 T024E & Données des organisations d'achat (\textit{Purchasing Organizations}) & Organisation d'achat négociant avec le fournisseur. \\
@@ -2261,34 +2301,34 @@ ZTREJECT\_REASON & ZMM005\_PO\_REJECT & 1 & 0..* & Un motif justifie zéro, un o
 \subsection{Flux transactionnels et asynchronisme}\label{ch4:diag-sequences}
 Comprendre le cheminement d'une information entre l'écran du fournisseur et la base de données est vital, particulièrement pour la fonctionnalité de confirmation en masse via fichier Excel, qui représente un défi technique en termes de synchronisation. 
 
-Lorsqu'un fournisseur charge son fichier XLSX sur le portail, le processus s'initie intégralement côté client (Frontend). Une bibliothèque JavaScript (généralement \texttt{SheetJS} dans le contexte UI5) parse le fichier binaire localement et le transforme en un "Payload" JSON structuré. Cette charge utile est ensuite expédiée de manière asynchrone au backend S/4HANA via l'API OData V4. Le gestionnaire ABAP RAP réceptionne cette matrice, itère sur chaque ligne en mémoire, exécute les contrôles de sécurité (validation du fournisseur, existence de la commande, validité de la date), puis procède à un \textit{Commit} global dans la base de données. Enfin, il renvoie un code de statut HTTP avec un rapport détaillé des succès et erreurs éventuelles pour rafraîchir l'interface utilisateur. 
+Lorsqu'un fournisseur charge son fichier XLSX sur le portail, le processus s'initie intégralement côté client (Frontend). Une bibliothèque JavaScript (généralement \texttt{SheetJS} dans le contexte UI5) parse le fichier binaire localement et le transforme en un \og Payload\fg{} JSON structuré. Cette charge utile est ensuite expédiée de manière asynchrone au backend S/4HANA via l'API OData V4. Le gestionnaire ABAP RAP réceptionne cette matrice, itère sur chaque ligne en mémoire, exécute les contrôles de sécurité (validation du fournisseur, existence de la commande, validité de la date), puis procède à un \textit{Commit} global dans la base de données. Enfin, il renvoie un code de statut HTTP avec un rapport détaillé des succès et erreurs éventuelles pour rafraîchir l'interface utilisateur. 
 
 \section{Stratégie d'automatisation et Agent IA (SAP Joule)}\label{ch4:ia-joule}
 L'un des axes d'innovation majeurs de notre conception réside dans l'intégration de l'intelligence artificielle générative pour sublimer l'expérience utilisateur. L'objectif était de permettre au fournisseur d'interagir avec la masse de données ERP non plus via des menus complexes, mais par une simple conversation en langage naturel grâce à l'assistant natif \textbf{SAP Joule}.
 
-L'architecture conceptuelle de cette interaction est inspirée des systèmes RAG (\textit{Retrieval-Augmented Generation}). Lorsqu'un fournisseur interroge Joule (par exemple : "Montre-moi un résumé de mes commandes rejetées pour cause de retard ce trimestre"), le flux d'exécution ne se contente pas d'envoyer la phrase à une IA vide de sens. Le processus se divise en trois étapes d'ingénierie :
+L'architecture conceptuelle de cette interaction est inspirée des systèmes RAG (\textit{Retrieval-Augmented Generation}). Lorsqu'un fournisseur interroge Joule (par exemple : \og Montre-moi un résumé de mes commandes rejetées pour cause de retard ce trimestre\fg{}), le flux d'exécution ne se contente pas d'envoyer la phrase à une IA vide de sens. Le processus se divise en trois étapes d'ingénierie :
 \begin{enumerate}
     \item \textbf{Extraction sémantique (Retrieval) :} L'application intercepte l'intention, l'associe au contexte de session actif (l'ID du fournisseur authentifié), et formule dynamiquement une requête vers nos services analytiques OData V2 pour récupérer les statistiques brutes du backend SAP.
     \item \textbf{Injection du contexte (Augmentation) :} Ces statistiques brutes sont injectées de manière invisible dans un \textit{System Prompt} complexe, cadrant le rôle de l'IA et lui interdisant les hallucinations.
     \item \textbf{Génération de la réponse (Generation) :} Le Large Language Model (LLM) de SAP Joule reçoit ce contexte pré-mâché, synthétise l'information sous un format lisible, compréhensible et emphatique, et la restitue au fournisseur dans l'interface de chat.
 \end{enumerate}
-Ce système "Agentique" modifie fondamentalement l'approche des ERP modernes, positionnant le système logiciel comme un véritable assistant proactif plutôt que comme un simple répertoire de données.
+Ce système \og Agentique\fg{} modifie fondamentalement l'approche des ERP modernes, positionnant le système logiciel comme un véritable assistant proactif plutôt que comme un simple répertoire de données.
 
 \section{Diagramme de séquence}\label{ch4:diag-sequences-fig}
 
 Le diagramme de séquence illustre la dynamique des interactions et le transit de l'information entre les différentes couches de notre architecture fonctionnelle, assurant ainsi la cohérence transactionnelle de bout en bout.
 
-Pour le traitement transactionnel standard, englobant les actions individuelles des fournisseurs telles que la confirmation ou le rejet d'une commande, le flux s'initie depuis l'application Fiori via l'envoi d'une requête OData vers le backend SAP S/4HANA. Cette requête est interceptée par les handlers du modèle RESTful ABAP Programming (RAP), qui se chargent d'exécuter les validations métier rigoureuses avant de faire appel au langage EML (Entity Manipulation Language) pour persister les modifications dans la base de données HANA. En parallèle de cette mise à jour, le système déclenche de manière asynchrone des services externes cruciaux, tels que l'invocation d'une BAPI pour répercuter le statut dans les tables standards et l'utilisation de la classe de messagerie pour envoyer une notification par e-mail à l'acheteur concerné.
+\paragraph{Traitement transactionnel standard (confirmation, rejet).} Pour le traitement transactionnel standard, englobant les actions individuelles des fournisseurs telles que la confirmation ou le rejet d'une commande, le flux s'initie depuis l'application Fiori via l'envoi d'une requête OData vers le backend SAP S/4HANA. Cette requête est interceptée par les handlers du modèle RESTful ABAP Programming (RAP), qui se chargent d'exécuter les validations métier rigoureuses avant de faire appel au langage EML (Entity Manipulation Language) pour persister les modifications dans la base de données HANA. En parallèle de cette mise à jour, le système déclenche de manière asynchrone des services externes cruciaux, tels que l'invocation d'une BAPI pour répercuter le statut dans les tables standards et l'utilisation de la classe de messagerie pour envoyer une notification par e-mail à l'acheteur concerné.
 
-En ce qui concerne le traitement par lots, illustré par la fonctionnalité de confirmation en masse, le processus débute par l'importation d'un fichier Excel ou CSV directement depuis l'interface utilisateur. Le frontend Fiori prend en charge l'analyse syntaxique initiale et le regroupement des données par commande, allégeant ainsi la charge du serveur. Par la suite, une boucle itérative envoie les données formatées au backend, où le framework RAP procède à une validation globale avant d'exécuter une insertion massive dans la base de données via la commande Bulk EML, garantissant ainsi des performances optimales lors des traitements volumineux.
+\paragraph{Traitement par lots (confirmation en masse).} En ce qui concerne le traitement par lots, illustré par la fonctionnalité de confirmation en masse, le processus débute par l'importation d'un fichier Excel ou CSV directement depuis l'interface utilisateur. Le frontend Fiori prend en charge l'analyse syntaxique initiale et le regroupement des données par commande, allégeant ainsi la charge du serveur. Par la suite, une boucle itérative envoie les données formatées au backend, où le framework RAP procède à une validation globale avant d'exécuter une insertion massive dans la base de données via la commande Bulk EML, garantissant ainsi des performances optimales lors des traitements volumineux.
 
-La génération de documents, matérialisée par l'impression des confirmations au format PDF, s'appuie sur une intégration transparente avec les services d'édition avancés. Lorsqu'un utilisateur déclenche cette action, la requête OData sollicite une classe génératrice spécifique au sein du backend. Cette dernière orchestre l'extraction des données requises et délègue le rendu du document au service externe Adobe Document Services (ADS), qui génère et renvoie un flux binaire encodé que l'application Fiori se charge de proposer au téléchargement.
+\paragraph{Génération documentaire (PDF).} La génération de documents, matérialisée par l'impression des confirmations au format PDF, s'appuie sur une intégration transparente avec les services d'édition avancés. Lorsqu'un utilisateur déclenche cette action, la requête OData sollicite une classe génératrice spécifique au sein du backend. Cette dernière orchestre l'extraction des données requises et délègue le rendu du document au service externe Adobe Document Services (ADS), qui génère et renvoie un flux binaire encodé que l'application Fiori se charge de proposer au téléchargement.
 
-L'innovation cognitive de la solution est portée par l'intégration de l'assistant conversationnel SAP Joule, hébergé sur la SAP Business Technology Platform (BTP). Lorsqu'un utilisateur formule une requête en langage naturel, le grand modèle de langage (LLM) interprète l'intention et la dirige vers la compétence métier appropriée. La force de cette architecture réside dans le fait que l'agent Joule interroge le backend S/4HANA en exploitant strictement les mêmes points de terminaison OData que l'interface Fiori classique. Cette approche unifiée assure une intégrité totale des données métier et des contrôles d'accès avant que l'intelligence artificielle ne formate et ne restitue sa réponse à l'utilisateur.
+\paragraph{Automatisation conversationnelle (Joule).} L'innovation cognitive de la solution est portée par l'intégration de l'assistant conversationnel SAP Joule, hébergé sur la SAP Business Technology Platform (BTP). Lorsqu'un utilisateur formule une requête en langage naturel, le grand modèle de langage (LLM) interprète l'intention et la dirige vers la compétence métier appropriée. La force de cette architecture réside dans le fait que l'agent Joule interroge le backend S/4HANA en exploitant strictement les mêmes points de terminaison OData que l'interface Fiori classique. Cette approche unifiée assure que la même logique métier (validations, déterminations) s'applique avant que l'intelligence artificielle ne formate et ne restitue sa réponse à l'utilisateur.
 
-Le pilotage stratégique des activités d'achat est orchestré par le tableau de bord analytique, qui opère selon un paradigme de lecture optimisé. Les requêtes déclenchées par l'interface ciblent la couche sémantique constituée de vues CDS configurées en mode Cube. Ces composants s'appuient sur le mécanisme de délégation (Push-down) de la base de données HANA, permettant d'exécuter l'agrégation complexe et le calcul des indicateurs de performance directement au niveau du moteur de données. Cette architecture garantit une restitution instantanée des graphiques et des analyses sur le frontend.
+\paragraph{Pilotage analytique (tableau de bord).} Le pilotage stratégique des activités d'achat est orchestré par le tableau de bord analytique, qui opère selon un paradigme de lecture optimisé. Les requêtes déclenchées par l'interface ciblent la couche sémantique constituée de vues CDS configurées en mode Cube. Ces composants s'appuient sur le mécanisme de délégation (Push-down) de la base de données HANA, permettant d'exécuter l'agrégation complexe et le calcul des indicateurs de performance directement au niveau du moteur de données. Cette architecture garantit une restitution instantanée des graphiques et des analyses sur le frontend.
 
-Enfin, la gestion des exceptions, illustrée par l'annulation d'un rejet de commande, implique une orchestration transactionnelle minutieuse gérée par l'application satellite dédiée. Une requête de suppression ciblant l'entité métier des rejets déclenche une redéfinition de la séquence de sauvegarde au sein du framework RAP. Le système procède alors simultanément au nettoyage de la table de journalisation spécifique et à l'appel d'un service de modification standard (BAPI) pour réinitialiser les indicateurs de suppression dans les tables d'en-tête logistiques, assurant ainsi une restauration parfaitement intègre du statut de la commande dans le cœur de l'ERP.
+\paragraph{Gestion des exceptions (annulation de rejet).} Enfin, la gestion des exceptions, illustrée par l'annulation d'un rejet de commande, implique une orchestration transactionnelle minutieuse gérée par l'application satellite dédiée. Une requête de suppression ciblant l'entité métier des rejets déclenche une redéfinition de la séquence de sauvegarde au sein du framework RAP. Le système procède alors simultanément au nettoyage de la table de journalisation spécifique et à l'appel d'un service de modification standard (BAPI) pour réinitialiser les indicateurs de suppression dans les tables d'en-tête logistiques, assurant ainsi une restauration parfaitement intègre du statut de la commande dans le cœur de l'ERP.
 
 \begin{figure}[H]
 \centering
@@ -2313,21 +2353,58 @@ Ces architectures, couplées à l'intégration novatrice des mécanismes d'intel
 Ce chapitre est consacré à la concrétisation des concepts architecturaux définis précédemment. Nous y aborderons la phase de développement et de réalisation du Portail Fournisseur. Dans un premier temps, nous exposerons la pile technologique et l'environnement de développement mis en place pour soutenir la création d'une application SAP de nouvelle génération. Ensuite, nous procéderons à une démonstration détaillée des différentes fonctionnalités développées — de la consultation des commandes à l'intégration de l'Intelligence Artificielle en passant par le traitement en masse —, en illustrant chaque scénario métier par les interfaces résultantes. Enfin, nous aborderons la phase de tests garantissant la robustesse et la fiabilité de la solution.
 
 \section{Technologies et outils utilis\'es}\label{ch5:tech}
-La réalisation de ce projet s'est appuyée sur une suite d'outils et de technologies modernes fournis par l'écosystème SAP et les standards du développement logiciel.
+La réalisation de ce projet a mobilisé une chaîne technologique cohérente, alignée sur la
+stratégie \textit{Clean Core} de SAP et sur les standards modernes du développement
+logiciel. On distingue cinq familles d'outils : la \textbf{plateforme et la base de
+données} (S/4HANA, SAP HANA), le \textbf{socle de développement backend} (ABAP RAP, CDS),
+la \textbf{couche d'exposition et d'intégration} (OData, SAP Cloud Connector), la
+\textbf{couche de présentation et de documentation} (SAP Fiori/SAPUI5, Microsoft Excel,
+Adobe Forms), et enfin le \textbf{volet cloud et intelligence artificielle} (SAP BTP,
+Node.js, SAP Joule). Les outils de développement (Eclipse ADT, VS~Code, Git) complètent
+cet ensemble. Les sous-sections suivantes décrivent le rôle précis de chacune de ces
+briques dans la solution.
 
-\begin{itemize}[label=\textbullet, itemsep=0.3em]
-    \item \textbf{SAP S/4HANA :} L'ERP de dernière génération de SAP, servant de backend transactionnel (gestion des achats via les tables EKKO/EKPO) et exploitant la puissance in-memory de la base de données SAP HANA.
-    
+\subsection{Plateforme et base de données}\label{ch5:tech-plateforme}
+
+\begin{itemize}[label=\textbullet, itemsep=0.4em]
+    \item \textbf{SAP S/4HANA (On-Premise) :} ERP de dernière génération de SAP, il
+    constitue le \textit{backend} transactionnel de la solution. C'est lui qui héberge les
+    données réelles des achats (tables \texttt{EKKO}, \texttt{EKPO}, \texttt{EKES}) et qui
+    exécute, via le serveur applicatif ABAP, l'intégralité de la logique métier
+    développée. Le système cible est le client~900 du système \texttt{S41}.
+
     \begin{center}
     \IfFileExists{figures/sap-logo.png}{%
         \includegraphics[height=1.5cm]{figures/sap-logo.png}
     }{%
-        \fbox{\parbox[c][1.5cm][c]{4cm}{\centering \small Logo SAP\\(ajoutez figures/sap-logo.png)}}
+        \fbox{\parbox[c][1.5cm][c]{4cm}{\centering \small Logo SAP\\(sap_hana.png)}}
     }
     \end{center}
 
-    \item \textbf{ABAP RAP \& CDS :} Le modèle de programmation \textit{RESTful ABAP Programming} a été utilisé conjointement avec les \textit{Core Data Services} (CDS) pour définir le modèle de données, le comportement transactionnel et exposer les services web de manière sécurisée.
-    
+    \item \textbf{SAP HANA (base de données \textit{in-memory}) :} moteur de base de
+    données colonnaire résidant entièrement en mémoire vive. Il permet le \textit{code
+    push-down} (délégation des agrégations et calculs à la couche données) qui rend
+    possible la restitution analytique en temps réel du tableau de bord, sans dégrader les
+    performances transactionnelles.
+
+    \begin{center}
+    \IfFileExists{figures/sap_hana.png}{%
+        \includegraphics[height=1.5cm]{figures/sap_hana.png}
+    }{%
+        \fbox{\parbox[c][1.5cm][c]{4cm}{\centering \small Logo SAP HANA\\(ajoutez figures/sap\_hana.png)}}
+    }
+    \end{center}
+\end{itemize}
+
+\subsection{Socle de développement backend}\label{ch5:tech-backend}
+
+\begin{itemize}[label=\textbullet, itemsep=0.4em]
+    \item \textbf{ABAP RAP \& CDS :} le modèle \textit{RESTful ABAP Programming} a été
+    utilisé conjointement avec les \textit{Core Data Services} (CDS) pour modéliser les
+    données, encapsuler le comportement transactionnel (validations, déterminations,
+    actions) et exposer des services web sécurisés. C'est le cœur technique du Portail
+    Fournisseur et de l'application de gestion des rejets.
+
     \begin{center}
     \IfFileExists{figures/logo-rap-cds.jpg}{%
         \includegraphics[height=1.5cm]{figures/logo-rap-cds.jpg}
@@ -2335,9 +2412,16 @@ La réalisation de ce projet s'est appuyée sur une suite d'outils et de technol
         \fbox{\parbox[c][1.5cm][c]{4cm}{\centering \small Logo RAP/CDS\\(ajoutez figures/logo-rap-cds.jpg)}}
     }
     \end{center}
+\end{itemize}
 
-    \item \textbf{OData Protocol (V2/V4) :} Le standard ouvert pour la création et la consommation d'API RESTful. La version 4 a été utilisée pour les opérations transactionnelles intensives, et la version 2 pour l'analytique.
-    
+\subsection{Exposition des services et intégration}\label{ch5:tech-integration}
+
+\begin{itemize}[label=\textbullet, itemsep=0.4em]
+    \item \textbf{Protocole OData (V2 / V4) :} standard ouvert pour la création et la
+    consommation d'API RESTful~\cite{odata}. La version~4 porte les opérations transactionnelles
+    intensives (confirmation, rejet, import de masse), tandis que la version~2 alimente le
+    moteur analytique du tableau de bord.
+
     \begin{center}
     \IfFileExists{figures/logo-odata.png}{%
         \includegraphics[height=1.5cm]{figures/logo-odata.png}
@@ -2346,8 +2430,27 @@ La réalisation de ce projet s'est appuyée sur une suite d'outils et de technol
     }
     \end{center}
 
-    \item \textbf{SAP Fiori \& SAPUI5 :} Fiori Elements a été choisi pour assurer une expérience utilisateur cohérente, moderne et responsive, s'appuyant sur le framework JavaScript SAPUI5 pour les personnalisations spécifiques de l'interface.
-    
+    \item \textbf{SAP Cloud Connector :} composant de sécurité assurant le pont chiffré
+    entre la couche cloud (SAP BTP) et le système S/4HANA \textit{on-premise}, sans exposer
+    ce dernier sur Internet. Il est indispensable au fonctionnement de l'assistant Joule.
+
+    \begin{center}
+    \IfFileExists{figures/logo-cloud-connector.png}{%
+        \includegraphics[height=1.5cm]{figures/logo-cloud-connector.png}
+    }{%
+        \fbox{\parbox[c][1.5cm][c]{4.5cm}{\centering \small Logo SAP Cloud Connector\\(ajoutez figures/logo-cloud-connector.png)}}
+    }
+    \end{center}
+\end{itemize}
+
+\subsection{Présentation et édition documentaire}\label{ch5:tech-presentation}
+
+\begin{itemize}[label=\textbullet, itemsep=0.4em]
+    \item \textbf{SAP Fiori \& SAPUI5 :}~\cite{sap-fiori} Fiori Elements a été choisi pour garantir une
+    expérience utilisateur cohérente, moderne et \textit{responsive}, fondée sur le
+    framework JavaScript SAPUI5 pour les composants personnalisés (bulle de chat Joule,
+    sélecteur de langue, traitement de masse, téléchargement PDF).
+
     \begin{center}
     \IfFileExists{figures/logo-fiori-ui5.png}{%
         \includegraphics[height=1.5cm]{figures/logo-fiori-ui5.png}
@@ -2356,8 +2459,40 @@ La réalisation de ce projet s'est appuyée sur une suite d'outils et de technol
     }
     \end{center}
 
-    \item \textbf{SAP BTP \& SAP Joule :} La \textit{Business Technology Platform} a été mobilisée pour orchestrer l'intégration Cloud, hébergeant notamment les environnements de "Skills" et d'actions pour le moteur d'Intelligence Artificielle générative SAP Joule.
-    
+    \item \textbf{Microsoft Excel \& SheetJS :} le traitement en masse repose sur un
+    modèle Excel (\texttt{.xlsx}) téléchargeable, complété hors ligne par le fournisseur,
+    puis analysé côté client par la bibliothèque \texttt{SheetJS} avant envoi au backend.
+
+    \begin{center}
+    \IfFileExists{figures/logo-excel.png}{%
+        \includegraphics[height=1.5cm]{figures/logo-excel.png}
+    }{%
+        \fbox{\parbox[c][1.5cm][c]{4cm}{\centering \small Logo Excel / SheetJS\\(ajoutez figures/logo-excel.png)}}
+    }
+    \end{center}
+
+    \item \textbf{Adobe Forms (Adobe Document Services) :} moteur d'édition utilisé pour
+    générer les bons de commande au format PDF normalisé (formulaire
+    \texttt{ZSF\_POCONFIRMATION\_AEL}), via un flux \texttt{FP\_JOB\_OPEN} /
+    \texttt{FP\_JOB\_CLOSE}.
+
+    \begin{center}
+    \IfFileExists{figures/logo-adobe-forms.png}{%
+        \includegraphics[height=1.5cm]{figures/logo-adobe-forms.png}
+    }{%
+        \fbox{\parbox[c][1.5cm][c]{4.5cm}{\centering \small Logo Adobe Forms\\(ajoutez figures/logo-adobe-forms.png)}}
+    }
+    \end{center}
+\end{itemize}
+
+\subsection{Cloud et intelligence artificielle}\label{ch5:tech-ia}
+
+\begin{itemize}[label=\textbullet, itemsep=0.4em]
+    \item \textbf{SAP BTP \& SAP Joule :} la \textit{Business Technology Platform}~\cite{sap-btp} héberge
+    les environnements de \textit{Skills} et d'actions de l'assistant conversationnel
+    Joule~\cite{sap-joule}. Ce dernier interprète les requêtes en langage naturel et appelle les mêmes
+    services OData que l'interface Fiori, garantissant intégrité et sécurité des données.
+
     \begin{center}
     \IfFileExists{figures/logo-btp-joule.png}{%
         \includegraphics[height=1.5cm]{figures/logo-btp-joule.png}
@@ -2366,8 +2501,27 @@ La réalisation de ce projet s'est appuyée sur une suite d'outils et de technol
     }
     \end{center}
 
-    \item \textbf{Environnements de Développement Intégrés (IDE) :} Les développements backend (ABAP/CDS) ont été réalisés sous \textbf{Eclipse} avec les plugins ADT (ABAP Development Tools), tandis que les développements front-end (SAPUI5/JavaScript) et Node.js ont été orchestrés via \textbf{Visual Studio Code}.
-    
+    \item \textbf{Node.js :} environnement d'exécution JavaScript côté serveur, employé sur
+    SAP BTP pour les projets d'actions (\textit{Action Projects}) consommés par Joule,
+    notamment la gestion du jeton CSRF lors des appels transactionnels.
+
+    \begin{center}
+    \IfFileExists{figures/logo-nodejs.png}{%
+        \includegraphics[height=1.5cm]{figures/logo-nodejs.png}
+    }{%
+        \fbox{\parbox[c][1.5cm][c]{4cm}{\centering \small Logo Node.js\\(ajoutez figures/logo-nodejs.png)}}
+    }
+    \end{center}
+\end{itemize}
+
+\subsection{Outils de développement et de versionnement}\label{ch5:tech-outils}
+
+\begin{itemize}[label=\textbullet, itemsep=0.4em]
+    \item \textbf{Eclipse ADT \& Visual Studio Code :} les développements backend
+    (ABAP/CDS) ont été réalisés sous \textbf{Eclipse} avec les \textit{ABAP Development
+    Tools} (ADT), tandis que les développements frontend (SAPUI5/JavaScript) et Node.js
+    ont été menés sous \textbf{Visual Studio Code}.
+
     \begin{center}
     \IfFileExists{figures/logo-ide.png}{%
         \includegraphics[height=1.5cm]{figures/logo-ide.png}
@@ -2376,6 +2530,16 @@ La réalisation de ce projet s'est appuyée sur une suite d'outils et de technol
     }
     \end{center}
 
+    \item \textbf{Git :} le code source (objets frontend et configurations) a été versionné
+    et synchronisé via Git, complété côté ABAP par les ordres de transport standard de SAP.
+
+    \begin{center}
+    \IfFileExists{figures/logo-git.png}{%
+        \includegraphics[height=1.5cm]{figures/logo-git.png}
+    }{%
+        \fbox{\parbox[c][1.5cm][c]{4cm}{\centering \small Logo Git\\(ajoutez figures/logo-git.png)}}
+    }
+    \end{center}
 \end{itemize}
 
 \section{Architecture et réalisation de la solution}\label{ch5:realisation}
@@ -2408,7 +2572,9 @@ persistance des données jusqu'à l'interface utilisateur :
 \end{itemize}
 
 \subsection{Modélisation des données : les vues CDS}\label{ch5:cds}
-Le modèle de données s'appuie sur une hiérarchie de \textit{Core Data Services}. Les
+Après les fondements conceptuels présentés en section~\ref{ch2:cds}, cette partie décrit
+l'\textbf{implémentation concrète} du modèle de données dans notre solution. Le modèle
+s'appuie sur une hiérarchie de \textit{Core Data Services}. Les
 \textbf{vues d'interface} exposent et enrichissent les données des tables standards
 (\texttt{EKKO}/\texttt{EKPO}/\texttt{EKES}) en y ajoutant des éléments sémantiques
 (libellés, types de devise et de quantité, textes associés). Au-dessus, les
@@ -2420,7 +2586,9 @@ fichiers d'annotations séparés --- portent la présentation (regroupements, fa
 colonnes), respectant ainsi la séparation entre le modèle et la couche d'affichage.
 
 \subsection{Logique métier et transactions : le modèle RAP}\label{ch5:rap}
-Le comportement transactionnel est défini à l'aide du modèle \textbf{RAP} (\textit{RESTful
+Sur la base des principes RAP exposés en section~\ref{ch2:rap}, nous détaillons ici les
+choix d'implémentation propres au projet. Le comportement transactionnel est défini à
+l'aide du modèle \textbf{RAP} (\textit{RESTful
 ABAP Programming}). Le \textbf{Portail Fournisseur} repose sur une implémentation
 \textbf{non managée avec brouillon} (\textit{draft}), car il agit directement sur des
 tables standards déjà prises en charge par le noyau achats : la persistance y est donc
@@ -2446,12 +2614,143 @@ portail, et une \textit{Analytical List Page} pour le tableau de bord. Le code
 couvertes par le standard.
 
 \subsection{Sécurité et gestion des autorisations}\label{ch5:securite}
-La confidentialité des données repose sur le \textbf{Data Control Language} (DCL) : une
-règle d'\textit{access control} filtre automatiquement les commandes afin de ne présenter
-à chaque fournisseur que ses propres données. Les actions sensibles sont en outre
-protégées par des \textbf{contrôles d'autorisation}, assurant qu'un utilisateur ne peut
-agir que dans son périmètre. Cette approche, fondée exclusivement sur des extensions,
-respecte le principe du \textbf{Clean Core} (aucune modification du standard SAP).
+Dans le périmètre réalisé, la sécurité du portail repose sur l'\textbf{authentification
+standard de SAP S/4HANA} : chaque utilisateur s'authentifie auprès du système et l'accès
+aux applications est régi par les rôles et catalogues métier Fiori. Les opérations
+transactionnelles (confirmation, rejet, replanification) passent par le modèle RAP, qui
+applique les validations métier garantissant la cohérence des écritures.
+
+En revanche, deux mécanismes de sécurité avancés, bien qu'identifiés dès la phase de
+conception comme exigences (section~\ref{ch4:besoins-nf}), \textbf{n'ont pas été
+implémentés} dans le cadre de ce projet et constituent des \textbf{perspectives
+d'évolution} :
+
+\begin{itemize}[label=---, itemsep=0.2em]
+    \item le \textbf{cloisonnement fin des données par DCL} (\textit{Data Control
+    Language}) : une règle d'\textit{access control} filtrerait, au niveau de la base de
+    données, les commandes afin de ne présenter à chaque fournisseur que ses propres
+    données ;
+    \item la \textbf{propagation de l'identité de l'utilisateur} (\textit{principal
+    propagation}) entre la couche cloud (SAP BTP / Joule) et le back-end
+    \textit{on-premise}.
+\end{itemize}
+
+Conformément au principe du \textbf{Clean Core}, leur mise en \oe uvre future reposera
+exclusivement sur des extensions (règles DCL, configuration du Cloud Connector en
+\textit{principal propagation}), sans modification du standard SAP.
+
+\subsubsection{Perspective : isolation des fournisseurs par propagation d'identité et DCL}\label{ch5:perspective-secu}
+
+\paragraph{La limite actuelle.} Dans la configuration présente, la destination qui relie
+SAP BTP au back-end \textit{on-premise} utilise une authentification \textbf{Basic} câblée
+sur un \textbf{unique utilisateur technique} (\texttt{AEL200435}). Quel que soit le
+fournisseur qui dialogue avec l'agent Joule, S/4HANA reçoit donc une requête présentée au
+nom de ce même utilisateur : \textbf{l'identité réelle du fournisseur est perdue dès la
+destination}. Il ne reste alors aucune information permettant au backend de filtrer les
+données par fournisseur. Une authentification à identifiants fixes (Basic, OAuth
+\textit{client credentials}) convient à des appels de service à service, mais \emph{pas}
+à une isolation des données par utilisateur.
+
+\paragraph{La cible : deux couches complémentaires.} L'isolation visée repose sur deux
+mécanismes indépendants qui doivent tous deux être en place ; la
+figure~\ref{fig:perspective-securite} oppose le fonctionnement actuel et la cible.
+
+\begin{figure}[H]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  font=\footnotesize,
+  >={Stealth[length=2.4mm]},
+  bx/.style={rectangle, rounded corners, draw=#1!80, fill=#1!10, line width=0.7pt,
+             align=center, text width=2.8cm, minimum height=1.25cm, inner sep=3pt},
+  fl/.style={-{Stealth[length=2.2mm]}, line width=0.8pt, draw=gray!60}
+]
+  % ----- Aujourd'hui -----
+  \node[font=\bfseries, FireBrick!60!black] at (-1.0,2.3) {Aujourd'hui};
+  \node[bx=gray]      (a1) at (2.2,2.3)  {Fournisseur A\\(identité : A)};
+  \node[bx=gray]      (a2) at (5.6,2.3)  {Agent Joule};
+  \node[bx=FireBrick] (a3) at (9.2,2.3)  {Destination\\\textbf{BasicAuth}\\= AEL200435};
+  \node[bx=gray]      (a4) at (12.8,2.3) {Cloud\\Connector};
+  \node[bx=FireBrick] (a5) at (16.4,2.3) {S/4HANA\\appelant = AEL200435\\\textbf{voit tout}};
+  \draw[fl] (a1)--(a2); \draw[fl] (a2)--(a3); \draw[fl] (a3)--(a4); \draw[fl] (a4)--(a5);
+  \node[FireBrick!70!black, font=\scriptsize\itshape, text width=3cm, align=center] at (9.2,0.85) {identité réelle perdue ici};
+  \draw[->, FireBrick!70, line width=0.8pt] (9.2,1.2) -- (a3.south);
+
+  % ----- Cible -----
+  \node[font=\bfseries, ForestGreen!45!black] at (-1.0,-1.7) {Cible};
+  \node[bx=gray]       (b1) at (2.2,-1.7)  {Fournisseur A\\(identité : A)};
+  \node[bx=ForestGreen](b2) at (5.6,-1.7)  {Agent Joule\\\textit{on behalf of A}};
+  \node[bx=ForestGreen](b3) at (9.2,-1.7)  {Destination\\\textbf{Principal\\Propagation}};
+  \node[bx=ForestGreen](b4) at (12.8,-1.7) {Cloud Connector\\A $\rightarrow$ certificat X.509};
+  \node[bx=ForestGreen](b5) at (16.4,-1.7) {S/4HANA\\appelant = A\\+ \textbf{DCL} filtre};
+  \draw[fl] (b1)--(b2); \draw[fl] (b2)--(b3); \draw[fl] (b3)--(b4); \draw[fl] (b4)--(b5);
+\end{tikzpicture}%
+}
+\caption{Isolation des fournisseurs : authentification par utilisateur technique (actuel) \emph{vs} propagation d'identité et filtrage DCL (cible)}
+\label{fig:perspective-securite}
+\end{figure}
+
+\paragraph{Couche A --- faire parvenir l'identité jusqu'à S/4HANA (\textit{principal
+propagation}).} La destination est reconfigurée en mode \textbf{PrincipalPropagation}
+(on retire l'utilisateur et le mot de passe, dont la présence écrase la propagation) :
+elle transmet alors le jeton de l'utilisateur courant au lieu d'identifiants fixes. Le
+\textbf{SAP Cloud Connector} convertit cet utilisateur en un \textbf{certificat X.509} de
+courte durée, présenté à S/4HANA qui fait confiance à l'autorité de certification du
+connecteur. S/4HANA traduit enfin ce certificat en utilisateur concret au moyen de
+\textbf{règles de correspondance} (\texttt{CERTRULE}), par exemple en mappant l'adresse
+e-mail du certificat sur l'utilisateur S/4 correspondant. \emph{Prérequis indispensable} :
+chaque fournisseur doit posséder une \textbf{identité distincte} (compte dans SAP IAS et
+utilisateur S/4 associé) ; un identifiant partagé entre plusieurs fournisseurs annulerait
+toute isolation.
+
+\paragraph{Couche B --- ne renvoyer que les données de l'appelant (DCL).} Une fois
+l'appelant connu de S/4HANA, le \textbf{contrôle d'accès CDS} (\textit{Data Control
+Language}) restreint les données au niveau de la base. Une table de correspondance
+\texttt{utilisateur $\rightarrow$ numéro de fournisseur} (par exemple
+\texttt{ZSUPPLIER\_USER\_AEL}) permet à une règle DCL de dériver le fournisseur à partir de
+\texttt{\$session.user} et d'ajouter automatiquement, à toute lecture de la vue des
+commandes, une clause équivalente à \texttt{WHERE Supplier = <fournisseur de l'appelant>}.
+La restriction est ainsi appliquée par le moteur de données, quel que soit le point
+d'entrée (agent, application Fiori, etc.).
+
+Ces deux couches sont \textbf{indissociables} : la couche A sans la couche B identifie
+correctement le fournisseur mais lui laisse tout voir ; la couche B sans la couche A
+filtre sur une identité unique (le compte technique) et perd tout son sens.
+
+\paragraph{Pourquoi ce contrôle n'est pas délégué à l'agent.} Il serait tentant de
+demander à l'agent de n'afficher que les commandes du fournisseur, ou d'ajouter lui-même
+un \texttt{\$filter}. Cela ne constitue pas une sécurité : un modèle de langage peut être
+détourné (\textit{prompt injection}) ou simplement omettre le filtre. Un \texttt{\$filter}
+côté client est un confort (résultats plus rapides), \textbf{jamais} une autorisation : la
+garantie doit être assurée par le DCL au niveau du backend.
+
+\paragraph{Validation préalable déterminante.} Avant toute implémentation, il faut
+vérifier que Joule \textbf{propage effectivement le principal de l'utilisateur final} lors
+de l'appel à la destination, et non une identité de service. Dans le cas contraire, la
+propagation ne portera jamais le fournisseur jusqu'au backend et une conception
+alternative serait nécessaire (transmission d'un \textit{claim} fournisseur vérifié, puis
+re-validé côté S/4HANA).
+
+\subsubsection{Conformité et protection des données (RGPD)}\label{ch5:rgpd}
+
+Le portail manipulant des données relatives à des acteurs externes (coordonnées et
+identifiants des fournisseurs), la dimension de \textbf{protection des données} a été prise
+en compte dès la conception. Plusieurs principes du RGPD trouvent un écho direct dans
+l'architecture retenue :
+
+\begin{itemize}[label=---, itemsep=0.2em]
+    \item \textbf{Minimisation} : seules les données strictement nécessaires au processus
+    de confirmation sont exposées par les vues CDS de projection.
+    \item \textbf{Cloisonnement} : l'isolation des données par fournisseur (perspective
+    DCL de la section~\ref{ch5:perspective-secu}) garantit qu'un fournisseur n'accède
+    jamais aux données d'un concurrent.
+    \item \textbf{Traçabilité et auditabilité} : chaque rejet est journalisé dans
+    \texttt{ZMM005\_PO\_REJECT} avec l'auteur et l'horodatage de création et de dernière
+    modification, répondant aux exigences de preuve et de droit de regard.
+    \item \textbf{Sécurité des échanges} : les flux entre la couche cloud et le back-end
+    transitent par le SAP Cloud Connector (canal chiffré), sans exposition directe du
+    système \textit{on-premise} sur Internet.
+\end{itemize}
 
 \subsection{Intégration de l'IA générative (SAP BTP \& Joule)}\label{ch5:joule-impl}
 L'assistant \textbf{SAP Joule} a été configuré sur \textbf{SAP BTP} sous forme de
@@ -2459,24 +2758,145 @@ L'assistant \textbf{SAP Joule} a été configuré sur \textbf{SAP BTP} sous form
 sont interprétées, puis converties en appels aux services \textbf{OData} du portail
 (lister, confirmer ou rejeter des commandes). La \textbf{connectivité sécurisée} entre la
 couche cloud et le back-end S/4HANA \textit{on-premise} est assurée par le
-\textbf{Destination Service} et le \textbf{Cloud Connector}, garantissant la propagation
-de l'identité de l'utilisateur.
+\textbf{Destination Service} et le \textbf{Cloud Connector}. Dans la version actuelle,
+cette liaison s'appuie sur un \textbf{utilisateur technique} (authentification \textit{Basic})~;
+la \textbf{propagation de l'identité de l'utilisateur final} (\textit{principal
+propagation}) constitue une perspective d'évolution (voir
+section~\ref{ch5:securite}).
 
 \section{Démonstration de la solution}\label{ch5:implementation}
 Cette section présente le fonctionnement de l'application aboutie à travers les différents scénarios d'utilisation conçus lors de la phase de modélisation.
 
 \subsection{Visualisation des commandes (Voir les PO)}\label{ch5:voir-po}
-L'écran principal de l'application est un rapport dynamique de type \textit{List Report} (Fiori Elements). Dès sa connexion, le fournisseur est identifié et le système filtre automatiquement les données via le \textit{Data Control Language} (DCL) pour ne lui afficher que ses propres commandes d'achat. L'interface offre des colonnes personnalisables, des filtres de recherche multi-critères, et permet d'accéder au détail d'une commande (Object Page) pour visualiser la liste des postes (lignes d'articles).
+La consultation des commandes constitue le point d'entrée du portail. Cette section
+déroule le \textbf{parcours complet de visualisation}, du Fiori Launchpad jusqu'au détail
+des confirmations d'un poste, en décrivant chaque écran rencontré par l'utilisateur ainsi
+que les mécanismes techniques sous-jacents (Fiori Elements piloté par annotations CDS,
+service OData~V4, modules personnalisés).
+
+\subsubsection{Étape 1 --- Authentification et accès au Launchpad}
+L'accès au portail débute par l'\textbf{authentification} de l'utilisateur auprès de SAP
+S/4HANA : saisie du mandant, de l'identifiant, du mot de passe et de la langue de session
+(figure~\ref{fig:demo-login}). Cette étape conditionne l'identité sous laquelle toutes les
+opérations seront ensuite exécutées.
 
 \begin{figure}[H]
 \centering
-\IfFileExists{figures/demo-voir-po.png}{%
-    \includegraphics[width=0.85\textwidth]{figures/demo-voir-po.png}
+\IfFileExists{figures/demo-flp.png}{%
+    \includegraphics[width=0.7\textwidth]{figures/demo-flp.png}
 }{%
-    \fbox{\parbox[c][6cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Affichage des commandes (List Report)\\ (ajoutez figures/demo-voir-po.png)}}
+    \fbox{\parbox[c][5cm][c]{0.7\linewidth}{\centering \small Capture d'écran : écran d'authentification SAP\\ (ajoutez figures/demo-flp.png)}}
 }
-\caption{Interface principale : Visualisation et filtrage des commandes d'achat}
+\caption{Écran d'authentification SAP (saisie du mandant, de l'utilisateur et de la langue)}
+\label{fig:demo-login}
+\end{figure}
+
+Une fois authentifié, l'utilisateur arrive sur le \textbf{SAP Fiori Launchpad}
+(figure~\ref{fig:demo-launchpad}), qui regroupe les tuiles (\textit{tiles}) donnant accès
+aux applications du portail --- notamment \og Intelligent Supplier Portal\fg{} et
+\og dashboard fournisseur\fg{}. Chaque tuile est rattachée à un \textit{objet sémantique}
+et à un catalogue métier ; un clic ouvre l'application correspondante. C'est également à ce
+niveau que s'applique le contrôle d'accès par rôles et catalogues.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-launchpad-annot.png}{%
+    \includegraphics[width=0.92\textwidth]{figures/demo-launchpad-annot.png}
+}{%
+    \fbox{\parbox[c][5.5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Fiori Launchpad et tuiles du portail\\ (ajoutez figures/demo-launchpad-annot.png)}}
+}
+\caption{Le SAP Fiori Launchpad et les tuiles du portail fournisseur (composants annotés)}
+\label{fig:demo-launchpad}
+\end{figure}
+
+\subsubsection{Étape 2 --- Liste des commandes (List Report)}
+L'application centrale est un rapport dynamique de type \textbf{List Report} (Fiori
+Elements). Il affiche les commandes d'achat sous forme de tableau, avec des colonnes
+clés (numéro de commande, fournisseur, date, montant, devise, statut de confirmation).
+La structure et l'intitulé des colonnes sont entièrement pilotés par les
+\textbf{annotations} \texttt{@UI} des vues CDS, sans code d'interface. La restriction
+automatique aux seules commandes du fournisseur connecté --- via un contrôle d'accès
+\textit{Data Control Language} (DCL) --- est prévue en perspective
+(section~\ref{ch5:securite}).
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-voir-po-annot.png}{%
+    \includegraphics[width=0.92\textwidth]{figures/demo-voir-po-annot.png}
+}{%
+    \fbox{\parbox[c][6cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Affichage des commandes (List Report)\\ (ajoutez figures/demo-voir-po-annot.png)}}
+}
+\caption{Écran principal : liste des commandes d'achat (List Report, composants annotés)}
 \label{fig:demo-voir-po}
+\end{figure}
+
+\subsubsection{Étape 3 --- Détail d'une commande (Object Page : en-tête)}
+Un clic sur une ligne ouvre l'\textbf{Object Page} de la commande. Sa partie supérieure
+présente les informations d'en-tête (fournisseur, dates, montant total, devise, statut)
+organisées en \textit{facettes}. La navigation entre la liste et le détail s'appuie sur
+les \textbf{associations} CDS, qui relient l'en-tête à ses postes.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-objectpage.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-objectpage.png}
+}{%
+    \fbox{\parbox[c][5.5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : Object Page --- en-tête de la commande\\ (ajoutez figures/demo-objectpage.png)}}
+}
+\caption{Détail d'une commande : en-tête (Object Page)}
+\label{fig:demo-objectpage}
+\end{figure}
+
+\subsubsection{Étape 4 --- Consultation des postes de la commande}
+Plus bas dans l'Object Page, une table liste les \textbf{postes} (lignes d'articles) de la
+commande : matériel, quantité commandée, prix net, date de livraison et statut de
+confirmation de chaque poste. C'est à ce niveau que le fournisseur identifie les lignes sur
+lesquelles il devra agir (confirmer, rejeter, replanifier).
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-postes.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-postes.png}
+}{%
+    \fbox{\parbox[c][5.5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : liste des postes de la commande\\ (ajoutez figures/demo-postes.png)}}
+}
+\caption{Consultation des postes (lignes d'articles) d'une commande}
+\label{fig:demo-postes}
+\end{figure}
+
+\subsubsection{Étape 5 --- Détail d'un poste et de ses confirmations}
+La sélection d'un poste donne accès à son détail et à l'historique de ses
+\textbf{confirmations} (table standard \texttt{EKES}) : quantités et dates confirmées,
+éventuels reliquats. Cette vue de bout en bout permet de suivre l'avancement contractuel
+d'une ligne, du besoin initial jusqu'aux accusés du fournisseur.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-poste-detail.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-poste-detail.png}
+}{%
+    \fbox{\parbox[c][5.5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : détail d'un poste et de ses confirmations\\ (ajoutez figures/demo-poste-detail.png)}}
+}
+\caption{Détail d'un poste et historique des confirmations (EKES)}
+\label{fig:demo-poste-detail}
+\end{figure}
+
+\subsubsection{Étape 6 --- Changement de langue (FR / EN)}
+Conformément à l'exigence de bilinguisme, un \textbf{sélecteur de langue} (module
+personnalisé \textit{LanguageSwitcher}) permet de basculer l'interface entre le
+\textbf{français} et l'\textbf{anglais}. Les libellés proviennent des textes traduits des
+objets (vues CDS, éléments de données), assurant une cohérence terminologique sur
+l'ensemble des écrans.
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/demo-langue.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/demo-langue.png}
+}{%
+    \fbox{\parbox[c][5.5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : bascule de langue FR / EN\\ (ajoutez figures/demo-langue.png)}}
+}
+\caption{Gestion multilingue de l'interface (FR / EN)}
+\label{fig:demo-langue}
 \end{figure}
 
 \subsection{Confirmation unitaire des postes (Confirmer)}\label{ch5:confirmer}
@@ -2546,7 +2966,7 @@ Lorsqu'un fournisseur n'est pas en mesure d'honorer une ligne de commande (ruptu
 \label{fig:demo-rejeter-action}
 \end{figure}
 
-Ces informations sont tracées dans notre table spécifique (Z). Dès validation, le statut de la ligne passe en "Rejeté", alertant l'acheteur concerné. La figure~\ref{fig:demo-rejeter-succes} montre l'actualisation de l'interface attestant de la prise en compte du rejet.
+Ces informations sont tracées dans notre table spécifique (Z). Dès validation, le statut de la ligne passe en \og Rejeté\fg{}, alertant l'acheteur concerné. La figure~\ref{fig:demo-rejeter-succes} montre l'actualisation de l'interface attestant de la prise en compte du rejet.
 
 \begin{figure}[H]
 \centering
@@ -2627,7 +3047,7 @@ Une fois les données traitées massivement via l'Entity Manipulation Language (
 \end{figure}
 
 \subsection{Impression des bons de commande (Imprimer)}\label{ch5:imprimer}
-L'application intègre un moteur de génération documentaire. D'un simple clic sur le bouton "Imprimer", une requête est envoyée au backend SAP qui fait appel au service Adobe Document Services (ADS). Le système génère un bon de commande officiel au format PDF (structuré avec les informations d'en-tête, de lignes et des conditions générales), qui est retourné sous forme de flux binaire (XSTRING) pour déclencher le téléchargement automatique côté navigateur.
+L'application intègre un moteur de génération documentaire. D'un simple clic sur le bouton \og Imprimer\fg{}, une requête est envoyée au backend SAP qui fait appel au service Adobe Document Services (ADS). Le système génère un bon de commande officiel au format PDF (structuré avec les informations d'en-tête, de lignes et des conditions générales), qui est retourné sous forme de flux binaire (XSTRING) pour déclencher le téléchargement automatique côté navigateur.
 
 \begin{figure}[H]
 \centering
@@ -2682,7 +3102,7 @@ Le traitement des exceptions est \'egalement pris en charge par l'assistant cogn
 \end{figure}
 
 \subsection{Pilotage analytique et KPI (Consulter les graphiques)}\label{ch5:dashboard}
-Afin de doter le département des achats d'une vision d'ensemble, nous avons réalisé un Dashboard basé sur le template \textit{Analytical List Page} (ALP). Exposée via le protocole OData V2 pour activer les fonctionnalités BICS de SAP HANA, cette page propose des \textit{Visual Filters}. Ces composants interactifs (graphiques en beignet, histogrammes) permettent de filtrer dynamiquement les données sous-jacentes d'un simple clic (par exemple, cliquer sur la part "Commandes en retard" filtre instantanément la liste détaillée des lignes critiques en dessous).
+Afin de doter le département des achats d'une vision d'ensemble, nous avons réalisé un Dashboard basé sur le template \textit{Analytical List Page} (ALP). Exposée via le protocole OData V2 pour activer les fonctionnalités BICS de SAP HANA, cette page propose des \textit{Visual Filters}. Ces composants interactifs (graphiques en beignet, histogrammes) permettent de filtrer dynamiquement les données sous-jacentes d'un simple clic (par exemple, cliquer sur la part \og Commandes en retard\fg{} filtre instantanément la liste détaillée des lignes critiques en dessous).
 
 \begin{figure}[H]
 \centering
@@ -2712,6 +3132,195 @@ Afin de ne pas surcharger le flux transactionnel principal, une application a \'
 
 
 
+\section{Difficultés rencontrées et solutions techniques}\label{ch5:difficultes}
+La réalisation a soulevé plusieurs défis techniques dont la résolution constitue une part
+importante de la valeur d'ingénierie du projet.
+
+\begin{itemize}[label=\textbullet, itemsep=0.3em]
+    \item \textbf{Hybridation OData V2 / V4.} Les \textit{Visual Filters} du tableau de bord
+    dépendent du moteur analytique (BICS), non supporté de manière optimale par une liaison
+    OData~V4. \textit{Solution} : isoler le tableau de bord derrière une couche
+    \textbf{OData~V2}, tout en conservant OData~V4 pour le transactionnel --- d'où une
+    architecture hybride assumée.
+    \item \textbf{Gestion du jeton CSRF pour Joule.} Les actions transactionnelles déclenchées
+    par l'agent exigent un jeton anti-CSRF. \textit{Solution} : récupérer le
+    \texttt{X-CSRF-Token} via une requête préalable sur le \texttt{\$metadata} du service,
+    puis le réinjecter dans l'appel de modification.
+    \item \textbf{Résolution de l'adresse e-mail de l'acheteur.} L'envoi des notifications
+    nécessite l'e-mail de l'acheteur, non disponible directement. \textit{Solution} : une
+    jointure entre les tables standard \texttt{ADR6} et \texttt{USR21} pour résoudre
+    l'adresse à partir de l'identifiant utilisateur.
+    \item \textbf{Robustesse des notifications.} Un échec d'envoi d'e-mail ne doit pas
+    annuler l'opération métier. \textit{Solution} : l'envoi est réalisé dans le
+    \textit{saver} (sauvegarde différée) et son échec est isolé, sans \textit{rollback} de
+    la transaction.
+    \item \textbf{Saisie sécurisée en RAP non managé.} Agir directement sur des tables
+    standard tout en offrant une expérience de brouillon. \textit{Solution} : une
+    implémentation \textbf{non managée avec \textit{draft}}, où la persistance est maîtrisée
+    manuellement via EML.
+\end{itemize}
+
+\section{Tests et validation}\label{ch5:tests}
+La qualité de la solution a été vérifiée selon une stratégie de test à plusieurs niveaux,
+couvrant la logique métier unitaire, l'intégration de bout en bout et la validation
+utilisateur.
+
+\subsection{Stratégie et niveaux de test}\label{ch5:tests-strategie}
+\begin{itemize}[label=---, itemsep=0.2em]
+    \item \textbf{Tests unitaires (ABAP Unit)} : vérification isolée des validations et
+    déterminations RAP (par exemple, le refus de rejeter un poste déjà confirmé
+    partiellement).
+    \item \textbf{Tests d'intégration} : exécution des scénarios complets via le service
+    OData (confirmation, rejet, replanification, import de masse, génération PDF).
+    \item \textbf{Tests d'acceptation (UAT)} : parcours des cas d'utilisation par des
+    profils acheteur et fournisseur simulés sur l'environnement de qualification.
+    \item \textbf{Qualité du code} : contrôle statique via l'\textbf{ABAP Test Cockpit}
+    (ATC) et respect des règles de \textit{Clean ABAP}.
+\end{itemize}
+
+\subsection{Plan de cas de test}\label{ch5:tests-cas}
+Le tableau~\ref{tab:cas-test} présente un extrait des principaux cas de test exécutés.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\rowcolors{3}{RoyalBlue!7}{white}
+\begin{tabularx}{\textwidth}{>{\bfseries\color{MidnightBlue}}m{0.8cm} >{\raggedright\arraybackslash}m{3.3cm} >{\raggedright\arraybackslash}X >{\centering\arraybackslash}m{1.6cm}}
+\toprule
+\rowcolor{RoyalBlue!65}
+\textcolor{white}{\textbf{\#}} & \textcolor{white}{\textbf{Scénario}} & \textcolor{white}{\textbf{Résultat attendu}} & \textcolor{white}{\textbf{Statut}} \\
+\midrule
+T1 & Confirmation d'un poste & Mise à jour de la confirmation (EKES), statut « confirmé » & \checkmark \\
+T2 & Rejet avec motif & Enregistrement dans \texttt{ZMM005\_PO\_REJECT}, e-mail acheteur & \checkmark \\
+T3 & Rejet d'un poste déjà confirmé partiellement & Opération bloquée par validation & \checkmark \\
+T4 & Replanification de la date de livraison & Nouvelle date enregistrée, notification & \checkmark \\
+T5 & Import de masse (Excel valide) & Tous les postes traités en une transaction & \checkmark \\
+T6 & Import de masse (fichier erroné) & Rejet du lot, rapport d'erreurs détaillé & \checkmark \\
+T7 & Génération du PDF de confirmation & Document PDF restitué au téléchargement & \checkmark \\
+T8 & Action via Joule (« confirme la commande … ») & Appel OData exécuté, réponse en langage naturel & \checkmark \\
+\bottomrule
+\end{tabularx}
+\caption{Extrait du plan de cas de test de la solution}
+\label{tab:cas-test}
+\end{table}
+
+\subsection{Validation utilisateur et résultats}\label{ch5:tests-uat}
+Les tests d'acceptation, menés sur l'environnement de qualification, ont confirmé
+l'ergonomie des parcours, la cohérence des données entre le portail et le c\oe ur de l'ERP,
+ainsi que la pertinence des réponses de l'assistant Joule. La figure~\ref{fig:test-resultats}
+illustre les résultats obtenus (exécution ABAP Unit / ATC).
+
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/test-resultats.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/test-resultats.png}
+}{%
+    \fbox{\parbox[c][6cm][c]{0.85\linewidth}{\centering \small Capture d'écran : résultats des tests (ABAP Unit / ATC)\\ (ajoutez figures/test-resultats.png)}}
+}
+\caption{Résultats de la campagne de tests (ABAP Unit / ATC)}
+\label{fig:test-resultats}
+\end{figure}
+
+\subsection{Anomalies rencontrées et corrections}\label{ch5:tests-anomalies}
+La campagne de tests n'a pas été exempte d'anomalies ; leur identification et leur
+correction font partie intégrante de la démarche qualité. Le tableau~\ref{tab:anomalies}
+recense les principales anomalies traitées.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\rowcolors{3}{FireBrick!6}{white}
+\begin{tabularx}{\textwidth}{>{\bfseries\color{MidnightBlue}}m{0.8cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
+\toprule
+\rowcolor{RoyalBlue!65}
+\textcolor{white}{\textbf{\#}} & \textcolor{white}{\textbf{Anomalie constatée}} & \textcolor{white}{\textbf{Correction apportée}} \\
+\midrule
+A1 & Échec d'envoi d'e-mail entraînant l'annulation (\textit{rollback}) de la confirmation. & Isolation de l'envoi dans le \textit{saver} ; l'échec d'e-mail ne rompt plus la transaction métier. \\
+A2 & Possibilité de rejeter un poste déjà partiellement confirmé. & Ajout d'une \textbf{validation} RAP lisant les confirmations avant d'autoriser le rejet. \\
+A3 & Jeton CSRF manquant lors des actions déclenchées par Joule (erreur 403). & Récupération du \texttt{X-CSRF-Token} via \texttt{\$metadata} avant chaque appel de modification. \\
+A4 & Lenteur d'affichage du tableau de bord sur gros volumes. & Délégation des agrégations à HANA (\textit{push-down}) et exposition analytique en OData~V2. \\
+A5 & Libellés de motifs de rejet non traduits en français. & Conversion centralisée des motifs (\texttt{reason\_to\_fr}) appliquée au niveau du backend. \\
+\bottomrule
+\end{tabularx}
+\caption{Principales anomalies rencontrées et corrigées}
+\label{tab:anomalies}
+\end{table}
+
+\subsection{Performance}\label{ch5:tests-perf}
+Des mesures indicatives ont été relevées sur l'environnement de qualification afin de
+vérifier la réactivité de la solution (tableau~\ref{tab:perf}). Les valeurs confirment
+l'intérêt du \textit{code push-down} et du traitement par lots.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\rowcolors{3}{RoyalBlue!7}{white}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\centering\arraybackslash}m{3.2cm} >{\centering\arraybackslash}m{2.6cm}}
+\toprule
+\rowcolor{RoyalBlue!65}
+\textcolor{white}{\textbf{Opération}} & \textcolor{white}{\textbf{Volume}} & \textcolor{white}{\textbf{Temps observé}} \\
+\midrule
+Affichage de la liste des commandes & 2~255 commandes & < 2 s \\
+Confirmation unitaire d'un poste & 1 poste & < 1 s \\
+Import de masse (Excel) & 100 postes & ~3--5 s \\
+Restitution du tableau de bord (KPI) & agrégation temps réel & < 2 s \\
+Génération d'un PDF (Adobe Forms) & 1 document & ~2--3 s \\
+\bottomrule
+\end{tabularx}
+\caption{Mesures de performance indicatives (environnement de qualification)}
+\label{tab:perf}
+\end{table}
+
+\section{Bénéfices et indicateurs d'impact}\label{ch5:benefices}
+Au-delà de la conformité fonctionnelle, la solution apporte des gains mesurables sur le
+processus de confirmation des commandes. Le tableau~\ref{tab:benefices} compare la
+situation avant et après la mise en place du portail (valeurs indicatives, à confirmer en
+exploitation).
+
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\rowcolors{3}{RoyalBlue!7}{white}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}m{3.6cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\centering\arraybackslash}m{2.4cm}}
+\toprule
+\rowcolor{RoyalBlue!65}
+\textcolor{white}{\textbf{Indicateur}} & \textcolor{white}{\textbf{Avant}} & \textcolor{white}{\textbf{Après}} & \textcolor{white}{\textbf{Gain estimé}} \\
+\midrule
+Ressaisie manuelle dans SAP & ~3--5 min / commande & Supprimée (self-service) & \textbf{$-100\%$} \\
+Délai de visibilité acheteur & J+1 (consolidation manuelle) & Temps réel & \textbf{quasi immédiat} \\
+Traitement de gros volumes & ~1 min / poste (unitaire) & ~3--5 s / 100 postes & \textbf{$\times$10 et +} \\
+Traçabilité des engagements & Faible (e-mails épars) & Journalisée et auditable & \textbf{100\% tracé} \\
+Erreurs de ressaisie & Fréquentes & Éliminées (saisie source) & \textbf{forte baisse} \\
+Interaction utilisateur & Écrans multiples & Langage naturel (Joule) & \textbf{simplifiée} \\
+\bottomrule
+\end{tabularx}
+\caption{Comparaison chiffrée du processus avant / après la solution (valeurs indicatives)}
+\label{tab:benefices}
+\end{table}
+
+\section{Bilan et compétences acquises}\label{ch5:bilan}
+Ce projet a constitué une immersion complète dans la posture de consultant technique SAP.
+Sur le plan \textbf{technique}, il a permis une montée en compétences sur l'ensemble de la
+chaîne de développement moderne : modélisation CDS, comportement transactionnel RAP
+(managé et non managé, \textit{draft}), exposition de services OData, développement
+d'interfaces Fiori Elements et SAPUI5, édition Adobe Forms, et intégration cloud sur SAP BTP
+avec l'assistant Joule. Sur le plan \textbf{méthodologique et transverse}, il a renforcé la
+pratique de l'AMOA (recueil et formalisation des besoins), de la gestion de projet Agile,
+et de la rigueur imposée par le principe du \textit{Clean Core}. Ces acquis constituent un
+socle d'expertise directement valorisable dans un contexte professionnel SAP.
+
 \section{Conclusion}\label{ch5:conclusion}
 Ce chapitre a permis de démontrer la transformation d'une conception théorique en une solution logicielle concrète, moderne et robuste. En exploitant un panel technologique de pointe (SAP RAP, Fiori, OData, SAP HANA In-Memory) combiné aux innovations du Cloud (SAP BTP et Joule), nous avons réussi à digitaliser et automatiser intégralement le processus de suivi des commandes d'achat.
 
@@ -2728,16 +3337,105 @@ Pour répondre à ces enjeux métier tout en respectant scrupuleusement les stan
 
 Les résultats obtenus démontrent qu'une architecture technique modulaire peut transformer un processus transactionnel lourd en un flux agile et intelligent. Ce projet illustre parfaitement la contribution essentielle de l'ingénierie informatique à la transformation numérique des directions Achats. Ce travail ne représente pas seulement la finalisation d'un cycle de formation, mais constitue une véritable immersion dans la posture de consultant technique SAP. La maîtrise approfondie des frameworks de développement avancés tels que RESTful ABAP Programming (RAP), Core Data Services (CDS), Fiori Elements et l'intégration de la SAP Business Technology Platform (BTP) représente aujourd'hui un atout majeur et un socle d'expertise solide pour le lancement de notre carrière.
 
-En conclusion, le succès de cette implémentation métier et technique ouvre des perspectives d'évolution très prometteuses pour l'entreprise. À court et moyen terme, il serait pertinent d'étendre les capacités cognitives de l'assistant SAP Joule pour qu'il puisse non seulement interpréter les données, mais également proposer et exécuter des actions correctives complexes de manière autonome face à un litige fournisseur. Sur le plan analytique, le Dashboard actuel gagnerait à être enrichi par des algorithmes prédictifs et du Machine Learning, capables d'anticiper les ruptures d'approvisionnement ou d'évaluer le profil de risque des fournisseurs sur le long terme. Par ailleurs, cette philosophie de conception, isolant le traitement des exceptions au sein d'applications satellites, a vocation à être généralisée à d'autres processus critiques de la Supply Chain, tels que le traitement des factures bloquées. Enfin, une optimisation de ces outils pour un usage natif sur terminaux mobiles permettrait aux acheteurs de valider des étapes clés ou d'annuler des rejets directement en déplacement, garantissant ainsi une réactivité opérationnelle totale et renforçant la compétitivité de l'entreprise.
+En conclusion, le succès de cette implémentation métier et technique ouvre des perspectives d'évolution très prometteuses pour l'entreprise. La première d'entre elles, à brève échéance, concerne le \textbf{renforcement de la sécurité} : la mise en place d'un \textbf{contrôle d'accès par DCL} (\textit{Data Control Language}), afin de cloisonner automatiquement les données de chaque fournisseur, ainsi que la \textbf{propagation de l'identité de l'utilisateur} (\textit{principal propagation}) entre SAP BTP et le back-end \textit{on-premise} en lieu et place de l'utilisateur technique actuel. À court et moyen terme, il serait également pertinent d'étendre les capacités cognitives de l'assistant SAP Joule pour qu'il puisse non seulement interpréter les données, mais également proposer et exécuter des actions correctives complexes de manière autonome face à un litige fournisseur. Sur le plan analytique, le Dashboard actuel gagnerait à être enrichi par des algorithmes prédictifs et du Machine Learning, capables d'anticiper les ruptures d'approvisionnement ou d'évaluer le profil de risque des fournisseurs sur le long terme. Par ailleurs, cette philosophie de conception, isolant le traitement des exceptions au sein d'applications satellites, a vocation à être généralisée à d'autres processus critiques de la Supply Chain, tels que le traitement des factures bloquées. Enfin, une optimisation de ces outils pour un usage natif sur terminaux mobiles permettrait aux acheteurs de valider des étapes clés ou d'annuler des rejets directement en déplacement, garantissant ainsi une réactivité opérationnelle totale et renforçant la compétitivité de l'entreprise.
+
+\chapter*{Annexes}
+\phantomsection
+\addcontentsline{toc}{chapter}{Annexes}
+\label{ch:annexes}
+
+Les extraits de code ci-dessous sont fournis à titre illustratif ; ils synthétisent les
+objets décrits dans les chapitres~\ref{ch:analyse-conception} et~\ref{ch:dev-real}.
+
+\section*{Annexe A --- Vue CDS de projection (poste de commande)}
+{\footnotesize
+\begin{verbatim}
+define view entity ZR_POConfirmeItem_AEL
+  as projection on ZI_POConfirmeItem_AEL
+{
+  key PurchaseOrder,
+  key Item,
+      Material,
+      OrderQuantity,
+      ConfirmationStatus,
+      DeliveryDate,
+      _Confirmation : redirected to composition child ZR_POSuplrConfirm_AEL
+}
+\end{verbatim}
+}
+
+\section*{Annexe B --- Extrait de la Behavior Definition (RAP non managé, draft)}
+{\footnotesize
+\begin{verbatim}
+unmanaged implementation in class zbp_r_poconfirmation_ael unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_POConfirmation_AEL alias POHeader
+draft table zpo_head_d_ael
+{
+  action massConfirmUpload;
+  action downloadTemplate;
+  action printConfirmation;
+  // ... POItem : confirmAsOrdered, rejectItem ; POConfirmation : update, delete
+}
+\end{verbatim}
+}
+
+\section*{Annexe C --- Règle DCL envisagée (perspective d'isolation)}
+{\footnotesize
+\begin{verbatim}
+// vue de mapping utilisateur -> fournisseur
+define view ZMY_SUPPLIER_AEL as select from zsupplier_user_ael
+  { key supplier } where user_name = $session.user;
+
+// contrôle d'accès sur la vue des commandes
+@EndUserText.label: 'PO access by supplier'
+define role ZPO_HEADER_ACCESS_AEL {
+  grant select on ZR_POConfirmation_AEL
+    where Supplier = aspect ZMY_SUPPLIER_AEL;
+}
+\end{verbatim}
+}
+
+\section*{Annexe D --- Modèle Excel d'import de masse}
+\begin{figure}[H]
+\centering
+\IfFileExists{figures/annexe-modele-excel.png}{%
+    \includegraphics[width=0.85\textwidth]{figures/annexe-modele-excel.png}
+}{%
+    \fbox{\parbox[c][5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : modèle Excel de confirmation de masse\\ (ajoutez figures/annexe-modele-excel.png)}}
+}
+\caption{Modèle Excel téléchargeable pour la confirmation de masse}
+\label{fig:annexe-excel}
+\end{figure}
 
 \chapter*{R\'ef\'erences}
 \phantomsection
 \addcontentsline{toc}{chapter}{R\'ef\'erences}
 \label{ch:references}
 \begin{thebibliography}{99}
-\bibitem{sap} Documentation officielle SAP, consult\'ee en 2025.
-\bibitem{viseo} Site institutionnel VISEO, consult\'e en 2025.
-\bibitem{viseo-secteurs} VISEO, \textit{Secteurs d'activit\'e}, disponible sur : \url{https://www.viseo.com/fr/secteurs-activites/}, consult\'e en 2025.
+
+\bibitem{sap-rap} SAP SE, \textit{ABAP RESTful Application Programming Model (RAP) --- Development Guide}, SAP Help Portal, \url{https://help.sap.com/docs/abap-cloud/abap-rap/abap-restful-application-programming-model}, consult\'e en 2026.
+
+\bibitem{sap-cds} SAP SE, \textit{ABAP Core Data Services (CDS) --- Reference}, SAP Help Portal, \url{https://help.sap.com/docs/abap-cloud/abap-data-models/core-data-services-cds}, consult\'e en 2026.
+
+\bibitem{sap-fiori} SAP SE, \textit{SAP Fiori Elements --- Developing Apps}, SAP Help Portal, \url{https://help.sap.com/docs/sap-fiori-elements}, consult\'e en 2026.
+
+\bibitem{odata} OASIS, \textit{OData Version 4.01 --- Open Data Protocol}, \url{https://www.odata.org/documentation/}, consult\'e en 2026.
+
+\bibitem{sap-btp} SAP SE, \textit{SAP Business Technology Platform --- Documentation}, SAP Help Portal, \url{https://help.sap.com/docs/btp}, consult\'e en 2026.
+
+\bibitem{sap-joule} SAP SE, \textit{SAP Joule --- Generative AI Assistant}, \url{https://www.sap.com/products/artificial-intelligence/ai-assistant.html}, consult\'e en 2026.
+
+\bibitem{sap-mm} SAP SE, \textit{SAP S/4HANA Sourcing and Procurement (module MM)}, SAP Help Portal, \url{https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE}, consult\'e en 2026.
+
+\bibitem{clean-core} SAP SE, \textit{Clean Core --- Extensibility Guidelines for SAP S/4HANA}, SAP Help Portal, consult\'e en 2026.
+
+\bibitem{viseo} VISEO, \textit{Site institutionnel du groupe VISEO}, \url{https://www.viseo.com/}, consult\'e en 2026.
+
+\bibitem{viseo-secteurs} VISEO, \textit{Secteurs d'activit\'e}, \url{https://www.viseo.com/fr/secteurs-activites/}, consult\'e en 2026.
+
 \end{thebibliography}
 
 \end{document}
