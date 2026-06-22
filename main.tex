@@ -1853,49 +1853,6 @@ Les exigences techniques et qualitatives circonscrivent les standards de robuste
   \item \textbf{Extensibilité et flexibilité architecturale} : La conception en aval doit s'articuler autour d'une organisation par couches logiques pour permettre sans coûts prohibitifs l'intégration de nouvelles capacités fonctionnelles.
 \end{itemize}
 
-\section{Étude comparative : solutions existantes et choix d'un développement spécifique}\label{ch3:comparatif}
-
-Avant de concevoir une solution sur mesure, il convient d'examiner les alternatives
-disponibles sur le marché pour la collaboration fournisseur. Trois options principales
-s'offraient au projet : adopter une suite cloud dédiée (\textbf{SAP Ariba} / \textbf{SAP
-Business Network}), exploiter les capacités de collaboration fournisseur standard de SAP,
-ou développer une application spécifique nativement intégrée à S/4HANA. Le
-tableau~\ref{tab:comparatif} synthétise cette comparaison au regard des critères
-structurants du projet.
-
-\begin{table}[H]
-\centering
-\footnotesize
-\renewcommand{\arraystretch}{1.4}
-\setlength{\tabcolsep}{5pt}
-\renewcommand{\tabularxcolumn}[1]{m{#1}}
-\rowcolors{3}{RoyalBlue!7}{white}
-\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}m{3.7cm} >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
-\toprule
-\rowcolor{RoyalBlue!65}
-\textcolor{white}{\textbf{Critère}} & \textcolor{white}{\textbf{SAP Ariba / Business Network}} & \textcolor{white}{\textbf{Collaboration standard SAP}} & \textcolor{white}{\textbf{Développement spécifique (RAP/Fiori)}} \\
-\midrule
-Intégration à S/4HANA & Via interfaces / cloud & Native & \textbf{Native (CDS, OData)} \\
-Coût de licence & Élevé (abonnement) & Inclus & \textbf{Aucun surcoût de licence} \\
-Personnalisation du processus & Limitée (paramétrage) & Faible & \textbf{Totale} \\
-Traitement de masse (Excel) & Standard & Limité & \textbf{Sur mesure} \\
-Assistant IA conversationnel & Partiel & Non & \textbf{Oui (SAP Joule)} \\
-Respect du Clean Core & N/A & Oui & \textbf{Oui (extensions \_AEL)} \\
-Adéquation au périmètre PFE & Surdimensionné & Insuffisant & \textbf{Adapté} \\
-\bottomrule
-\end{tabularx}
-\caption{Comparaison des solutions de collaboration fournisseur}
-\label{tab:comparatif}
-\end{table}
-
-Si SAP Ariba offre une couverture fonctionnelle très large, son coût et sa logique de
-plateforme externe le rendent surdimensionné pour le périmètre ciblé ; la collaboration
-standard, quant à elle, ne couvre ni le traitement de masse personnalisé ni l'assistant
-conversationnel. Le \textbf{développement spécifique} a donc été retenu : nativement
-intégré à S/4HANA, sans surcoût de licence, entièrement personnalisable et conforme au
-\textit{Clean Core}, il répond précisément aux besoins exprimés tout en valorisant la
-montée en compétences sur les technologies modernes de SAP.
-
 \section{Présentation de la solution envisagée}\label{ch3:solution}
 
 Afin de remédier aux limitations identifiées dans le système actuel, la solution proposée consiste à développer un Portail Fournisseur intégré au système SAP S/4HANA, basé sur la technologie ABAP RAP (RESTful Application Programming Model), et exposé via une interface utilisateur SAP Fiori.
@@ -3162,18 +3119,21 @@ importante de la valeur d'ingénierie du projet.
 
 \section{Tests et validation}\label{ch5:tests}
 La qualité de la solution a été vérifiée selon une stratégie de test à plusieurs niveaux,
-couvrant la logique métier unitaire, l'intégration de bout en bout et la validation
-utilisateur.
+couvrant les fonctionnalités, l'intégration de bout en bout et la validation utilisateur.
 
 \subsection{Stratégie et niveaux de test}\label{ch5:tests-strategie}
 \begin{itemize}[label=---, itemsep=0.2em]
-    \item \textbf{Tests unitaires (ABAP Unit)} : vérification isolée des validations et
-    déterminations RAP (par exemple, le refus de rejeter un poste déjà confirmé
-    partiellement).
-    \item \textbf{Tests d'intégration} : exécution des scénarios complets via le service
-    OData (confirmation, rejet, replanification, import de masse, génération PDF).
+    \item \textbf{Tests fonctionnels} : vérification de chaque fonctionnalité prise
+    isolément (confirmation, rejet motivé, replanification, impression PDF, import de
+    masse), y compris les cas limites (par exemple, le refus de rejeter un poste déjà
+    confirmé partiellement).
+    \item \textbf{Tests d'intégration} : exécution des scénarios complets de bout en bout
+    via le service OData (du clic Fiori jusqu'à la mise à jour des tables S/4HANA et
+    l'envoi des notifications).
     \item \textbf{Tests d'acceptation (UAT)} : parcours des cas d'utilisation par des
     profils acheteur et fournisseur simulés sur l'environnement de qualification.
+    \item \textbf{Tests de non-régression} : ré-exécution des scénarios clés après chaque
+    évolution, afin de garantir qu'aucune fonctionnalité existante n'est dégradée.
     \item \textbf{Qualité du code} : contrôle statique via l'\textbf{ABAP Test Cockpit}
     (ATC) et respect des règles de \textit{Clean ABAP}.
 \end{itemize}
@@ -3201,6 +3161,14 @@ T5 & Import de masse (Excel valide) & Tous les postes traités en une transactio
 T6 & Import de masse (fichier erroné) & Rejet du lot, rapport d'erreurs détaillé & \checkmark \\
 T7 & Génération du PDF de confirmation & Document PDF restitué au téléchargement & \checkmark \\
 T8 & Action via Joule (« confirme la commande … ») & Appel OData exécuté, réponse en langage naturel & \checkmark \\
+T9 & Téléchargement du modèle Excel & Modèle conforme téléchargé par le fournisseur & \checkmark \\
+T10 & Confirmation partielle (quantité < commandée) & Confirmation enregistrée avec reliquat & \checkmark \\
+T11 & Annulation d'un rejet (app de gestion) & Nettoyage du journal + réactivation via BAPI & \checkmark \\
+T12 & Notification e-mail à l'acheteur & E-mail HTML reçu (confirmation / rejet / mise à jour) & \checkmark \\
+T13 & Échec d'envoi d'e-mail & Opération métier conservée (pas de \textit{rollback}) & \checkmark \\
+T14 & Consultation du tableau de bord (KPI) & Graphiques et filtres visuels actualisés & \checkmark \\
+T15 & Requête analytique via Joule (« commandes en retard ») & Réponse synthétique correcte en langage naturel & \checkmark \\
+T16 & Bascule de langue FR / EN & Libellés de l'interface traduits & \checkmark \\
 \bottomrule
 \end{tabularx}
 \caption{Extrait du plan de cas de test de la solution}
@@ -3211,16 +3179,16 @@ T8 & Action via Joule (« confirme la commande … ») & Appel OData exécuté, 
 Les tests d'acceptation, menés sur l'environnement de qualification, ont confirmé
 l'ergonomie des parcours, la cohérence des données entre le portail et le c\oe ur de l'ERP,
 ainsi que la pertinence des réponses de l'assistant Joule. La figure~\ref{fig:test-resultats}
-illustre les résultats obtenus (exécution ABAP Unit / ATC).
+illustre les résultats obtenus (contrôle qualité du code via l'ATC).
 
 \begin{figure}[H]
 \centering
 \IfFileExists{figures/test-resultats.png}{%
     \includegraphics[width=0.85\textwidth]{figures/test-resultats.png}
 }{%
-    \fbox{\parbox[c][6cm][c]{0.85\linewidth}{\centering \small Capture d'écran : résultats des tests (ABAP Unit / ATC)\\ (ajoutez figures/test-resultats.png)}}
+    \fbox{\parbox[c][6cm][c]{0.85\linewidth}{\centering \small Capture d'écran : résultats du contrôle qualité (ATC)\\ (ajoutez figures/test-resultats.png)}}
 }
-\caption{Résultats de la campagne de tests (ABAP Unit / ATC)}
+\caption{Résultats du contrôle qualité du code (ATC)}
 \label{fig:test-resultats}
 \end{figure}
 
