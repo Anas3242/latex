@@ -2881,23 +2881,7 @@ d'une ligne, du besoin initial jusqu'aux accusés du fournisseur.
 \label{fig:demo-poste-detail}
 \end{figure}
 
-\subsubsection{Étape 6 --- Changement de langue (FR / EN)}
-Conformément à l'exigence de bilinguisme, un \textbf{sélecteur de langue} (module
-personnalisé \textit{LanguageSwitcher}) permet de basculer l'interface entre le
-\textbf{français} et l'\textbf{anglais}. Les libellés proviennent des textes traduits des
-objets (vues CDS, éléments de données), assurant une cohérence terminologique sur
-l'ensemble des écrans.
 
-\begin{figure}[H]
-\centering
-\IfFileExists{figures/demo-langue.png}{%
-    \includegraphics[width=0.85\textwidth]{figures/demo-langue.png}
-}{%
-    \fbox{\parbox[c][5.5cm][c]{0.85\linewidth}{\centering \small Capture d'écran : bascule de langue FR / EN\\ (ajoutez figures/demo-langue.png)}}
-}
-\caption{Gestion multilingue de l'interface (FR / EN)}
-\label{fig:demo-langue}
-\end{figure}
 
 \subsection{Confirmation unitaire des postes (Confirmer)}\label{ch5:confirmer}
 Le processus de confirmation permet au fournisseur d'accepter contractuellement une commande. La figure~\ref{fig:demo-confirmer-action} illustre la sélection des lignes concernées dans l'interface et le déclenchement de l'action métier. Le backend procède à la validation des données et effectue un \textit{MODIFY ENTITIES} asynchrone pour mettre à jour les tables standards (EKES) et le statut de la commande. 
@@ -3207,22 +3191,7 @@ T8 & Action via Joule (« confirme la commande … ») & Appel OData exécuté, 
 \label{tab:cas-test}
 \end{table}
 
-\subsection{Validation utilisateur et résultats}\label{ch5:tests-uat}
-Les tests d'acceptation, menés sur l'environnement de qualification, ont confirmé
-l'ergonomie des parcours, la cohérence des données entre le portail et le c\oe ur de l'ERP,
-ainsi que la pertinence des réponses de l'assistant Joule. La figure~\ref{fig:test-resultats}
-illustre les résultats obtenus (exécution ABAP Unit / ATC).
 
-\begin{figure}[H]
-\centering
-\IfFileExists{figures/test-resultats.png}{%
-    \includegraphics[width=0.85\textwidth]{figures/test-resultats.png}
-}{%
-    \fbox{\parbox[c][6cm][c]{0.85\linewidth}{\centering \small Capture d'écran : résultats des tests (ABAP Unit / ATC)\\ (ajoutez figures/test-resultats.png)}}
-}
-\caption{Résultats de la campagne de tests (ABAP Unit / ATC)}
-\label{fig:test-resultats}
-\end{figure}
 
 \subsection{Anomalies rencontrées et corrections}\label{ch5:tests-anomalies}
 La campagne de tests n'a pas été exempte d'anomalies ; leur identification et leur
